@@ -22,6 +22,7 @@ APlayerPavuk::APlayerPavuk()
 void APlayerPavuk::BeginPlay()
 {
     Super::BeginPlay();
+    
 	Controller = Cast<APlayerController>(GetController());    
 }
 
@@ -30,7 +31,7 @@ void APlayerPavuk::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);    
     
-    DrawDebugSphere(GetWorld(), CursorHitResult.ImpactPoint, 25, 32, FColor::Blue);
+
 }
 
 // Called to bind functionality to input
@@ -60,25 +61,20 @@ void APlayerPavuk::TurnRight(float Scale)
 
 void APlayerPavuk::Interact()
 {
-    if (Controller)
-    {
-        Controller->GetHitResultUnderCursor(ECollisionChannel::ECC_Visibility, false, CursorHitResult);
+    FHitResult InteractHit;
 
-        FHitResult InteractHit;
+    bool WasSuccess = GetWorld()->SweepSingleByChannel(InteractHit,
+        GetActorLocation(),
+        GetActorForwardVector() * InteractDistance,
+        FQuat::Identity,
+        ECC_GameTraceChannel1, 
+        FCollisionShape::MakeSphere(200)
+    );
     
-        if (FVector::Dist(GetActorLocation(), CursorHitResult.ImpactPoint) <= InteractDistance)
-        {
-            GetWorld()->SweepSingleByChannel(InteractHit, 
-                GetActorLocation(), 
-                CursorHitResult.ImpactPoint, 
-                FQuat::Identity, 
-                ECC_GameTraceChannel1, 
-                FCollisionShape::MakeSphere(25)
-            );
-
-            ActivateLever(CursorHitResult);
-        }
-    }    
+    if (WasSuccess)
+    {            
+        ActivateLever(InteractHit);
+    }
 }
 
 void APlayerPavuk::ActivateLever(FHitResult HitResultUnderCursor)

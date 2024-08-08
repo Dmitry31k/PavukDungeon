@@ -13,7 +13,9 @@ UCLASS()
 class PAVUKDUNGEON_API APlayerPavuk : public ABasePavuk
 {
 	GENERATED_BODY()
+	
 public:
+
 	APlayerPavuk();
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -32,6 +34,7 @@ protected:
 	void Shoot();
 
 private:
+
 	void MoveForward(float Scale);
 	void TurnRight(float Scale);
 	void Interact();
@@ -43,10 +46,9 @@ private:
 	class USpringArmComponent* Arm;
 
 	APlayerController* Controller;
-	FHitResult CursorHitResult;
 
 	UPROPERTY(EditDefaultsOnly)
-	float InteractDistance = 500;
+	float InteractDistance = 200;
 
 	class ALever* Lever;
 

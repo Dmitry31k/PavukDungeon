@@ -52,5 +52,5 @@ private:
 
 	class ALever* Lever;
 
-	void ActivateLever(FHitResult HitResultUnderCursor);
+	void ActivateLever(FHitResult ActivateLeverHitResult);
 };

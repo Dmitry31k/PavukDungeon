@@ -77,9 +77,9 @@ void APlayerPavuk::Interact()
     }
 }
 
-void APlayerPavuk::ActivateLever(FHitResult HitResultUnderCursor)
+void APlayerPavuk::ActivateLever(FHitResult ActivateLeverHitResult)
 {
-    Lever = Cast<ALever>(HitResultUnderCursor.GetActor());
+    Lever = Cast<ALever>(ActivateLeverHitResult.GetActor());
     if (Lever)
     {        
         Lever->ActivateLever();

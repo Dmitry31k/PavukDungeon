@@ -1,13 +1,16 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "Mover.h"
+
+#include "MoverComponent.h"
 #include "Math/UnrealMathUtility.h"
 #include "Kismet/GameplayStatics.h"
 #include "Lever.h"
 #include "PressurePlate.h"
+#include "Components/BoxComponent.h"
+#include "PlayerPavuk.h"
 
 // Sets default values for this component's properties
-UMover::UMover()
+UMoverComponent::UMoverComponent()
 {
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
@@ -18,39 +21,41 @@ UMover::UMover()
 
 
 // Called when the game starts
-void UMover::BeginPlay()
+void UMoverComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
+    StartComponentLocation = GetComponentLocation();
 	StartLocation = GetOwner()->GetActorLocation();
-	UGameplayStatics::GetAllActorsWithTag(GetWorld(), UnlockerTag, FoundActors);
-	if (FoundActors.IsValidIndex(0))
+
+	UGameplayStatics::GetAllActorsWithTag(GetWorld(), UnlockerTag, FoundUnlockerActors);
+	if (FoundUnlockerActors.IsValidIndex(0))
 	{
-		Lever = Cast<ALever>(FoundActors[0]);
-		PressurePlate = Cast<APressurePlate>(FoundActors[0]);
+		Lever = Cast<ALever>(FoundUnlockerActors[0]);
+		PressurePlate = Cast<APressurePlate>(FoundUnlockerActors[0]);
 	}
+
+    OnComponentBeginOverlap.AddDynamic(this, &UMoverComponent::DestroyIfOverlapped);
+
+	DetachFromParent();
+    SetWorldLocation(StartComponentLocation);
 }
 
 
 // Called every frame
-void UMover::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
+void UMoverComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
 	MoveToTarget();
 }
 
-void UMover::MoveToTarget()
+void UMoverComponent::MoveToTarget()
 {
-	if (CheckActor())
+	if (CheckActor() || WasKilledAllWithTag())
 	{
 		FVector CurrentLocation = GetOwner()->GetActorLocation();
 		FVector TargetLocation = StartLocation + MoveOffset;
-
-		if (CurrentLocation == TargetLocation)
-		{
-			DestroyComponent();
-		}
 
 		FVector NewLocation = FMath::VInterpConstantTo(GetOwner()->GetActorLocation(), TargetLocation, 
 		UGameplayStatics::GetWorldDeltaSeconds(GetWorld()), MovementSpeed);
@@ -68,7 +73,7 @@ void UMover::MoveToTarget()
 	}
 }
 
-bool UMover::CheckActor()
+bool UMoverComponent::CheckActor()
 {
 	if (Lever)
 	{
@@ -80,4 +85,27 @@ bool UMover::CheckActor()
 	}
 	
 	return false;
+}
+
+bool UMoverComponent::WasKilledAllWithTag()
+{
+	UGameplayStatics::GetAllActorsWithTag(GetWorld(), ToKillTag, FoundAliveActors);
+
+	if (FoundUnlockerActors.IsEmpty())
+	{
+		if(FoundAliveActors.Num() == 0)
+		{
+			return true;
+		}
+	}
+	
+	return false;
+}
+
+void UMoverComponent::DestroyIfOverlapped(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+    if (Cast<APlayerPavuk>(OtherActor))
+    {
+        DestroyComponent();
+    }
 }

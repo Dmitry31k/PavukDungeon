@@ -208,6 +208,22 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
+		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\DefaultPlayerController.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_Default\\PavukDungeon.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\DefaultPlayerController.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_Default\\PavukDungeon.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
+	},
+	{
 		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\HealthComponent.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\bin\\Hostx64\\x64\\cl.exe",
@@ -256,7 +272,7 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Mover.cpp",
+		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\MoverComponent.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\bin\\Hostx64\\x64\\cl.exe",
 			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_Default\\PavukDungeon.1.rsp"
@@ -264,7 +280,7 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Mover.h",
+		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\MoverComponent.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\bin\\Hostx64\\x64\\cl.exe",
 			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_Default\\PavukDungeon.1.rsp"

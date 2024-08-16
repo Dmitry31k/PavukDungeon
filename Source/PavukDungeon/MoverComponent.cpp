@@ -25,7 +25,6 @@ void UMoverComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
-    StartComponentLocation = GetComponentLocation();
 	StartLocation = GetOwner()->GetActorLocation();
 
 	UGameplayStatics::GetAllActorsWithTag(GetWorld(), UnlockerTag, FoundUnlockerActors);
@@ -37,8 +36,7 @@ void UMoverComponent::BeginPlay()
 
     OnComponentBeginOverlap.AddDynamic(this, &UMoverComponent::DestroyIfOverlapped);
 
-	DetachFromParent();
-    SetWorldLocation(StartComponentLocation);
+	DetachFromComponent(FDetachmentTransformRules::KeepRelativeTransform);
 }
 
 

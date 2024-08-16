@@ -39,7 +39,6 @@ private:
 	UPROPERTY(EditAnywhere, category = "movement")
 	FVector MoveOffset;
 	FVector StartLocation;
-	FVector StartComponentLocation;
 
 	UPROPERTY(EditAnywhere, category = "movement")
 	float MovementSpeed = 100;

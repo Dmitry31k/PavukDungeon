@@ -34,4 +34,7 @@ private:
 
 	FHitResult LineTraceHitResult;
 	class APlayerPavuk* PlayerPavuk;
+
+	void LaserShoot();
+	void CheckIfPlayerTouchedLaser();
 };

@@ -22,13 +22,22 @@ void ADroneWithLaser::Tick(float DeltaTime)
 {
     Super::Tick(DeltaTime);
 
+    LaserShoot();
+    CheckIfPlayerTouchedLaser();
+}
+
+void ADroneWithLaser::LaserShoot()
+{
     FVector StartDrawingLineLocation = ProjectileSpawnPoint->GetComponentLocation();
     FVector EndDrawingLineLocation = StartDrawingLineLocation + LaserLength * GetActorForwardVector();
 
     GetWorld()->LineTraceSingleByChannel(LineTraceHitResult, StartDrawingLineLocation, EndDrawingLineLocation, ECollisionChannel::ECC_Pawn);
 
     DrawDebugLine(GetWorld(), StartDrawingLineLocation, EndDrawingLineLocation, FColor::Red);
+}
 
+void ADroneWithLaser::CheckIfPlayerTouchedLaser()
+{
     PlayerPavuk = Cast<APlayerPavuk>(LineTraceHitResult.GetActor());
 
     if (PlayerPavuk)

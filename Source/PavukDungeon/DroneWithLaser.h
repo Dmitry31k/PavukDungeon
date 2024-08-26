@@ -32,6 +32,8 @@ private:
 	UPROPERTY(EditDefaultsOnly)
 	float LaserDamage = 100;
 
+	bool IsBlockingLaser = false;
+
 	FHitResult LineTraceHitResult;
 	class APlayerPavuk* PlayerPavuk;
 

@@ -31,9 +31,16 @@ void ADroneWithLaser::LaserShoot()
     FVector StartDrawingLineLocation = ProjectileSpawnPoint->GetComponentLocation();
     FVector EndDrawingLineLocation = StartDrawingLineLocation + LaserLength * GetActorForwardVector();
 
-    GetWorld()->LineTraceSingleByChannel(LineTraceHitResult, StartDrawingLineLocation, EndDrawingLineLocation, ECollisionChannel::ECC_Pawn);
+    IsBlockingLaser = GetWorld()->LineTraceSingleByChannel(LineTraceHitResult, StartDrawingLineLocation, EndDrawingLineLocation, ECollisionChannel::ECC_Pawn);
 
-    DrawDebugLine(GetWorld(), StartDrawingLineLocation, EndDrawingLineLocation, FColor::Red);
+    if(IsBlockingLaser)
+    {
+        DrawDebugLine(GetWorld(), StartDrawingLineLocation, LineTraceHitResult.ImpactPoint, FColor::Red);
+    }
+    else
+    {
+        DrawDebugLine(GetWorld(), StartDrawingLineLocation, EndDrawingLineLocation, FColor::Red);
+    }    
 }
 
 void ADroneWithLaser::CheckIfPlayerTouchedLaser()

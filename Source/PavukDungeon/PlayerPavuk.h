@@ -45,11 +45,13 @@ private:
 	UPROPERTY(VisibledefaultsOnly)
 	class USpringArmComponent* Arm;
 
+	UPROPERTY()
 	APlayerController* Controller;
 
 	UPROPERTY(EditDefaultsOnly)
 	float InteractDistance = 200;
 
+	UPROPERTY()
 	class ALever* Lever;
 
 	void ActivateLever(FHitResult ActivateLeverHitResult);

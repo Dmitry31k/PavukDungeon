@@ -32,10 +32,13 @@ private:
 	FVector MovingSpeed = FVector::ZeroVector;
 	UPROPERTY(EditAnywhere, category = "movement")
 	FVector MovingDistance = FVector::ZeroVector;
+	
 	//Showing to us where was point from platform start moving
 	FVector StartLocation;
+
 	//Showing to us distance that platform managed to move
 	float DistanceMoved = 0;
+
 	//Function for moving platform with speed(MovingSpeed) to a distance(MovingDistance)
 	void SetPlatformNewLocation(float DeltaTime);
 
@@ -43,14 +46,12 @@ private:
 	float TimerDissapear = 0;
 	UPROPERTY(EditAnywhere, category = "movement")
 	float TimerApear = 0;
-	//Starting cycle of dissapearing and apearing for platform
+	
 	FTimerHandle MainCount;
 	FTimerHandle DisableTimer;
 	FTimerHandle EnableTimer;
 
 	void PlatformDisable();
-	void PlatformEnable();
-
-	
+	void PlatformEnable();	
 
 };

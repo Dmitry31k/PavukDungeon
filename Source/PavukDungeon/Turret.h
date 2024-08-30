@@ -34,6 +34,7 @@ private:
 	UPROPERTY(VisibleDefaultsOnly)
 	USceneComponent* ProjectileSpawnPoint;
 
+	UPROPERTY()
 	class APlayerPavuk* PlayerPavuk;
 
 	UPROPERTY(EditAnywhere, category = "combat")
@@ -47,6 +48,7 @@ private:
 
 	void RotateTurretHead();
 	void Shoot();
+	
 	FTimerHandle ShootingTimerHandle;
 
 	UPROPERTY(EditDefaultsOnly)

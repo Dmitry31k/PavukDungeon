@@ -49,9 +49,16 @@ private:
 	UPROPERTY(EditAnywhere, category = "movement")
 	FName ToKillTag;
 
+	UPROPERTY()
 	class ALever* Lever;
+
+	UPROPERTY()
 	class APressurePlate* PressurePlate;
+
+	UPROPERTY()
 	TArray<AActor*> FoundUnlockerActors;
+
+	UPROPERTY()
 	TArray<AActor*> FoundAliveActors;
 
 	UFUNCTION()

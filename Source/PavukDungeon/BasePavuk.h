@@ -32,6 +32,7 @@ protected:
 
 	bool WasHit;
 
+	UPROPERTY()
 	class UPhysicsHandleComponent* PhysicsHandle;
 
 	virtual void PavukDied();

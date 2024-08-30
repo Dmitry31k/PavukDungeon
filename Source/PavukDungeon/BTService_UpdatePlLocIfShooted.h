@@ -24,6 +24,6 @@ protected:
 
 private:
 
-	void GetActorLocationIfOnDamage(float Damage, const UDamageType* DamageType, AController* InstigatedBy, AActor* DamageCauser);
+	void UpdatePlayerLocationIfInDroneRangeOfVision(AShootingDrone* Drone, APawn* PlayerPawn);
 
 };

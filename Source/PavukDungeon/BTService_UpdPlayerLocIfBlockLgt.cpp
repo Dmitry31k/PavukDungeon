@@ -24,6 +24,11 @@ void UBTService_UpdPlayerLocIfBlockLgt::TickNode(UBehaviorTreeComponent& OwnerCo
         return;
     }
 
+    UpdatePlayerLocationIfInDroneRangeOfVision(Drone, PlayerPawn);
+}
+
+void UBTService_UpdPlayerLocIfBlockLgt::UpdatePlayerLocationIfInDroneRangeOfVision(AShootingDrone* Drone, APawn* PlayerPawn)
+{
     if (Drone->IsDroneLineOfSightOverlappedByPlayer == true)
     {
         OwnerComp.GetBlackboardComponent()->SetValueAsVector(GetSelectedBlackboardKey(), PlayerPawn->GetActorLocation());

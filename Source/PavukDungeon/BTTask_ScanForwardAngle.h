@@ -31,7 +31,10 @@ private:
 	UPROPERTY(EditAnywhere)
 	float YawAngleValue = 90;
 
+	UPROPERTY()
 	class AAIController* OwnerController;
+
+	UPROPERTY()
 	class APawn* OwnerPawn;
 
 	FRotator CurrentRotation;

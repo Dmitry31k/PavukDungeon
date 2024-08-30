@@ -28,7 +28,10 @@ private:
 	UPROPERTY(EditAnywhere)
 	float RotationSpeed = 100;
 
+	UPROPERTY()
 	class AAIController* OwnerController;
+
+	UPROPERTY()
 	class APawn* OwnerPawn;
 
 	FRotator CurrentRotation;

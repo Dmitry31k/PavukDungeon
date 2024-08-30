@@ -35,6 +35,8 @@ private:
 	bool IsBlockingLaser = false;
 
 	FHitResult LineTraceHitResult;
+
+	UPROPERTY()
 	class APlayerPavuk* PlayerPavuk;
 
 	void LaserShoot();

@@ -24,10 +24,10 @@ void UBTService_UpdPlayerLocIfBlockLgt::TickNode(UBehaviorTreeComponent& OwnerCo
         return;
     }
 
-    UpdatePlayerLocationIfInDroneRangeOfVision(Drone, PlayerPawn);
+    UpdatePlayerLocationIfInDroneRangeOfVision(OwnerComp, Drone, PlayerPawn);
 }
 
-void UBTService_UpdPlayerLocIfBlockLgt::UpdatePlayerLocationIfInDroneRangeOfVision(AShootingDrone* Drone, APawn* PlayerPawn)
+void UBTService_UpdPlayerLocIfBlockLgt::UpdatePlayerLocationIfInDroneRangeOfVision(UBehaviorTreeComponent& OwnerComp, AShootingDrone* Drone, APawn* PlayerPawn)
 {
     if (Drone->IsDroneLineOfSightOverlappedByPlayer == true)
     {

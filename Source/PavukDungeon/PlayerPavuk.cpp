@@ -23,7 +23,7 @@ void APlayerPavuk::BeginPlay()
 {
     Super::BeginPlay();
     
-	Controller = Cast<APlayerController>(GetController());    
+	PlayerController = Cast<APlayerController>(GetController());    
 }
 
 // Called every frame
@@ -100,10 +100,10 @@ void APlayerPavuk::PavukDied()
 {
     Super::PavukDied();
 
-    if (Controller)
+    if (PlayerController)
     {
         SetActorHiddenInGame(true);
-        DisableInput(Controller);
+        DisableInput(PlayerController);
         IsAlive = false;
     }
 }

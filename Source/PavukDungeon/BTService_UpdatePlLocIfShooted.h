@@ -24,6 +24,6 @@ protected:
 
 private:
 
-	void UpdatePlayerLocationIfInDroneRangeOfVision(AShootingDrone* Drone, APawn* PlayerPawn);
+	void UpdatePlayerLocationIfShootedByPlayer(UBehaviorTreeComponent& OwnerComp, class AShootingDrone* Drone, APawn* PlayerPawn);
 
 };

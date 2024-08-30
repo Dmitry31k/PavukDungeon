@@ -24,9 +24,14 @@ void UBTService_UpdatePlLocIfShooted::TickNode(UBehaviorTreeComponent& OwnerComp
         return;
     }
 
+    UpdatePlayerLocationIfShootedByPlayer(OwnerComp, Drone, PlayerPawn);
+}
+
+void UBTService_UpdatePlLocIfShooted::UpdatePlayerLocationIfShootedByPlayer(UBehaviorTreeComponent& OwnerComp, class AShootingDrone* Drone, APawn* PlayerPawn)
+{
     if (Drone->IsWasShotedByPlayer)
     {
         OwnerComp.GetBlackboardComponent()->SetValueAsVector(GetSelectedBlackboardKey(), PlayerPawn->GetActorLocation());
         Drone->IsWasShotedByPlayer = false;
     }
-} 
+}

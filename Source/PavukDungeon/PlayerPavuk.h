@@ -46,7 +46,7 @@ private:
 	class USpringArmComponent* Arm;
 
 	UPROPERTY()
-	APlayerController* Controller;
+	APlayerController* PlayerController;
 
 	UPROPERTY(EditDefaultsOnly)
 	float InteractDistance = 200;

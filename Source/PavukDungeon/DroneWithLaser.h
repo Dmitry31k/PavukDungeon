@@ -20,6 +20,22 @@ public:
 
 	virtual void Tick(float DeltaTime) override;
 
+	//Vector that will be send into AI controller for using in node "MoveTo"
+	UPROPERTY(EditAnywhere)
+	FVector FirstMoveOffset = FVector::ZeroVector;
+	//Vector that will be send into AI controller for using in node "MoveTo"
+	UPROPERTY(EditAnywhere)
+	FVector SecondMoveOffset = FVector::ZeroVector;
+	//Vector that will be send into AI controller for using in node "MoveTo"
+	UPROPERTY(EditAnywhere)
+	FVector ThirdtMoveOffset = FVector::ZeroVector;
+	//Vector that will be send into AI controller for using in node "MoveTo"
+	UPROPERTY(EditAnywhere)
+	FVector FourthMoveOffset = FVector::ZeroVector;
+	//Vector that will be send into AI controller for using in node "MoveTo"
+	UPROPERTY(EditAnywhere)
+	FVector FifthMoveOffset = FVector::ZeroVector;
+
 protected:
 
 	virtual void BeginPlay() override;

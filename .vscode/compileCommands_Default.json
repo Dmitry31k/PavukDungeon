@@ -128,6 +128,22 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
+		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\BTTask_MoveToWithoutRotation.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_Default\\PavukDungeon.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\BTTask_MoveToWithoutRotation.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_Default\\PavukDungeon.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
+	},
+	{
 		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\BTTask_ScanForwardAngle.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\Hostx64\\x64\\cl.exe",

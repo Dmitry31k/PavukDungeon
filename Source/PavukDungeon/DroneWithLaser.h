@@ -20,32 +20,16 @@ public:
 
 	virtual void Tick(float DeltaTime) override;
 
-	//Vector that will be send into AI controller for using in node "MoveTo"
-	UPROPERTY(EditAnywhere)
-	FVector FirstMoveOffset = FVector::ZeroVector;
-	//Vector that will be send into AI controller for using in node "MoveTo"
-	UPROPERTY(EditAnywhere)
-	FVector SecondMoveOffset = FVector::ZeroVector;
-	//Vector that will be send into AI controller for using in node "MoveTo"
-	UPROPERTY(EditAnywhere)
-	FVector ThirdtMoveOffset = FVector::ZeroVector;
-	//Vector that will be send into AI controller for using in node "MoveTo"
-	UPROPERTY(EditAnywhere)
-	FVector FourthMoveOffset = FVector::ZeroVector;
-	//Vector that will be send into AI controller for using in node "MoveTo"
-	UPROPERTY(EditAnywhere)
-	FVector FifthMoveOffset = FVector::ZeroVector;
-
 protected:
 
 	virtual void BeginPlay() override;
 
 private:
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, category = "Combat")
 	float LaserLength = 500;
 
-	UPROPERTY(EditDefaultsOnly)
+	UPROPERTY(EditDefaultsOnly, category = "Combat")
 	float LaserDamage = 100;
 
 	bool IsBlockingLaser = false;
@@ -57,4 +41,33 @@ private:
 
 	void LaserShoot();
 	void CheckIfPlayerTouchedLaser();
+
+	//Vector that will be send into AI controller for using in behavior tree
+	UPROPERTY(EditAnywhere, category = "Combat")
+	FVector FirstMoveOffset_Drone;
+	//Vector that will be send into AI controller for using in behavior tree
+	UPROPERTY(EditAnywhere, category = "Combat")
+	FVector SecondMoveOffset_Drone;
+	//Vector that will be send into AI controller for using in behavior tree
+	UPROPERTY(EditAnywhere, category = "Combat")
+	FVector ThirdMoveOffset_Drone;
+	//Vector that will be send into AI controller for using in behavior tree
+	UPROPERTY(EditAnywhere, category = "Combat")
+	FVector FourthMoveOffset_Drone;
+	//Vector that will be send into AI controller for using in behavior tree
+	UPROPERTY(EditAnywhere, category = "Combat")
+	FVector FifthMoveOffset_Drone;
+	//bool that will be send into AI controller for choosing separated behavior script
+	UPROPERTY(EditAnywhere, category = "Combat")
+	bool MustRotating_Drone;
+	//bool that will be send into AI controller for choosing separated behavior script
+	UPROPERTY(EditAnywhere, category = "Combat")
+	bool MustRotatingAndMoving_Drone;
+	//bool that will be send into AI controller for choosing separated behavior script
+	UPROPERTY(EditAnywhere, category = "Combat")
+	bool MustMoving_Drone;
+
+	//Function that send Vectors & bools variables into AI controller for using into behavior script
+	void SendDataIntoAIController(class AAIController_DroneWithLaser* OwnerAIController);
+
 };

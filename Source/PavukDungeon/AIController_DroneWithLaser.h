@@ -15,7 +15,16 @@ class PAVUKDUNGEON_API AAIController_DroneWithLaser : public AAIController
 	GENERATED_BODY()
 
 public:
-
+	
+	FVector FirstMoveOffset_AIController;
+	FVector SecondMoveOffset_AIController;
+	FVector ThirdtMoveOffset_AIController;
+	FVector FourthMoveOffset_AIController;
+	FVector FifthMoveOffset_AIController;
+	
+	bool MustRotating_AIController;
+	bool MustRotatingAndMoving_AIController;
+	bool MustMoving_AIController;
 
 protected:
 
@@ -25,5 +34,10 @@ private:
 
 	UPROPERTY(EditAnywhere)
 	class UBehaviorTree* DroneWithLaserBehaviorTree;
+
+	FTimerHandle SetVariablesTimer;
+
+	//Function that set blackboard variables
+	void SetVariabledIntoBlackboard();
 
 };

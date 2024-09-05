@@ -37,12 +37,6 @@ void UBTTask_ScanForwardAngle::TickTask(UBehaviorTreeComponent& OwnerComp, uint8
 {
     Super::TickTask(OwnerComp, NodeMemory, DeltaSeconds);
 
-    UE_LOG(LogTemp, Error, TEXT("IsWasScannedFullAngle: %s"), IsWasScannedFullAngle ? TEXT("true") : TEXT("false"));
-    UE_LOG(LogTemp, Error, TEXT("IsWasTurnRight: %s"), IsWasTurnRight ? TEXT("true") : TEXT("false"));
-    UE_LOG(LogTemp, Warning, TEXT("TargetRotation: %f"), TargetRotation.Yaw);
-    UE_LOG(LogTemp, Warning, TEXT("CurrentRotation: %f"), CurrentRotation.Yaw);
-    UE_LOG(LogTemp, Warning, TEXT("StartRotation: %f"), StartRotation.Yaw);
-
     if(IsWasScannedFullAngle)
     {
         ReturnToStartPosition(OwnerComp, DeltaSeconds);

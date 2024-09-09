@@ -33,12 +33,14 @@ private:
 
 	UFUNCTION()
 	void MoveToTarget();
+
 	bool CheckActor();
 	bool WasKilledAllWithTag();
 
 	UPROPERTY(EditAnywhere, category = "movement")
 	FVector MoveOffset;
 	FVector StartLocation;
+	FVector TargetLocation;
 
 	UPROPERTY(EditAnywhere, category = "movement")
 	float MovementSpeed = 100;
@@ -59,9 +61,5 @@ private:
 	TArray<AActor*> FoundUnlockerActors;
 
 	UPROPERTY()
-	TArray<AActor*> FoundAliveActors;
-
-	UFUNCTION()
-	void DestroyIfOverlapped(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
-	
+	TArray<AActor*> FoundAliveActors;	
 };

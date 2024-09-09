@@ -26,6 +26,7 @@ void UMoverComponent::BeginPlay()
 	Super::BeginPlay();
 
 	StartLocation = GetOwner()->GetActorLocation();
+	TargetLocation = StartLocation + MoveOffset;
 
 	UGameplayStatics::GetAllActorsWithTag(GetWorld(), UnlockerTag, FoundUnlockerActors);
 	if (FoundUnlockerActors.IsValidIndex(0))
@@ -33,8 +34,6 @@ void UMoverComponent::BeginPlay()
 		Lever = Cast<ALever>(FoundUnlockerActors[0]);
 		PressurePlate = Cast<APressurePlate>(FoundUnlockerActors[0]);
 	}
-
-    OnComponentBeginOverlap.AddDynamic(this, &UMoverComponent::DestroyIfOverlapped);
 
 	DetachFromComponent(FDetachmentTransformRules::KeepRelativeTransform);
 }
@@ -53,8 +52,6 @@ void UMoverComponent::MoveToTarget()
 	if (CheckActor() || WasKilledAllWithTag())
 	{
 		FVector CurrentLocation = GetOwner()->GetActorLocation();
-		FVector TargetLocation = StartLocation + MoveOffset;
-
 		FVector NewLocation = FMath::VInterpConstantTo(GetOwner()->GetActorLocation(), TargetLocation, 
 		UGameplayStatics::GetWorldDeltaSeconds(GetWorld()), MovementSpeed);
 
@@ -98,12 +95,4 @@ bool UMoverComponent::WasKilledAllWithTag()
 	}
 	
 	return false;
-}
-
-void UMoverComponent::DestroyIfOverlapped(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
-{
-    if (Cast<APlayerPavuk>(OtherActor))
-    {
-        DestroyComponent();
-    }
 }

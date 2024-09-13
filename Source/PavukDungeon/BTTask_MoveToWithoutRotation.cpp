@@ -42,8 +42,6 @@ void UBTTask_MoveToWithoutRotation::TickTask(UBehaviorTreeComponent& OwnerComp, 
 
     if (FVector::Dist(CurrentLocation, TargetLocation) <= 1)
     {
-        UE_LOG(LogTemp, Display, TEXT("Current location: %s"), *CurrentLocation.ToString());
-        UE_LOG(LogTemp, Display, TEXT("Target location: %s"), *TargetLocation.ToString());
         FinishLatentTask(OwnerComp, EBTNodeResult::Succeeded);
     }
 

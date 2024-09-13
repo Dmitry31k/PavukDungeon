@@ -43,7 +43,7 @@ void UBTTask_SmoothRotateTo::SmoothRotate(UBehaviorTreeComponent& OwnerComp, flo
 
     OwnerPawn->SetActorRotation(FRotator (0.f, RotateTo.Yaw, 0.f));
 
-    if (FMath::Abs(CurrentRotation.Yaw - TargetRotation.Yaw) < 1.0f)
+    if (FMath::IsNearlyEqual(CurrentRotation.Yaw, TargetRotation.Yaw))
     {
         FinishLatentTask(OwnerComp, EBTNodeResult::Succeeded);
     }

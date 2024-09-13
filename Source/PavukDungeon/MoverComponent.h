@@ -3,23 +3,18 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Components/BoxComponent.h"
+#include "Components/ActorComponent.h"
 #include "MoverComponent.generated.h"
 
-/**
- * 
- */
-UCLASS(ClassGroup=(Custom), meta=(BlueprintSpawnableComponent))
-class PAVUKDUNGEON_API UMoverComponent : public UBoxComponent
+
+UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+class PAVUKDUNGEON_API UMoverComponent : public UActorComponent
 {
 	GENERATED_BODY()
 
-	public:	
+public:	
 	// Sets default values for this component's properties
 	UMoverComponent();
-
-	UPROPERTY(EditAnywhere, category = "movement")
-	bool ShouldMove = false;
 
 protected:
 	// Called when the game starts
@@ -31,35 +26,35 @@ public:
 
 private:
 
-	UFUNCTION()
-	void MoveToTarget();
+  UFUNCTION()
+  void MoveToTarget();
 
-	bool CheckActor();
-	bool WasKilledAllWithTag();
+  bool CheckActor();
+  bool WasKilledAllWithTag();
 
-	UPROPERTY(EditAnywhere, category = "movement")
-	FVector MoveOffset;
-	FVector StartLocation;
-	FVector TargetLocation;
+  UPROPERTY(EditAnywhere, category = "movement")
+  FVector MoveOffset;
+  FVector StartLocation;
+  FVector TargetLocation;
 
-	UPROPERTY(EditAnywhere, category = "movement")
-	float MovementSpeed = 100;
+  UPROPERTY(EditAnywhere, category = "movement")
+  float MovementSpeed = 100;
 
-	UPROPERTY(EditAnywhere, category = "movement")
-	FName UnlockerTag;
+  UPROPERTY(EditAnywhere, category = "movement")
+  FName UnlockerTag;
 
-	UPROPERTY(EditAnywhere, category = "movement")
-	FName ToKillTag;
+  UPROPERTY(EditAnywhere, category = "movement")
+  FName ToKillTag;
 
-	UPROPERTY()
-	class ALever* Lever;
+  UPROPERTY()
+  class ALever* Lever;
 
-	UPROPERTY()
-	class APressurePlate* PressurePlate;
+  UPROPERTY()
+  class APressurePlate* PressurePlate;
 
-	UPROPERTY()
-	TArray<AActor*> FoundUnlockerActors;
+  UPROPERTY()
+  TArray<AActor*> FoundUnlockerActors;
 
-	UPROPERTY()
-	TArray<AActor*> FoundAliveActors;	
+  UPROPERTY()
+  TArray<AActor*> FoundAliveActors;		
 };

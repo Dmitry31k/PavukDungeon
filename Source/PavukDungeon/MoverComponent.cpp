@@ -6,8 +6,6 @@
 #include "Kismet/GameplayStatics.h"
 #include "Lever.h"
 #include "PressurePlate.h"
-#include "Components/BoxComponent.h"
-#include "PlayerPavuk.h"
 
 // Sets default values for this component's properties
 UMoverComponent::UMoverComponent()
@@ -34,8 +32,6 @@ void UMoverComponent::BeginPlay()
 		Lever = Cast<ALever>(FoundUnlockerActors[0]);
 		PressurePlate = Cast<APressurePlate>(FoundUnlockerActors[0]);
 	}
-
-	DetachFromComponent(FDetachmentTransformRules::KeepRelativeTransform);
 }
 
 

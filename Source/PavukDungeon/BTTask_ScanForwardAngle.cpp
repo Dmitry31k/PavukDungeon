@@ -80,9 +80,9 @@ void UBTTask_ScanForwardAngle::ReturnToStartPosition(UBehaviorTreeComponent& Own
         IsWasTurnRight = false;
         IsWasScannedFullAngle = false;
 
-        StartRotation = OwnerPawn->GetActorRotation();
-        CurrentRotation = StartRotation;
-        TargetRotation.Yaw = StartRotation.Yaw - YawAngleValue / 2;
+        StartRotation.Yaw = FRotator::ClampAxis(OwnerPawn->GetActorRotation().Yaw);
+        CurrentRotation.Yaw = FRotator::ClampAxis(StartRotation.Yaw);
+        TargetRotation.Yaw = FRotator::ClampAxis(StartRotation.Yaw - YawAngleValue / 2);
 
         FinishLatentTask(OwnerComp, EBTNodeResult::Succeeded);
     }

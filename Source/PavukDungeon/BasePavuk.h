@@ -3,11 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Character.h"
+#include "BaseCharacter.h"
 #include "BasePavuk.generated.h"
 
 UCLASS()
-class PAVUKDUNGEON_API ABasePavuk : public ACharacter
+class PAVUKDUNGEON_API ABasePavuk : public ABaseCharacter
 {
 	GENERATED_BODY()
 

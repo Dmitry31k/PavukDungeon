@@ -3,35 +3,26 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "BaseCharacter.h"
-#include "BaseDrone.generated.h"
+#include "GameFramework/Character.h"
+#include "BaseCharacter.generated.h"
 
 UCLASS()
-class PAVUKDUNGEON_API ABaseDrone : public ABaseCharacter
+class PAVUKDUNGEON_API ABaseCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
 public:
 	// Sets default values for this character's properties
-	ABaseDrone();
-
-	virtual void Shoot();
+	ABaseCharacter();
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	UPROPERTY(VisibleDefaultsOnly)
-	class USceneComponent* ProjectileSpawnPoint;
-	
-	UPROPERTY(VisibleAnywhere)
-	class USkeletalMeshComponent* DroneFan;
-
-	UPROPERTY(EditDefaultsOnly)
-	TSubclassOf<class AProjectile> ProjectileClass;
-
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	virtual void CharacterDied();
 
 };

@@ -7,6 +7,8 @@
 #include "Math/UnrealMathUtility.h"
 #include "Components/SceneComponent.h"
 #include "Projectile.h"
+#include "NiagaraFunctionLibrary.h"
+#include "NiagaraSystem.h"
 
 // Sets default values
 ATurret::ATurret()
@@ -80,4 +82,16 @@ void ATurret::Shoot()
 
 		Projectile->SetOwner(this);
 	}
+}
+
+void ATurret::ActorDied()
+{
+	if (DeathParticles)
+	{
+		FVector CurrentLocation = GetActorLocation();
+		CurrentLocation.Z += 60;
+		UNiagaraFunctionLibrary::SpawnSystemAtLocation(GetWorld(), DeathParticles, CurrentLocation);
+	}
+
+	Destroy();
 }

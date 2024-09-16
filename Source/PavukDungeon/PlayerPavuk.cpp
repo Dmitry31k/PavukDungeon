@@ -96,9 +96,9 @@ void APlayerPavuk::Release()
     Super::Release();
 }
 
-void APlayerPavuk::PavukDied()
+void APlayerPavuk::CharacterDied()
 {
-    Super::PavukDied();
+    Super::CharacterDied();
 
     if (PlayerController)
     {

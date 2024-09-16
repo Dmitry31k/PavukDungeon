@@ -3,6 +3,8 @@
 
 #include "HealthComponent.h"
 #include "PlayerPavuk.h"
+#include "BaseCharacter.h"
+#include "BaseActor.h"
 
 // Sets default values for this component's properties
 UHealthComponent::UHealthComponent()
@@ -24,30 +26,22 @@ void UHealthComponent::BeginPlay()
 	OwnerActor = GetOwner();
 	OwnerActor->OnTakeAnyDamage.AddDynamic(this, &UHealthComponent::DamageTaken);
 
-	PlayerPavuk = Cast<APlayerPavuk>(OwnerActor);
-}
-
-
-// Called every frame
-void UHealthComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
-{
-	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-
-	// ...
+	OwnerCharacter = Cast<ABaseCharacter>(OwnerActor);
+	OwnerBaseActor = Cast<ABaseActor>(OwnerActor);
 }
 
 void UHealthComponent::DamageTaken (AActor* DamagedActor, float Damage, const UDamageType* DamageType, AController* Instigator, AActor* DamageCauser)
 {
 	CurrentHealth -= Damage;
-	if (CurrentHealth <= 0 && DamagedActor == OwnerActor)
+	if (CurrentHealth <= 0 && DamagedActor == OwnerActor && OwnerActor)
 	{
-		if (PlayerPavuk)
+		if (OwnerCharacter)
 		{
-			PlayerPavuk->PavukDied();
+			OwnerCharacter->CharacterDied();
 		}
-		else if (OwnerActor)
+		else if (OwnerBaseActor)
 		{
-			OwnerActor->Destroy();
+			OwnerBaseActor->ActorDied();
 		}
 	}
 }

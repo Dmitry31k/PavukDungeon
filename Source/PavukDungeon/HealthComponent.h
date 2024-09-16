@@ -20,9 +20,7 @@ protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
-public:	
-	// Called every frame
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+public:
 
 	bool IsAlive = true;
 
@@ -40,5 +38,8 @@ private:
 	void DamageTaken (AActor* DamagedActor, float Damage, const UDamageType* DamageType, AController* Instigator, AActor* DamageCauser);
 
 	UPROPERTY()
-	class APlayerPavuk* PlayerPavuk;
+	class ABaseCharacter* OwnerCharacter;
+
+	UPROPERTY()
+	class ABaseActor* OwnerBaseActor;
 };

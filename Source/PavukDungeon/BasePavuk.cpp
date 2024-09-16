@@ -84,11 +84,6 @@ void ABasePavuk::Release()
 	PhysicsHandle->ReleaseComponent();
 }
 
-void ABasePavuk::PavukDied()
-{
-	//To do: sound and visual effect of dying;
-}
-
 void ABasePavuk::Shoot()
 {
 	if (ProjectileClass && CanShoot)

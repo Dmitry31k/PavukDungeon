@@ -35,7 +35,6 @@ protected:
 	UPROPERTY()
 	class UPhysicsHandleComponent* PhysicsHandle;
 
-	virtual void PavukDied();
 	virtual void Shoot();
 
 public:	

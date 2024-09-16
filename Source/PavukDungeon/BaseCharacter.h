@@ -19,10 +19,13 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	UPROPERTY(EditDefaultsOnly)
+	class UNiagaraSystem* DeathParticles;
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	virtual void CharacterDied();
+	virtual void CharacterDied();	
 
 };

@@ -3,17 +3,19 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Actor.h"
+#include "BaseActor.h"
 #include "Turret.generated.h"
 
 UCLASS()
-class PAVUKDUNGEON_API ATurret : public AActor
+class PAVUKDUNGEON_API ATurret : public ABaseActor
 {
 	GENERATED_BODY()
 	
 public:	
 	// Sets default values for this actor's properties
 	ATurret();
+
+	virtual void ActorDied() override;
 
 protected:
 	// Called when the game starts or when spawned

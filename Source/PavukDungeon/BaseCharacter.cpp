@@ -2,6 +2,8 @@
 
 
 #include "BaseCharacter.h"
+#include "NiagaraFunctionLibrary.h"
+#include "NiagaraSystem.h"
 
 // Sets default values
 ABaseCharacter::ABaseCharacter()
@@ -27,5 +29,10 @@ void ABaseCharacter::Tick(float DeltaTime)
 
 void ABaseCharacter::CharacterDied()
 {
-	
+	if (DeathParticles)
+	{
+		UNiagaraFunctionLibrary::SpawnSystemAtLocation(GetWorld(), DeathParticles, GetActorLocation());
+	}
+
+	Destroy();
 }

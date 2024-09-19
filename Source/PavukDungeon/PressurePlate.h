@@ -3,11 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Actor.h"
+#include "BaseInteractiveActor.h"
 #include "PressurePlate.generated.h"
 
 UCLASS()
-class PAVUKDUNGEON_API APressurePlate : public AActor
+class PAVUKDUNGEON_API APressurePlate : public ABaseInteractiveActor
 {
 	GENERATED_BODY()
 	

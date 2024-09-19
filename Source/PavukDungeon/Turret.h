@@ -3,11 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "BaseActor.h"
+#include "BaseEnemyActor.h"
 #include "Turret.generated.h"
 
 UCLASS()
-class PAVUKDUNGEON_API ATurret : public ABaseActor
+class PAVUKDUNGEON_API ATurret : public ABaseEnemyActor
 {
 	GENERATED_BODY()
 	

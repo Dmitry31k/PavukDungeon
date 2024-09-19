@@ -3,11 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Actor.h"
+#include "BaseInteractiveActor.h"
 #include "Lever.generated.h"
 
 UCLASS()
-class PAVUKDUNGEON_API ALever : public AActor
+class PAVUKDUNGEON_API ALever : public ABaseInteractiveActor
 {
 	GENERATED_BODY()
 	

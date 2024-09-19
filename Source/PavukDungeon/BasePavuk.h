@@ -60,4 +60,7 @@ private:
 	float RechargingShootSpeed = 3;
 	
 	virtual void SetCanShootTrue();
+
+	UPROPERTY(EditAnywhere)
+	class UHealthComponent* HealthComponent;
 };

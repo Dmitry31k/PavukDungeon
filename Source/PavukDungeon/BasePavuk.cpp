@@ -8,6 +8,7 @@
 #include "PhysicsEngine/PhysicsHandleComponent.h"
 #include "Components/SceneComponent.h"
 #include "Projectile.h"
+#include "HealthComponent.h"
 
 // Sets default values
 ABasePavuk::ABasePavuk()
@@ -33,6 +34,8 @@ ABasePavuk::ABasePavuk()
 
 	GetCapsuleComponent()->SetCapsuleSize(25.f, 25.f);
 	GetCapsuleComponent()->SetSimulatePhysics(true);
+
+	HealthComponent = CreateDefaultSubobject<UHealthComponent>(TEXT("Character Health Component"));
 }
 
 // Called when the game starts or when spawned

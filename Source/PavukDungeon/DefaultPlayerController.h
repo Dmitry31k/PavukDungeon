@@ -13,5 +13,14 @@ UCLASS()
 class PAVUKDUNGEON_API ADefaultPlayerController : public APlayerController
 {
 	GENERATED_BODY()
+
+public:
+
+	void GameHasFinished(bool IsPlayerWon);
+
+private:
+
+	UPROPERTY(EditDefaultsOnly, category = "UIWidgets")
+	TSubclassOf<class UUserWidget> LoseScreenClass;
 	
 };

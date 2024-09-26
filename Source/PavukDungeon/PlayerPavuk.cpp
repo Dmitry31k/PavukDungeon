@@ -7,6 +7,8 @@
 #include "DrawDebugHelpers.h"
 #include "Lever.h"
 #include "Projectile.h"
+#include "DefaultGamemode.h"
+#include "DefaultPlayerController.h"
 
 APlayerPavuk::APlayerPavuk()
 {
@@ -23,7 +25,7 @@ void APlayerPavuk::BeginPlay()
 {
     Super::BeginPlay();
     
-	PlayerController = Cast<APlayerController>(GetController());    
+	DefaultPlayerController = Cast<ADefaultPlayerController>(GetController());    
 }
 
 // Called every frame
@@ -100,11 +102,16 @@ void APlayerPavuk::CharacterDied()
 {
     Super::CharacterDied();
 
-    if (PlayerController)
+    if (DefaultPlayerController)
     {
-        SetActorHiddenInGame(true);
-        DisableInput(PlayerController);
-        IsAlive = false;
+        ADefaultGamemode* CurrentGameMode = GetWorld()->GetAuthGameMode<ADefaultGamemode>();
+        if (CurrentGameMode)
+        {
+            CurrentGameMode->PlayerDied(DefaultPlayerController);
+        }
+
+        DetachFromControllerPendingDestroy();
+        GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
     }
 }
 

@@ -5,14 +5,17 @@
 #include "BehaviorTree/BlackboardComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "Kismet/KismetSystemLibrary.h"
+#include "BehaviorTree/BehaviorTree.h"
 
 void AAIController_Drone::BeginPlay()
 {
     Super::BeginPlay();
 
-    if (DroneBehaviorTree)
+    if (DroneBehaviorTreeClass)
     {
-        RunBehaviorTree(DroneBehaviorTree);
+        UBehaviorTree* PersonalBehaviorTree = DuplicateObject<UBehaviorTree>(DroneBehaviorTreeClass, this);
+
+        RunBehaviorTree(PersonalBehaviorTree);
 
         GetBlackboardComponent()->SetValueAsVector(TEXT("StartDroneLocation"), GetPawn()->GetActorLocation());
         GetBlackboardComponent()->SetValueAsVector(TEXT("StartDroneForwardVector"), GetPawn()->GetActorForwardVector() + GetPawn()->GetActorLocation());

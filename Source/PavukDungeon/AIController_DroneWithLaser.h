@@ -33,7 +33,7 @@ protected:
 private:
 
 	UPROPERTY(EditAnywhere)
-	class UBehaviorTree* DroneWithLaserBehaviorTree;
+	class UBehaviorTree* DroneWithLaserBehaviorTreeClass;
 
 	FTimerHandle SetVariablesTimer;
 

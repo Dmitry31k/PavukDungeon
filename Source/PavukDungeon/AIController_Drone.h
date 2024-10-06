@@ -21,6 +21,6 @@ protected:
 private:
 
 	UPROPERTY(EditDefaultsOnly)
-	class UBehaviorTree* DroneBehaviorTree;
+	class UBehaviorTree* DroneBehaviorTreeClass;
 	
 };

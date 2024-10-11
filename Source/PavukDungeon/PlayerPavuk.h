@@ -32,6 +32,7 @@ protected:
 	void Grab();
 	void Release();
 	void Shoot();
+	void MeleeAttack();
 
 private:
 

@@ -9,6 +9,10 @@
 #include "Components/SceneComponent.h"
 #include "Projectile.h"
 #include "HealthComponent.h"
+#include "Animation/AnimInstance.h"
+#include "Animation/AnimMontage.h"
+#include "Components/BoxComponent.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 ABasePavuk::ABasePavuk()
@@ -36,6 +40,12 @@ ABasePavuk::ABasePavuk()
 	GetCapsuleComponent()->SetSimulatePhysics(true);
 
 	HealthComponent = CreateDefaultSubobject<UHealthComponent>(TEXT("Character Health Component"));
+
+	BoxDamagerTail = CreateDefaultSubobject<UBoxComponent>(TEXT("Damager box tail"));
+	BoxDamagerTail->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform, TEXT("DamagerSocket"));
+
+	BoxDamagerJaw = CreateDefaultSubobject<UBoxComponent>(TEXT("Damager box jaw"));
+	BoxDamagerJaw->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform, TEXT("JawDamagerSocket"));
 }
 
 // Called when the game starts or when spawned
@@ -43,16 +53,12 @@ void ABasePavuk::BeginPlay()
 {
 	Super::BeginPlay();
 	GetCapsuleComponent()->SetSimulatePhysics(false);
-}
 
-// Called every frame
-void ABasePavuk::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
+	MeleeAttacksArray.Add(TailAttack);
+	MeleeAttacksArray.Add(JawAndTailAttack);
 
-	FVector HoldLocation = GetActorLocation() + GetActorForwardVector() * HoldDistance;
-
-	PhysicsHandle->SetTargetLocationAndRotation(HoldLocation, GetActorRotation());
+	BoxDamagerTail->OnComponentBeginOverlap.AddDynamic(this, &ABasePavuk::ApplyDamageOnOverlapDamager);
+	BoxDamagerJaw->OnComponentBeginOverlap.AddDynamic(this, &ABasePavuk::ApplyDamageOnOverlapDamager);
 }
 
 void ABasePavuk::Grab()
@@ -62,7 +68,7 @@ void ABasePavuk::Grab()
 
 	FCollisionShape CollisionSphere = FCollisionShape::MakeSphere(GrabSphereRadius);
 
-	WasHit = GetWorld()->SweepSingleByChannel(
+	bool WasHit = GetWorld()->SweepSingleByChannel(
 		GrabHitResult, 
 		StartTraceLocation, 
 		EndTraceLocation, 
@@ -80,6 +86,16 @@ void ABasePavuk::Grab()
 			GrabHitResult.GetComponent()->GetComponentRotation()
 		);
 	}
+}
+
+// Called every frame
+void ABasePavuk::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+
+	FVector HoldLocation = GetActorLocation() + GetActorForwardVector() * HoldDistance;
+
+	PhysicsHandle->SetTargetLocationAndRotation(HoldLocation, GetActorRotation());
 }
 
 void ABasePavuk::Release()
@@ -106,4 +122,32 @@ void ABasePavuk::Shoot()
 void ABasePavuk::SetCanShootTrue()
 {
 	CanShoot = true;
+}
+
+void ABasePavuk::SetWasMeleeDamaged()
+{
+	WasMeleeDamaged = false;
+}
+
+void ABasePavuk::MeleeAttack()
+{
+	if (MeleeAttacksArray.Num() > 0 && !WasMeleeDamaged)
+	{
+		int32 RandomAttackIndex = FMath::RandRange(0, MeleeAttacksArray.Num() - 1);
+		if (MeleeAttacksArray[RandomAttackIndex])
+		{
+			GetMesh()->GetAnimInstance()->Montage_Play(MeleeAttacksArray[RandomAttackIndex]);
+		}
+	}
+
+	WasMeleeDamaged = true;
+	GetWorldTimerManager().SetTimer(SetWasMeleeDamagedTimerHandle, this, &ABasePavuk::SetWasMeleeDamaged, RechargingMeleeDamageSpeed, false);
+}
+
+void ABasePavuk::ApplyDamageOnOverlapDamager(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
+{
+	if (OverlappedComp->GetOwner() != OtherActor && WasMeleeDamaged)
+	{
+		UGameplayStatics::ApplyDamage(OtherActor, TailDamage, GetInstigatorController(), this, UDamageType::StaticClass());
+	}
 }

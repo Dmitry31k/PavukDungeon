@@ -49,6 +49,7 @@ void APlayerPavuk::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
     PlayerInputComponent->BindAction(TEXT("Grab"), IE_Pressed, this, &APlayerPavuk::Grab);
     PlayerInputComponent->BindAction(TEXT("Grab"), IE_Released, this, &APlayerPavuk::Release);
     PlayerInputComponent->BindAction(TEXT("Shoot"), IE_Pressed, this, &APlayerPavuk::Shoot);
+    PlayerInputComponent->BindAction(TEXT("MeleeAttack"), IE_Pressed, this, &APlayerPavuk::MeleeAttack);
 }
 
 void APlayerPavuk::MoveForward(float Scale)
@@ -118,4 +119,9 @@ void APlayerPavuk::CharacterDied()
 void APlayerPavuk::Shoot()
 {
     Super::Shoot();
+}
+
+void APlayerPavuk::MeleeAttack()
+{
+    Super::MeleeAttack();
 }

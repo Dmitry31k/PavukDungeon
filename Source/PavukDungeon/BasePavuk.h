@@ -21,23 +21,32 @@ protected:
 
 	virtual void Grab();
 	virtual void Release();
+	virtual void MeleeAttack();
+
+	UFUNCTION()
+	virtual void ApplyDamageOnOverlapDamager(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult);
 
 	UPROPERTY(EditDefaultsOnly, category = "movement")
 	float GrabDistance = 150;
 	UPROPERTY(EditDefaultsOnly, category = "movement")
 	float HoldDistance = 125;
 
+	UPROPERTY(EditdefaultsOnly, category = "combat")
+	float TailDamage = 30;
+
+	UPROPERTY(EditdefaultsOnly, category = "combat")
+	float JawDamage = 30;
+
 	FHitResult GrabHitResult;
 	float GrabSphereRadius = 30;
-
-	bool WasHit;
 
 	UPROPERTY()
 	class UPhysicsHandleComponent* PhysicsHandle;
 
 	virtual void Shoot();
 
-public:	
+public:
+
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
@@ -51,16 +60,37 @@ private:
 	class USceneComponent* ProjectileSpawnPoint;
 
 	bool CanShoot = true;
+	bool WasMeleeDamaged = false;
+
 	FTimerHandle SetShootTimerHandle;
+	FTimerHandle SetWasMeleeDamagedTimerHandle;
 
 	UPROPERTY(EditdefaultsOnly, category = "combat")
 	TSubclassOf<class AProjectile> ProjectileClass;
 
 	UPROPERTY(EditdefaultsOnly, category = "combat")
 	float RechargingShootSpeed = 3;
+
+	UPROPERTY(EditdefaultsOnly, category = "combat")
+	float RechargingMeleeDamageSpeed = 0.25;
 	
 	virtual void SetCanShootTrue();
+	virtual void SetWasMeleeDamaged();
 
 	UPROPERTY(EditAnywhere)
 	class UHealthComponent* HealthComponent;
+
+	UPROPERTY(EditDefaultsOnly)
+	class UBoxComponent* BoxDamagerTail;
+
+	UPROPERTY(EditDefaultsOnly)
+	class UBoxComponent* BoxDamagerJaw;
+
+	UPROPERTY(EditDefaultsOnly, category = "Animation")
+	UAnimMontage* TailAttack;
+
+	UPROPERTY(EditDefaultsOnly, category = "Animation")
+	UAnimMontage* JawAndTailAttack;
+
+	TArray<UAnimMontage*> MeleeAttacksArray;
 };

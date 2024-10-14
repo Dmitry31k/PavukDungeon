@@ -26,7 +26,7 @@ public:
 
 private:
 
-	UPROPERTY(EditDefaultsOnly)
+	UPROPERTY(EditAnywhere)
 	float MaxHealth = 100;
 
 	float CurrentHealth;

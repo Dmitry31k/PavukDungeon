@@ -24,7 +24,11 @@ protected:
 	virtual void MeleeAttack();
 
 	UFUNCTION()
-	virtual void ApplyDamageOnOverlapDamager(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult);
+	virtual void OverlapJawDamagerBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult);
+	UFUNCTION()
+	virtual void OverlapJawDamagerEnd(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+	UFUNCTION()
+	virtual void OverlapTailDamagerBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult);
 
 	UPROPERTY(EditDefaultsOnly, category = "movement")
 	float GrabDistance = 150;
@@ -32,10 +36,7 @@ protected:
 	float HoldDistance = 125;
 
 	UPROPERTY(EditdefaultsOnly, category = "combat")
-	float TailDamage = 30;
-
-	UPROPERTY(EditdefaultsOnly, category = "combat")
-	float JawDamage = 30;
+	float MeleeDamage = 30;
 
 	FHitResult GrabHitResult;
 	float GrabSphereRadius = 30;
@@ -60,7 +61,7 @@ private:
 	class USceneComponent* ProjectileSpawnPoint;
 
 	bool CanShoot = true;
-	bool WasMeleeDamaged = false;
+	bool WasMeleeDamage = false;
 
 	FTimerHandle SetShootTimerHandle;
 	FTimerHandle SetWasMeleeDamagedTimerHandle;
@@ -75,7 +76,7 @@ private:
 	float RechargingMeleeDamageSpeed = 0.25;
 	
 	virtual void SetCanShootTrue();
-	virtual void SetWasMeleeDamaged();
+	virtual void SetWasMeleeDamageFalse();
 
 	UPROPERTY(EditAnywhere)
 	class UHealthComponent* HealthComponent;
@@ -90,7 +91,10 @@ private:
 	UAnimMontage* TailAttack;
 
 	UPROPERTY(EditDefaultsOnly, category = "Animation")
-	UAnimMontage* JawAndTailAttack;
+	UAnimMontage* JawAttack;
 
 	TArray<UAnimMontage*> MeleeAttacksArray;
+
+	UPROPERTY()
+	AActor* HaveToDamageActor;
 };

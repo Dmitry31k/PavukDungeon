@@ -3,11 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Actor.h"
+#include "Actors/EnemyActors/BaseEnemyActor.h"
 #include "Projectile.generated.h"
 
 UCLASS()
-class PAVUKDUNGEON_API AProjectile : public AActor
+class PAVUKDUNGEON_API AProjectile : public ABaseEnemyActor
 {
 	GENERATED_BODY()
 	

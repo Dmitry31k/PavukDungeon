@@ -62,6 +62,7 @@ private:
 
 	bool CanShoot = true;
 	bool WasMeleeDamage = false;
+	bool IsHoldingObject = false;
 
 	FTimerHandle SetShootTimerHandle;
 	FTimerHandle SetWasMeleeDamagedTimerHandle;
@@ -77,6 +78,8 @@ private:
 	
 	virtual void SetCanShootTrue();
 	virtual void SetWasMeleeDamageFalse();
+
+	void UpdatePhysicsHandleComponent();
 
 	UPROPERTY(EditAnywhere)
 	class UHealthComponent* HealthComponent;

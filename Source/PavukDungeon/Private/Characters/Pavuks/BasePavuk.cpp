@@ -88,6 +88,10 @@ void ABasePavuk::Grab()
 			GrabHitResult.GetComponent()->GetComponentRotation()
 		);
 	}
+
+	IsHoldingObject = true;
+
+	UpdatePhysicsHandleComponent();
 }
 
 // Called every frame
@@ -95,14 +99,13 @@ void ABasePavuk::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	FVector HoldLocation = GetActorLocation() + GetActorForwardVector() * HoldDistance;
-
-	PhysicsHandle->SetTargetLocationAndRotation(HoldLocation, GetActorRotation());
+	
 }
 
 void ABasePavuk::Release()
 {
 	PhysicsHandle->ReleaseComponent();
+	IsHoldingObject = false;
 }
 
 void ABasePavuk::Shoot()
@@ -172,4 +175,16 @@ void ABasePavuk::OverlapTailDamagerBegin(UPrimitiveComponent* OverlappedComp, AA
 	{
 		UGameplayStatics::ApplyDamage(OtherActor, MeleeDamage, GetInstigatorController(), this, UDamageType::StaticClass());
 	}
+}
+
+void ABasePavuk::UpdatePhysicsHandleComponent()
+{
+	if (!IsHoldingObject)
+	{
+		return;
+	}
+	FVector HoldLocation = GetActorLocation() + GetActorForwardVector() * HoldDistance;
+	PhysicsHandle->SetTargetLocationAndRotation(HoldLocation, GetActorRotation());
+	
+	GetWorld()->GetTimerManager().SetTimerForNextTick(this, &ABasePavuk::UpdatePhysicsHandleComponent);	
 }

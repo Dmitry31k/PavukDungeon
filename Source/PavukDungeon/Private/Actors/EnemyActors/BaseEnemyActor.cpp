@@ -32,7 +32,6 @@ void ABaseEnemyActor::ActorDied()
 {
     Super::ActorDied();
     
-    UE_LOG(LogTemp, Display, TEXT("ActorDied"));
     DeleteActorFromAliveActors();
 }
 

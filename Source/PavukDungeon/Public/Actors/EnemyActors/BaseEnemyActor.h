@@ -22,5 +22,25 @@ private:
 
 	UPROPERTY(EditAnywhere)
 	class UHealthComponent* HealthComponent;
+
+protected:
+
+	virtual void BeginPlay() override;
+
+	virtual void AddActorIntoAliveActors();
+	virtual void DeleteActorFromAliveActors();
+
+	virtual void ActorDied();
+
+private:
+
+	UPROPERTY(EditAnywhere)
+	FName MoverComponentTag;
+
+	UPROPERTY()
+	class UMoverComponent* UnlockerComponent;
+
+	UPROPERTY()
+	TArray<AActor*> FoundActorWithTag;
 	
 };

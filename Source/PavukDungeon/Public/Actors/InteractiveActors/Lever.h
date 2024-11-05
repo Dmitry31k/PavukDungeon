@@ -16,8 +16,6 @@ public:
 	ALever();
 
 	virtual void ActivateLever();
-
-	bool WasActivated = false;
 	
 protected:
 	// Called when the game starts or when spawned

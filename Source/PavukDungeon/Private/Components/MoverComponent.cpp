@@ -4,8 +4,6 @@
 #include "Components/MoverComponent.h"
 #include "Math/UnrealMathUtility.h"
 #include "Kismet/GameplayStatics.h"
-#include "Actors/InteractiveActors/Lever.h"
-#include "Actors/InteractiveActors/PressurePlate.h"
 
 // Sets default values for this component's properties
 UMoverComponent::UMoverComponent()
@@ -17,7 +15,6 @@ UMoverComponent::UMoverComponent()
 	// ...
 }
 
-
 // Called when the game starts
 void UMoverComponent::BeginPlay()
 {
@@ -25,70 +22,40 @@ void UMoverComponent::BeginPlay()
 
 	StartLocation = GetOwner()->GetActorLocation();
 	TargetLocation = StartLocation + MoveOffset;
-
-	UGameplayStatics::GetAllActorsWithTag(GetWorld(), UnlockerTag, FoundUnlockerActors);
-	if (FoundUnlockerActors.IsValidIndex(0))
-	{
-		Lever = Cast<ALever>(FoundUnlockerActors[0]);
-		PressurePlate = Cast<APressurePlate>(FoundUnlockerActors[0]);
-	}
 }
-
 
 // Called every frame
 void UMoverComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	MoveToTarget();
-}
-
-void UMoverComponent::MoveToTarget()
-{
-	if (CheckActor() || WasKilledAllWithTag())
-	{
-		FVector CurrentLocation = GetOwner()->GetActorLocation();
-		FVector NewLocation = FMath::VInterpConstantTo(GetOwner()->GetActorLocation(), TargetLocation, 
-		UGameplayStatics::GetWorldDeltaSeconds(GetWorld()), MovementSpeed);
-
-		GetOwner()->SetActorLocation(NewLocation);
-	}
-	else
-	{
-		FVector CurrentLocation = GetOwner()->GetActorLocation();
-
-		FVector NewLocation = FMath::VInterpConstantTo(CurrentLocation, StartLocation, 
-    	UGameplayStatics::GetWorldDeltaSeconds(GetWorld()), MovementSpeed);
-
-    	GetOwner()->SetActorLocation(NewLocation);
-	}
-}
-
-bool UMoverComponent::CheckActor()
-{
-	if (Lever)
-	{
-		return Lever->WasActivated;
-	}
-	else if (PressurePlate)
-	{
-		return PressurePlate->WasActivated;
-	}
 	
-	return false;
 }
 
-bool UMoverComponent::WasKilledAllWithTag()
+void UMoverComponent::MoveToTargetLocation()
 {
-	UGameplayStatics::GetAllActorsWithTag(GetWorld(), ToKillTag, FoundAliveActors);
+	FVector CurrentLocation = GetOwner()->GetActorLocation();
+	FVector NewLocation = FMath::VInterpConstantTo(GetOwner()->GetActorLocation(), TargetLocation, 
+	UGameplayStatics::GetWorldDeltaSeconds(GetWorld()), MovementSpeed);
 
-	if (FoundUnlockerActors.IsEmpty())
+	GetOwner()->SetActorLocation(NewLocation);
+
+	if (CurrentLocation != TargetLocation && (NotActivatedUnlockerActors.Num() == 0 || AliveActors.Num() == 0))
 	{
-		if(FoundAliveActors.Num() == 0)
-		{
-			return true;
-		}
+		GetWorld()->GetTimerManager().SetTimerForNextTick(this, &UMoverComponent::MoveToTargetLocation);
 	}
-	
-	return false;
+}
+
+void UMoverComponent::MoveToStartLocation()
+{
+	FVector CurrentLocation = GetOwner()->GetActorLocation();
+	FVector NewLocation = FMath::VInterpConstantTo(CurrentLocation, StartLocation, 
+    UGameplayStatics::GetWorldDeltaSeconds(GetWorld()), MovementSpeed);
+
+    GetOwner()->SetActorLocation(NewLocation);
+
+	if (CurrentLocation != StartLocation  && (NotActivatedUnlockerActors.Num() > 0 || AliveActors.Num() > 0))
+	{
+		GetWorld()->GetTimerManager().SetTimerForNextTick(this, &UMoverComponent::MoveToStartLocation);
+	}
 }

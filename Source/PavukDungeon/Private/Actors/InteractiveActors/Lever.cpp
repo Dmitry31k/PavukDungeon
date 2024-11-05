@@ -31,6 +31,6 @@ void ALever::ActivateLever()
 	{
 		CurrentLeverMeshRotation.Roll += 90.f;
 		LeverMesh->SetRelativeRotation(CurrentLeverMeshRotation);
-		WasActivated = true;
+		DeleteActorFromNotActivatedUnlockerActors();
 	}
 }

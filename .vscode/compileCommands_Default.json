@@ -96,23 +96,31 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Actors\\InteractiveActors\\MultiplePlatform.cpp",
-		"arguments": [
-			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_Default\\PavukDungeon.1.rsp"
-		],
-		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
-	},
-	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Actors\\InteractiveActors\\OverlapEventPlatform.cpp",
-		"arguments": [
-			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_Default\\PavukDungeon.1.rsp"
-		],
-		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
-	},
-	{
 		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Actors\\InteractiveActors\\PressurePlate.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_Default\\PavukDungeon.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Actors\\KineticActors\\BaseKineticActor.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_Default\\PavukDungeon.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Actors\\KineticActors\\MultiplePlatform.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_Default\\PavukDungeon.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Actors\\KineticActors\\OverlapEventPlatform.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
 			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_Default\\PavukDungeon.1.rsp"
@@ -360,23 +368,31 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Actors\\InteractiveActors\\MultiplePlatform.h",
-		"arguments": [
-			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_Default\\PavukDungeon.1.rsp"
-		],
-		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
-	},
-	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Actors\\InteractiveActors\\OverlapEventPlatform.h",
-		"arguments": [
-			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_Default\\PavukDungeon.1.rsp"
-		],
-		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
-	},
-	{
 		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Actors\\InteractiveActors\\PressurePlate.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_Default\\PavukDungeon.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Actors\\KineticActors\\BaseKineticActor.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_Default\\PavukDungeon.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Actors\\KineticActors\\MultiplePlatform.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_Default\\PavukDungeon.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Actors\\KineticActors\\OverlapEventPlatform.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
 			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_Default\\PavukDungeon.1.rsp"

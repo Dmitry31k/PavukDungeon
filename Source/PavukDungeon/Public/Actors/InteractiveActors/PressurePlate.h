@@ -21,7 +21,6 @@ protected:
 
 public:
 	
-	bool WasActivated = false;
 
 private:
 

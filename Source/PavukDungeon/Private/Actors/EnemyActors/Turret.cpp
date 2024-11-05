@@ -86,12 +86,5 @@ void ATurret::Shoot()
 
 void ATurret::ActorDied()
 {
-	if (DeathParticles)
-	{
-		FVector CurrentLocation = GetActorLocation();
-		CurrentLocation.Z += 60;
-		UNiagaraFunctionLibrary::SpawnSystemAtLocation(GetWorld(), DeathParticles, CurrentLocation);
-	}
-
-	Destroy();
+	Super::ActorDied();
 }

@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "Actors/InteractiveActors/MultiplePlatform.h"
+#include "Actors/KineticActors/MultiplePlatform.h"
 #include "Components/StaticMeshComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "Timermanager.h"

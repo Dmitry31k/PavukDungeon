@@ -24,13 +24,15 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
+  UPROPERTY()
+  TArray<AActor*> AliveActors;
+  UPROPERTY()
+  TArray<AActor*> NotActivatedUnlockerActors;
+
+  void MoveToTargetLocation();
+  void MoveToStartLocation();
+
 private:
-
-  UFUNCTION()
-  void MoveToTarget();
-
-  bool CheckActor();
-  bool WasKilledAllWithTag();
 
   UPROPERTY(EditAnywhere, category = "movement")
   FVector MoveOffset;
@@ -40,21 +42,4 @@ private:
   UPROPERTY(EditAnywhere, category = "movement")
   float MovementSpeed = 100;
 
-  UPROPERTY(EditAnywhere, category = "movement")
-  FName UnlockerTag;
-
-  UPROPERTY(EditAnywhere, category = "movement")
-  FName ToKillTag;
-
-  UPROPERTY()
-  class ALever* Lever;
-
-  UPROPERTY()
-  class APressurePlate* PressurePlate;
-
-  UPROPERTY()
-  TArray<AActor*> FoundUnlockerActors;
-
-  UPROPERTY()
-  TArray<AActor*> FoundAliveActors;		
 };

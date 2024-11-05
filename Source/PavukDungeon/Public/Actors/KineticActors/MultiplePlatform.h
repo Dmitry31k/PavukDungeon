@@ -3,11 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "BaseInteractiveActor.h"
+#include "BaseKineticActor.h"
 #include "MultiplePlatform.generated.h"
 
 UCLASS()
-class PAVUKDUNGEON_API AMultiplePlatform : public ABaseInteractiveActor
+class PAVUKDUNGEON_API AMultiplePlatform : public ABaseKineticActor
 {
 	GENERATED_BODY()
 	

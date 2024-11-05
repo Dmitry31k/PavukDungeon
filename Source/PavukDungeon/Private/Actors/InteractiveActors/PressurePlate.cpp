@@ -32,7 +32,7 @@ void APressurePlate::StartOverlap(UPrimitiveComponent* OverlappedComponent, AAct
 {
 	if (OverlappedComponent && OtherActor)
 	{
-		WasActivated = true;
+		DeleteActorFromNotActivatedUnlockerActors();
 	}
 }
 
@@ -41,6 +41,6 @@ void APressurePlate::EndOverlap(UPrimitiveComponent* OverlappedComponent, AActor
 	CollisionBox->GetOverlappingActors(OverlappingActors);
 	if (OverlappedComponent && OtherActor && OverlappingActors.Num() == 0)
 	{
-		WasActivated = false;
+		AddActorIntoNotActivatedUnlockerActors();
 	}
 }

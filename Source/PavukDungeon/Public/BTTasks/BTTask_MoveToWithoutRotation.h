@@ -9,6 +9,12 @@
 /**
  * 
  */
+struct FBTMoveToWithoutRotationNodeMemory : public FBTTaskMemory
+{
+	FVector CurrentLocation;
+    FVector TargetLocation;
+};
+
 UCLASS()
 class PAVUKDUNGEON_API UBTTask_MoveToWithoutRotation : public UBTTask_BlackboardBase
 {
@@ -17,6 +23,8 @@ class PAVUKDUNGEON_API UBTTask_MoveToWithoutRotation : public UBTTask_Blackboard
 public:
 
 	UBTTask_MoveToWithoutRotation();
+
+	virtual uint16 GetInstanceMemorySize() const override;
 
 protected:
 
@@ -34,4 +42,5 @@ private:
 	UPROPERTY()
 	APawn* OwnerPawn;
 
+	void SmoothMoveToTargetWithoutRotation(float DeltaSeconds, UBehaviorTreeComponent& OwnerComp, FBTMoveToWithoutRotationNodeMemory* MyNodeMemory);
 };

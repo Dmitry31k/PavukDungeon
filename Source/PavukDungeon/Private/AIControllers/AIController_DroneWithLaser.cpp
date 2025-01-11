@@ -12,17 +12,12 @@ void AAIController_DroneWithLaser::BeginPlay()
     
     if (DroneWithLaserBehaviorTreeClass)
     {
-        UBehaviorTree* PersonalBehaviorTree = DuplicateObject<UBehaviorTree>(DroneWithLaserBehaviorTreeClass, this);
+        RunBehaviorTree(DroneWithLaserBehaviorTreeClass);
 
-        if (PersonalBehaviorTree)
-        {
-            RunBehaviorTree(PersonalBehaviorTree);
-
-            GetBlackboardComponent()->SetValueAsVector(TEXT("StartDroneLocation"), GetPawn()->GetActorLocation());
-            GetBlackboardComponent()->SetValueAsVector(TEXT("StartDroneForwardVector"), GetPawn()->GetActorForwardVector());
+        GetBlackboardComponent()->SetValueAsVector(TEXT("StartDroneLocation"), GetPawn()->GetActorLocation());
+        GetBlackboardComponent()->SetValueAsVector(TEXT("StartDroneForwardVector"), GetPawn()->GetActorForwardVector());
         
-            GetWorldTimerManager().SetTimer(SetVariablesTimer, this, &AAIController_DroneWithLaser::SetVariabledIntoBlackboard, 0.5, false);
-        }        
+        GetWorldTimerManager().SetTimer(SetVariablesTimer, this, &AAIController_DroneWithLaser::SetVariabledIntoBlackboard, 0.25, false);
     }
 }
 

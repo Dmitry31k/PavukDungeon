@@ -13,6 +13,7 @@
 #include "Animation/AnimMontage.h"
 #include "Components/BoxComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "Components/SpotLightComponent.h"
 
 // Sets default values
 ABasePavuk::ABasePavuk()
@@ -171,8 +172,12 @@ void ABasePavuk::OverlapJawDamagerEnd(UPrimitiveComponent* OverlappedComponent, 
 
 void ABasePavuk::OverlapTailDamagerBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
 {
-	if (OverlappedComp->GetOwner() != OtherActor)
+	if (OverlappedComp->GetOwner() != OtherActor, OtherActor != this)
 	{
+		if (Cast<USphereComponent>(OtherComp) || Cast<USpotLightComponent>(OtherComp))
+		{
+			return;
+		}
 		UGameplayStatics::ApplyDamage(OtherActor, MeleeDamage, GetInstigatorController(), this, UDamageType::StaticClass());
 	}
 }

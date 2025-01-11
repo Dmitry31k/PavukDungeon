@@ -9,6 +9,12 @@
 /**
  * 
  */
+struct FBTSmoothRotateToNodeMemory : public FBTTaskMemory
+{
+	FRotator CurrentRotation;
+	FRotator TargetRotation;
+};
+
 UCLASS()
 class PAVUKDUNGEON_API UBTTask_SmoothRotateTo : public UBTTask_BlackboardBase
 {
@@ -17,6 +23,8 @@ class PAVUKDUNGEON_API UBTTask_SmoothRotateTo : public UBTTask_BlackboardBase
 public:
 
 	UBTTask_SmoothRotateTo();
+
+	virtual uint16 GetInstanceMemorySize() const override;
 
 protected:
 
@@ -34,8 +42,5 @@ private:
 	UPROPERTY()
 	class APawn* OwnerPawn;
 
-	FRotator CurrentRotation;
-	FRotator TargetRotation;
-
-	void SmoothRotate(UBehaviorTreeComponent& OwnerComp, float DeltaSeconds);
+	void SmoothRotate(UBehaviorTreeComponent& OwnerComp, float DeltaSeconds, FBTSmoothRotateToNodeMemory* MyNodeMemory);
 };

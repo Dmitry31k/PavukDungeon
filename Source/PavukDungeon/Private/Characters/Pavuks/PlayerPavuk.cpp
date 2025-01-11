@@ -103,8 +103,6 @@ void APlayerPavuk::CharacterDied()
 {
     Super::CharacterDied();
 
-    IsAlive = false;
-
     if (DefaultPlayerController)
     {
         ADefaultGamemode* CurrentGameMode = GetWorld()->GetAuthGameMode<ADefaultGamemode>();

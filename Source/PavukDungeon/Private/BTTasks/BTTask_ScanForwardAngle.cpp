@@ -6,15 +6,24 @@
 #include "BehaviorTree/BlackboardComponent.h"
 #include "AIController.h"
 
+uint16 UBTTask_ScanForwardAngle::GetInstanceMemorySize() const
+{
+    return sizeof(FBTScanForwardAngleNodeMemory);
+}
+
 UBTTask_ScanForwardAngle::UBTTask_ScanForwardAngle()
 {
     NodeName = "Scan selected forward angle";
     bNotifyTick = true;
+    bNotifyTaskFinished = true;
+    bCreateNodeInstance = true;
 }
 
 EBTNodeResult::Type UBTTask_ScanForwardAngle::ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory)
 {
     Super::ExecuteTask(OwnerComp, NodeMemory);
+
+    FBTScanForwardAngleNodeMemory* MyNodeMemory = reinterpret_cast<FBTScanForwardAngleNodeMemory*>(NodeMemory);
 
     OwnerController = OwnerComp.GetAIOwner();
     OwnerPawn = OwnerController->GetPawn();
@@ -25,9 +34,9 @@ EBTNodeResult::Type UBTTask_ScanForwardAngle::ExecuteTask(UBehaviorTreeComponent
     }
     else
     {
-        StartRotation.Yaw = FRotator::ClampAxis(OwnerPawn->GetActorRotation().Yaw);
-        CurrentRotation.Yaw = FRotator::ClampAxis(StartRotation.Yaw);
-        TargetRotation.Yaw = FRotator::ClampAxis(StartRotation.Yaw - YawAngleValue / 2);
+        MyNodeMemory->StartRotation.Yaw = FRotator::ClampAxis(OwnerPawn->GetActorRotation().Yaw);
+        MyNodeMemory->CurrentRotation.Yaw = FRotator::ClampAxis(MyNodeMemory->StartRotation.Yaw);
+        MyNodeMemory->TargetRotation.Yaw = FRotator::ClampAxis(MyNodeMemory->StartRotation.Yaw - YawAngleValue / 2);
     }
 
     return EBTNodeResult::InProgress;
@@ -37,48 +46,50 @@ void UBTTask_ScanForwardAngle::TickTask(UBehaviorTreeComponent& OwnerComp, uint8
 {
     Super::TickTask(OwnerComp, NodeMemory, DeltaSeconds);
 
-    if(IsWasScannedFullAngle)
+    FBTScanForwardAngleNodeMemory* MyNodeMemory = reinterpret_cast<FBTScanForwardAngleNodeMemory*>(NodeMemory);
+
+    if(MyNodeMemory->IsWasScannedFullAngle)
     {
-        ReturnToStartPosition(OwnerComp, DeltaSeconds);
+        ReturnToStartPosition(OwnerComp, DeltaSeconds, MyNodeMemory);
     }
     else
     {
-        ScanForwardAngle(OwnerComp, DeltaSeconds);
+        ScanForwardAngle(OwnerComp, DeltaSeconds, MyNodeMemory);
     }    
 }
 
-void UBTTask_ScanForwardAngle::ScanForwardAngle(UBehaviorTreeComponent& OwnerComp, float DeltaSeconds)
+void UBTTask_ScanForwardAngle::ScanForwardAngle(UBehaviorTreeComponent& OwnerComp, float DeltaSeconds, FBTScanForwardAngleNodeMemory* MyNodeMemory)
 {
-    if (FMath::IsNearlyEqual(CurrentRotation.Yaw, TargetRotation.Yaw))
+    if (FMath::IsNearlyEqual(MyNodeMemory->CurrentRotation.Yaw, MyNodeMemory->TargetRotation.Yaw))
     {
-        if (IsWasTurnRight)
+        if (MyNodeMemory->IsWasTurnRight)
         {
-            IsWasScannedFullAngle = true;
+            MyNodeMemory->IsWasScannedFullAngle = true;
         }
 
-        TargetRotation.Yaw = FRotator::ClampAxis(CurrentRotation.Yaw + YawAngleValue);
-        IsWasTurnRight = true;
+        MyNodeMemory->TargetRotation.Yaw = FRotator::ClampAxis(MyNodeMemory->CurrentRotation.Yaw + YawAngleValue);
+        MyNodeMemory->IsWasTurnRight = true;
     }
     else
     {
-        FRotator RotateTo = FMath::RInterpConstantTo(CurrentRotation, TargetRotation, DeltaSeconds, RotationSpeed);
+        FRotator RotateTo = FMath::RInterpConstantTo(MyNodeMemory->CurrentRotation, MyNodeMemory->TargetRotation, DeltaSeconds, RotationSpeed);
         OwnerPawn->SetActorRotation(RotateTo);
 
-        CurrentRotation.Yaw = FRotator::ClampAxis(OwnerPawn->GetActorRotation().Yaw);
+        MyNodeMemory->CurrentRotation.Yaw = FRotator::ClampAxis(OwnerPawn->GetActorRotation().Yaw);
     }
 }
 
-void UBTTask_ScanForwardAngle::ReturnToStartPosition(UBehaviorTreeComponent& OwnerComp, float DeltaSeconds)
+void UBTTask_ScanForwardAngle::ReturnToStartPosition(UBehaviorTreeComponent& OwnerComp, float DeltaSeconds, FBTScanForwardAngleNodeMemory* MyNodeMemory)
 {
-    FRotator RotateTo = FMath::RInterpConstantTo(CurrentRotation, StartRotation, DeltaSeconds, RotationSpeed);
+    FRotator RotateTo = FMath::RInterpConstantTo(MyNodeMemory->CurrentRotation, MyNodeMemory->StartRotation, DeltaSeconds, RotationSpeed);
     OwnerPawn->SetActorRotation(RotateTo);
 
-    CurrentRotation.Yaw = FRotator::ClampAxis(OwnerPawn->GetActorRotation().Yaw);
+    MyNodeMemory->CurrentRotation.Yaw = FRotator::ClampAxis(OwnerPawn->GetActorRotation().Yaw);
 
-    if (FMath::IsNearlyEqual(CurrentRotation.Yaw, StartRotation.Yaw))
+    if (FMath::IsNearlyEqual(MyNodeMemory->CurrentRotation.Yaw, MyNodeMemory->StartRotation.Yaw))
     {
-        IsWasTurnRight = false;
-        IsWasScannedFullAngle = false;
+        MyNodeMemory->IsWasTurnRight = false;
+        MyNodeMemory->IsWasScannedFullAngle = false;
 
         FinishLatentTask(OwnerComp, EBTNodeResult::Succeeded);
     }

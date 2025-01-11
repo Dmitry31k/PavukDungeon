@@ -16,7 +16,6 @@ void ABaseInteractiveActor::BeginPlay()
         if (FoundActorWithTag.Num() > 0)
         {
             UnlockerComponent = Cast<UMoverComponent>(FoundActorWithTag[0]->FindComponentByClass<UMoverComponent>());
-            UE_LOG(LogTemp, Display, TEXT("Cast UnlockerComponent"));
         }
 
         AddActorIntoNotActivatedUnlockerActors();

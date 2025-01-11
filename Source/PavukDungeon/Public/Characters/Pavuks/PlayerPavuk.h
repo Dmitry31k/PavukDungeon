@@ -24,7 +24,6 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	virtual void CharacterDied() override;
-	bool IsAlive = true;
 
 protected:
 	// Called when the game starts or when spawned

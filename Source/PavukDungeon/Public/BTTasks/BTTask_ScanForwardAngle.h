@@ -9,6 +9,16 @@
 /**
  * 
  */
+struct FBTScanForwardAngleNodeMemory : public FBTTaskMemory
+{
+	FRotator CurrentRotation;
+	FRotator TargetRotation;
+	FRotator StartRotation;
+
+	bool IsWasTurnRight = false;
+	bool IsWasScannedFullAngle = false;
+};
+
 UCLASS()
 class PAVUKDUNGEON_API UBTTask_ScanForwardAngle : public UBTTaskNode
 {
@@ -17,6 +27,8 @@ class PAVUKDUNGEON_API UBTTask_ScanForwardAngle : public UBTTaskNode
 public:
 
 	UBTTask_ScanForwardAngle();
+
+	virtual uint16 GetInstanceMemorySize() const override;
 	
 protected:
 
@@ -37,14 +49,6 @@ private:
 	UPROPERTY()
 	class APawn* OwnerPawn;
 
-	FRotator CurrentRotation;
-	FRotator TargetRotation;
-	FRotator StartRotation;
-
-	bool IsWasTurnRight = false;
-	bool IsWasScannedFullAngle = false;
-
-	void ScanForwardAngle(UBehaviorTreeComponent& OwnerComp, float DeltaSeconds);
-	void ReturnToStartPosition(UBehaviorTreeComponent& OwnerComp, float DeltaSeconds);
-	
+	void ScanForwardAngle(UBehaviorTreeComponent& OwnerComp, float DeltaSeconds, FBTScanForwardAngleNodeMemory* MyNodeMemory);
+	void ReturnToStartPosition(UBehaviorTreeComponent& OwnerComp, float DeltaSeconds, FBTScanForwardAngleNodeMemory* MyNodeMemory);	
 };

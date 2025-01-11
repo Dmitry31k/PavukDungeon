@@ -73,7 +73,7 @@ void ATurret::RotateTurretHead()
 
 void ATurret::Shoot()
 {
-	if (InFireRange && ProjectileClass && PlayerPavuk->IsAlive)
+	if (InFireRange && ProjectileClass && PlayerPavuk)
 	{
 		AProjectile* Projectile = GetWorld()->SpawnActor<AProjectile>(ProjectileClass, 
 			ProjectileSpawnPoint->GetComponentLocation(), 

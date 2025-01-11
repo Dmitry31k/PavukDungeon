@@ -6,15 +6,24 @@
 #include "BehaviorTree/BlackboardComponent.h"
 #include "AIController.h"
 
+uint16 UBTTask_MoveToWithoutRotation::GetInstanceMemorySize() const
+{
+    return sizeof(FBTMoveToWithoutRotationNodeMemory);
+}
+
 UBTTask_MoveToWithoutRotation::UBTTask_MoveToWithoutRotation()
 {
     NodeName = "Move to target without changing rotation";
     bNotifyTick = true;
+    bCreateNodeInstance = true;
+    bNotifyTaskFinished = true;
 }
 
 EBTNodeResult::Type UBTTask_MoveToWithoutRotation::ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory)
 {
     Super::ExecuteTask(OwnerComp, NodeMemory);
+
+    FBTMoveToWithoutRotationNodeMemory* MyNodeMemory = reinterpret_cast<FBTMoveToWithoutRotationNodeMemory*>(NodeMemory);
 
     OwnerAIController = OwnerComp.GetAIOwner();
     OwnerPawn = OwnerAIController->GetPawn();
@@ -31,16 +40,24 @@ void UBTTask_MoveToWithoutRotation::TickTask(UBehaviorTreeComponent& OwnerComp, 
 {
     Super::TickTask(OwnerComp, NodeMemory, DeltaSeconds);
 
-    FVector CurrentLocation = OwnerPawn->GetActorLocation();
-    FVector TargetLocation = OwnerComp.GetBlackboardComponent()->GetValueAsVector(GetSelectedBlackboardKey());
+    FBTMoveToWithoutRotationNodeMemory* MyNodeMemory = reinterpret_cast<FBTMoveToWithoutRotationNodeMemory*>(NodeMemory);
 
-    FVector ToSetLocation = FMath::VInterpConstantTo(CurrentLocation, 
-        TargetLocation,
+    SmoothMoveToTargetWithoutRotation(DeltaSeconds, OwnerComp, MyNodeMemory);
+}
+
+void UBTTask_MoveToWithoutRotation::SmoothMoveToTargetWithoutRotation(float DeltaSeconds, UBehaviorTreeComponent& OwnerComp, FBTMoveToWithoutRotationNodeMemory* MyNodeMemory)
+{
+    MyNodeMemory->CurrentLocation = OwnerPawn->GetActorLocation();
+    MyNodeMemory->TargetLocation = OwnerComp.GetBlackboardComponent()->GetValueAsVector(GetSelectedBlackboardKey());
+
+    FVector ToSetLocation = FMath::VInterpConstantTo(
+        MyNodeMemory->CurrentLocation, 
+        MyNodeMemory->TargetLocation,
         DeltaSeconds,
         MovingSpeed
     );
 
-    if (FVector::Dist(CurrentLocation, TargetLocation) <= 1)
+    if (FVector::Dist(MyNodeMemory->CurrentLocation, MyNodeMemory->TargetLocation) <= 1)
     {
         FinishLatentTask(OwnerComp, EBTNodeResult::Succeeded);
     }

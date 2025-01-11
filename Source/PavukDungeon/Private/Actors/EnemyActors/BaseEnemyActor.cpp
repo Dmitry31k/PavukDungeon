@@ -41,7 +41,7 @@ void ABaseEnemyActor::AddActorIntoAliveActors()
     {
         return;
     }
-    UnlockerComponent->NotActivatedUnlockerActors.Add(this);
+    UnlockerComponent->AliveActors.Add(this);
     UnlockerComponent->MoveToStartLocation();
 }
 
@@ -51,6 +51,6 @@ void ABaseEnemyActor::DeleteActorFromAliveActors()
     {
         return;
     }
-    UnlockerComponent->NotActivatedUnlockerActors.Remove(this);
+    UnlockerComponent->AliveActors.Remove(this);
     UnlockerComponent->MoveToTargetLocation();
 }

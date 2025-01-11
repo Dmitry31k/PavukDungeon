@@ -13,11 +13,9 @@ void AAIController_Drone::BeginPlay()
 
     if (DroneBehaviorTreeClass)
     {
-        UBehaviorTree* PersonalBehaviorTree = DuplicateObject<UBehaviorTree>(DroneBehaviorTreeClass, this);
-
-        RunBehaviorTree(PersonalBehaviorTree);
+        RunBehaviorTree(DroneBehaviorTreeClass);
 
         GetBlackboardComponent()->SetValueAsVector(TEXT("StartDroneLocation"), GetPawn()->GetActorLocation());
-        GetBlackboardComponent()->SetValueAsVector(TEXT("StartDroneForwardVector"), GetPawn()->GetActorForwardVector() + GetPawn()->GetActorLocation());
+        GetBlackboardComponent()->SetValueAsVector(TEXT("StartDroneForwardVector"), GetPawn()->GetActorForwardVector() * 800 + GetPawn()->GetActorLocation());
     }
 }

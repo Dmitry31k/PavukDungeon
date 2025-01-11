@@ -40,7 +40,7 @@ void UMoverComponent::MoveToTargetLocation()
 
 	GetOwner()->SetActorLocation(NewLocation);
 
-	if (CurrentLocation != TargetLocation && (NotActivatedUnlockerActors.Num() == 0 || AliveActors.Num() == 0))
+	if (CurrentLocation != TargetLocation && (NotActivatedUnlockerActors.Num() == 0 && AliveActors.Num() == 0))
 	{
 		GetWorld()->GetTimerManager().SetTimerForNextTick(this, &UMoverComponent::MoveToTargetLocation);
 	}

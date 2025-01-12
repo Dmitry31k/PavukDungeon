@@ -28,10 +28,11 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-	void Grab();
-	void Release();
-	void Shoot();
-	void MeleeAttack();
+
+	void Grab() override;
+	void Release() override;
+	void Shoot() override;
+	void MeleeAttack() override;
 
 private:
 
@@ -41,7 +42,6 @@ private:
 
 	UPROPERTY(VisibledefaultsOnly)
 	class UCameraComponent* Camera;
-
 	UPROPERTY(VisibledefaultsOnly)
 	class USpringArmComponent* Arm;
 
@@ -55,4 +55,17 @@ private:
 	class ALever* Lever;
 
 	void ActivateLever(FHitResult ActivateLeverHitResult);
+
+	UPROPERTY(EditdefaultsOnly, category = "combat")
+	float RechargingShootSpeed = 2;
+	bool CanShoot = true;
+	FTimerHandle SetShootTimerHandle;
+
+	void SetCanShootTrue();
+	void SetWasMeleeDamageFalse();
+
+	UPROPERTY(EditdefaultsOnly, category = "combat")
+	float RechargingMeleeDamageSpeed = 0.25;
+	bool WasMeleeDamage = false;
+	FTimerHandle SetWasMeleeDamagedTimerHandle;
 };

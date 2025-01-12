@@ -22,10 +22,18 @@ protected:
 	UPROPERTY(EditDefaultsOnly)
 	class UNiagaraSystem* DeathParticles;
 
+	UPROPERTY(EditDefaultsOnly)
+	TSubclassOf<class AProjectile> ProjectileClass;
+	UPROPERTY(VisibleDefaultsOnly)
+	class USceneComponent* ProjectileSpawnPoint;
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	virtual void CharacterDied();	
+	virtual void CharacterDied();
+
+	virtual void Shoot();
+	virtual void MeleeAttack();
 
 };

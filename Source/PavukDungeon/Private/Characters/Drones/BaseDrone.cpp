@@ -35,14 +35,5 @@ void ABaseDrone::Tick(float DeltaTime)
 
 void ABaseDrone::Shoot()
 {
-	if (ProjectileClass == nullptr)
-	{
-		return;
-	}
-	
-	AProjectile* Projectile = GetWorld()->SpawnActor<AProjectile>(ProjectileClass,
-	ProjectileSpawnPoint->GetComponentLocation(),
-	ProjectileSpawnPoint->GetComponentRotation());
-
-	Projectile->SetOwner(this);
+	Super::Shoot();
 }

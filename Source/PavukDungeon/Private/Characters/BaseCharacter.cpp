@@ -4,6 +4,7 @@
 #include "Characters/BaseCharacter.h"
 #include "NiagaraFunctionLibrary.h"
 #include "NiagaraSystem.h"
+#include "Actors/EnemyActors/Projectile.h"
 
 // Sets default values
 ABaseCharacter::ABaseCharacter()
@@ -35,4 +36,23 @@ void ABaseCharacter::CharacterDied()
 	}
 
 	Destroy();
+}
+
+void ABaseCharacter::Shoot()
+{
+	if (ProjectileClass == nullptr)
+	{
+		return;
+	}
+	
+	AProjectile* Projectile = GetWorld()->SpawnActor<AProjectile>(ProjectileClass,
+	ProjectileSpawnPoint->GetComponentLocation(),
+	ProjectileSpawnPoint->GetComponentRotation());
+
+	Projectile->SetOwner(this);
+}
+
+void ABaseCharacter::MeleeAttack()
+{
+
 }

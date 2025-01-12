@@ -6,7 +6,6 @@
 #include "Components/CapsuleComponent.h"
 #include "DrawDebugHelpers.h"
 #include "Actors/InteractiveActors/Lever.h"
-#include "Actors/EnemyActors/Projectile.h"
 #include "Gamemodes/DefaultGamemode.h"
 #include "PlayerControllers/DefaultPlayerController.h"
 
@@ -32,7 +31,6 @@ void APlayerPavuk::BeginPlay()
 void APlayerPavuk::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);    
-    
 
 }
 
@@ -118,10 +116,33 @@ void APlayerPavuk::CharacterDied()
 
 void APlayerPavuk::Shoot()
 {
-    Super::Shoot();
+    // Prevent spamming range attacks: call the base class shoot only if shooting is allowed.
+    if (CanShoot)
+    {
+        Super::Shoot();
+
+        CanShoot = false;
+        GetWorldTimerManager().SetTimer(SetShootTimerHandle, this, &APlayerPavuk::SetCanShootTrue, RechargingShootSpeed, false);
+    }
+}
+
+void APlayerPavuk::SetCanShootTrue()
+{
+	CanShoot = true;
+}
+void APlayerPavuk::SetWasMeleeDamageFalse()
+{
+	WasMeleeDamage = false;
 }
 
 void APlayerPavuk::MeleeAttack()
 {
-    Super::MeleeAttack();
+    // Prevent spamming melee attacks: call the base class attack only if melee damage is allowed.
+    if (!WasMeleeDamage)
+    {
+        Super::MeleeAttack();
+
+        WasMeleeDamage = true;
+        GetWorldTimerManager().SetTimer(SetWasMeleeDamagedTimerHandle, this, &APlayerPavuk::SetWasMeleeDamageFalse, RechargingMeleeDamageSpeed, false);
+    }
 }

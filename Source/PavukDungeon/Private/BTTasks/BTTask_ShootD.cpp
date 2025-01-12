@@ -2,7 +2,7 @@
 
 
 #include "BTTasks/BTTask_ShootD.h"
-#include "Characters/Drones/BaseDrone.h"
+#include "Characters/BaseCharacter.h"
 #include "AIController.h"
 
 UBTTask_ShootD::UBTTask_ShootD()
@@ -14,14 +14,14 @@ EBTNodeResult::Type UBTTask_ShootD::ExecuteTask(UBehaviorTreeComponent& OwnerCom
 {
     Super::ExecuteTask(OwnerComp, NodeMemory);
 
-    ABaseDrone* Drone = Cast<ABaseDrone>(OwnerComp.GetAIOwner()->GetPawn());
+    ABaseCharacter* Character = Cast<ABaseCharacter>(OwnerComp.GetAIOwner()->GetPawn());
 
-    if (Drone == nullptr)
+    if (Character == nullptr)
     {
         return EBTNodeResult::Failed;
     }
 
-    Drone->Shoot();
+    Character->Shoot();
 
     return EBTNodeResult::Succeeded;
 }

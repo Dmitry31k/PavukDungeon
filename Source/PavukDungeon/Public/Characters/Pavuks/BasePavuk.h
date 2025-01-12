@@ -21,7 +21,6 @@ protected:
 
 	virtual void Grab();
 	virtual void Release();
-	virtual void MeleeAttack();
 
 	UFUNCTION()
 	virtual void OverlapJawDamagerBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult);
@@ -44,7 +43,8 @@ protected:
 	UPROPERTY()
 	class UPhysicsHandleComponent* PhysicsHandle;
 
-	virtual void Shoot();
+	virtual void Shoot() override;
+	virtual void MeleeAttack() override;
 
 public:
 
@@ -57,27 +57,8 @@ private:
 	class USphereComponent* SphereCollision1;
 	UPROPERTY(VisibleDefaultsOnly)
 	class USphereComponent* SphereCollision2;
-	UPROPERTY(VisibleDefaultsOnly)
-	class USceneComponent* ProjectileSpawnPoint;
 
-	bool CanShoot = true;
-	bool WasMeleeDamage = false;
 	bool IsHoldingObject = false;
-
-	FTimerHandle SetShootTimerHandle;
-	FTimerHandle SetWasMeleeDamagedTimerHandle;
-
-	UPROPERTY(EditdefaultsOnly, category = "combat")
-	TSubclassOf<class AProjectile> ProjectileClass;
-
-	UPROPERTY(EditdefaultsOnly, category = "combat")
-	float RechargingShootSpeed = 3;
-
-	UPROPERTY(EditdefaultsOnly, category = "combat")
-	float RechargingMeleeDamageSpeed = 0.25;
-	
-	virtual void SetCanShootTrue();
-	virtual void SetWasMeleeDamageFalse();
 
 	void UpdatePhysicsHandleComponent();
 

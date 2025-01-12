@@ -7,7 +7,6 @@
 #include "GameFramework/Character.h"
 #include "PhysicsEngine/PhysicsHandleComponent.h"
 #include "Components/SceneComponent.h"
-#include "Actors/EnemyActors/Projectile.h"
 #include "Components/HealthComponent.h"
 #include "Animation/AnimInstance.h"
 #include "Animation/AnimMontage.h"
@@ -100,7 +99,6 @@ void ABasePavuk::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	
 }
 
 void ABasePavuk::Release()
@@ -111,33 +109,12 @@ void ABasePavuk::Release()
 
 void ABasePavuk::Shoot()
 {
-	if (ProjectileClass && CanShoot)
-	{
-		AProjectile* Projectile = GetWorld()->SpawnActor<AProjectile>(ProjectileClass, 
-			ProjectileSpawnPoint->GetComponentLocation(), 
-			ProjectileSpawnPoint->GetComponentRotation()
-		);
-
-		CanShoot = false;
-		GetWorldTimerManager().SetTimer(SetShootTimerHandle, this, &ABasePavuk::SetCanShootTrue, RechargingShootSpeed, false);
-
-		Projectile->SetOwner(this);
-	}
-}
-
-void ABasePavuk::SetCanShootTrue()
-{
-	CanShoot = true;
-}
-
-void ABasePavuk::SetWasMeleeDamageFalse()
-{
-	WasMeleeDamage = false;
+	Super::Shoot();
 }
 
 void ABasePavuk::MeleeAttack()
 {
-	if (MeleeAttacksArray.Num() > 0 && !WasMeleeDamage)
+	if (MeleeAttacksArray.Num() > 0)
 	{
 		int32 RandomAttackIndex = FMath::RandRange(0, MeleeAttacksArray.Num() - 1);
 		if (MeleeAttacksArray[RandomAttackIndex])
@@ -145,14 +122,11 @@ void ABasePavuk::MeleeAttack()
 			GetMesh()->GetAnimInstance()->Montage_Play(MeleeAttacksArray[RandomAttackIndex]);
 		}
 
-		if (HaveToDamageActor && !WasMeleeDamage && MeleeAttacksArray[RandomAttackIndex] != TailAttack)
+		if (HaveToDamageActor && MeleeAttacksArray[RandomAttackIndex] != TailAttack)
 		{
 			UGameplayStatics::ApplyDamage(HaveToDamageActor, MeleeDamage, GetInstigatorController(), this, UDamageType::StaticClass());
 		}
 	}
-
-	WasMeleeDamage = true;
-	GetWorldTimerManager().SetTimer(SetWasMeleeDamagedTimerHandle, this, &ABasePavuk::SetWasMeleeDamageFalse, RechargingMeleeDamageSpeed, false);
 }
 
 void ABasePavuk::OverlapJawDamagerBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)

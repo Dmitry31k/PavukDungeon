@@ -3,7 +3,6 @@
 
 #include "AIControllers/AIController_DroneWithLaser.h"
 #include "BehaviorTree/BlackboardComponent.h"
-#include "Kismet/GameplayStatics.h"
 #include "BehaviorTree/BehaviorTree.h"
 
 void AAIController_DroneWithLaser::BeginPlay()
@@ -14,8 +13,10 @@ void AAIController_DroneWithLaser::BeginPlay()
     {
         RunBehaviorTree(DroneWithLaserBehaviorTreeClass);
 
-        GetBlackboardComponent()->SetValueAsVector(TEXT("StartDroneLocation"), GetPawn()->GetActorLocation());
-        GetBlackboardComponent()->SetValueAsVector(TEXT("StartDroneForwardVector"), GetPawn()->GetActorForwardVector());
+        APawn* OwnerPawn = GetPawn();
+
+        GetBlackboardComponent()->SetValueAsVector(TEXT("StartDroneLocation"), OwnerPawn->GetActorLocation());
+        GetBlackboardComponent()->SetValueAsVector(TEXT("StartDroneForwardVector"), OwnerPawn->GetActorForwardVector());
         
         GetWorldTimerManager().SetTimer(SetVariablesTimer, this, &AAIController_DroneWithLaser::SetVariabledIntoBlackboard, 0.25, false);
     }

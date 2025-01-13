@@ -20,7 +20,7 @@ protected:
 
 private:
 
-	UPROPERTY(EditDefaultsOnly)
+	UPROPERTY(EditDefaultsOnly, category = "Behavior")
 	class UBehaviorTree* DroneBehaviorTreeClass;
 	
 };

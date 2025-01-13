@@ -13,5 +13,14 @@ UCLASS()
 class PAVUKDUNGEON_API AAIController_WarriorPavuk : public AAIController
 {
 	GENERATED_BODY()
+
+protected:
+
+	virtual void BeginPlay() override;
+
+private:
+
+	UPROPERTY(EditDefaultsOnly, category = "Bihavior")
+	class UBehaviorTree* WarriorPavukBehaviorTreeClass;
 	
 };

@@ -3,8 +3,6 @@
 
 #include "AIControllers/AIController_Drone.h"
 #include "BehaviorTree/BlackboardComponent.h"
-#include "Kismet/GameplayStatics.h"
-#include "Kismet/KismetSystemLibrary.h"
 #include "BehaviorTree/BehaviorTree.h"
 
 void AAIController_Drone::BeginPlay()
@@ -15,7 +13,9 @@ void AAIController_Drone::BeginPlay()
     {
         RunBehaviorTree(DroneBehaviorTreeClass);
 
-        GetBlackboardComponent()->SetValueAsVector(TEXT("StartDroneLocation"), GetPawn()->GetActorLocation());
-        GetBlackboardComponent()->SetValueAsVector(TEXT("StartDroneForwardVector"), GetPawn()->GetActorForwardVector() * 800 + GetPawn()->GetActorLocation());
+        APawn* OwnerPawn = GetPawn();
+
+        GetBlackboardComponent()->SetValueAsVector(TEXT("StartDroneLocation"), OwnerPawn->GetActorLocation());
+        GetBlackboardComponent()->SetValueAsVector(TEXT("StartDroneForwardVector"), OwnerPawn->GetActorForwardVector() * 800 + OwnerPawn->GetActorLocation());
     }
 }

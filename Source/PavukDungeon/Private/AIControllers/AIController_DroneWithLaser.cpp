@@ -14,9 +14,10 @@ void AAIController_DroneWithLaser::BeginPlay()
         RunBehaviorTree(DroneWithLaserBehaviorTreeClass);
 
         APawn* OwnerPawn = GetPawn();
+        StartLocation = OwnerPawn->GetActorLocation();
 
-        GetBlackboardComponent()->SetValueAsVector(TEXT("StartDroneLocation"), OwnerPawn->GetActorLocation());
-        GetBlackboardComponent()->SetValueAsVector(TEXT("StartDroneForwardVector"), OwnerPawn->GetActorForwardVector());
+        GetBlackboardComponent()->SetValueAsVector(TEXT("StartDroneLocation"), StartLocation);
+        GetBlackboardComponent()->SetValueAsVector(TEXT("StartDroneForwardVector"), StartLocation + OwnerPawn->GetActorForwardVector() * 8);
         
         GetWorldTimerManager().SetTimer(SetVariablesTimer, this, &AAIController_DroneWithLaser::SetVariabledIntoBlackboard, 0.25, false);
     }
@@ -24,12 +25,37 @@ void AAIController_DroneWithLaser::BeginPlay()
 
 void AAIController_DroneWithLaser::SetVariabledIntoBlackboard()
 {
-    GetBlackboardComponent()->SetValueAsVector(TEXT("FirstMoveOffset"), FirstMoveOffset_AIController);
-    GetBlackboardComponent()->SetValueAsVector(TEXT("SecondMoveOffset"), SecondMoveOffset_AIController);
-    GetBlackboardComponent()->SetValueAsVector(TEXT("ThirdMoveOffset"), ThirdtMoveOffset_AIController);
-    GetBlackboardComponent()->SetValueAsVector(TEXT("FourthMoveOffset"), FourthMoveOffset_AIController);
-    GetBlackboardComponent()->SetValueAsVector(TEXT("FifthMoveOffset"), FifthMoveOffset_AIController);
     GetBlackboardComponent()->SetValueAsBool(TEXT("MustRotating"), MustRotating_AIController);
     GetBlackboardComponent()->SetValueAsBool(TEXT("MustMoving"), MustMoving_AIController);
     GetBlackboardComponent()->SetValueAsBool(TEXT("MustRotatingAndMoving"), MustRotatingAndMoving_AIController);
+
+    if (StartLocation == FirstMoveOffset_AIController)
+    {
+        return;
+    }
+    GetBlackboardComponent()->SetValueAsVector(TEXT("FirstMoveOffset"), FirstMoveOffset_AIController);
+
+    if (FirstMoveOffset_AIController == SecondMoveOffset_AIController)
+    {
+        return;
+    }
+    GetBlackboardComponent()->SetValueAsVector(TEXT("SecondMoveOffset"), SecondMoveOffset_AIController);
+
+    if (ThirdtMoveOffset_AIController == SecondMoveOffset_AIController)
+    {
+        return;
+    }
+    GetBlackboardComponent()->SetValueAsVector(TEXT("ThirdMoveOffset"), ThirdtMoveOffset_AIController);
+
+    if (FourthMoveOffset_AIController == ThirdtMoveOffset_AIController)
+    {
+        return;
+    }
+    GetBlackboardComponent()->SetValueAsVector(TEXT("FourthMoveOffset"), FourthMoveOffset_AIController);
+
+    if (FifthMoveOffset_AIController == FourthMoveOffset_AIController)
+    {
+        return;
+    }
+    GetBlackboardComponent()->SetValueAsVector(TEXT("FifthMoveOffset"), FifthMoveOffset_AIController);
 }

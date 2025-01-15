@@ -40,4 +40,6 @@ private:
 	//Function that set blackboard variables
 	void SetVariabledIntoBlackboard();
 
+	FVector StartLocation;
+
 };

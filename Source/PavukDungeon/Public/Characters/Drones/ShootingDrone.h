@@ -18,10 +18,7 @@ public:
 
 	AShootingDrone();
 
-	virtual void Shoot() override;
-
 	bool IsDroneLineOfSightOverlappedByPlayer = false;
-	bool IsWasShotedByPlayer = false;
 
 	UPROPERTY(EditAnywhere)
 	class USpotLightComponent* VisionBacklight;
@@ -38,10 +35,8 @@ private:
 	UFUNCTION()
 	void IsDroneLineOfSightEndOverlapByPlayer(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 
-	UFUNCTION()
-	void DroneWasShotedByPlayer(AActor* DamagedActor, float Damage, const UDamageType* DamageType, AController* InstigatedBy, AActor* DamageCauser);
-
 	UPROPERTY(VisibleAnywhere)
-	class USphereComponent* DroneLineOfSight;	
-	
+	class USphereComponent* DroneLineOfSight;
+
+	virtual void Shoot() override;	
 };

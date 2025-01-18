@@ -5,6 +5,7 @@
 #include "NiagaraFunctionLibrary.h"
 #include "NiagaraSystem.h"
 #include "Actors/EnemyActors/Projectile.h"
+#include "Characters/Pavuks/PlayerPavuk.h"
 
 // Sets default values
 ABaseCharacter::ABaseCharacter()
@@ -19,6 +20,7 @@ void ABaseCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	OnTakeAnyDamage.AddDynamic(this, &ABaseCharacter::WasHitByPlayer);
 }
 
 // Called every frame
@@ -55,4 +57,12 @@ void ABaseCharacter::Shoot()
 void ABaseCharacter::MeleeAttack()
 {
 
+}
+
+void ABaseCharacter::WasHitByPlayer(AActor* DamagedActor, float Damage, const UDamageType* DamageType, AController* InstigatedBy, AActor* DamageCauser)
+{
+	if (Cast<APlayerPavuk>(DamageCauser->GetOwner()) || Cast<APlayerPavuk>(DamageCauser))
+	{
+		IsWasHitByPlayer = true;
+	}
 }

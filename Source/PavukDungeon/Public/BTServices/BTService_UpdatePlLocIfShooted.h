@@ -24,6 +24,6 @@ protected:
 
 private:
 
-	void UpdatePlayerLocationIfShootedByPlayer(UBehaviorTreeComponent& OwnerComp, class AShootingDrone* Drone, APawn* PlayerPawn);
+	void UpdatePlayerLocationIfShootedByPlayer(UBehaviorTreeComponent& OwnerComp, class ABaseCharacter* OwnerBaseCharacterPawn, APawn* PlayerPawn);
 
 };

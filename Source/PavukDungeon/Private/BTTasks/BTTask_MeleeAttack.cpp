@@ -1,16 +1,16 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "BTTasks/BTTask_ShootD.h"
-#include "Characters/BaseCharacter.h"
+#include "BTTasks/BTTask_MeleeAttack.h"
 #include "AIController.h"
+#include "Characters/BaseCharacter.h"
 
-UBTTask_ShootD::UBTTask_ShootD()
+UBTTask_MeleeAttack::UBTTask_MeleeAttack()
 {
-    NodeName = "Shoot";
+    NodeName = "Melee attack";
 }
 
-EBTNodeResult::Type UBTTask_ShootD::ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory)
+EBTNodeResult::Type UBTTask_MeleeAttack::ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory)
 {
     Super::ExecuteTask(OwnerComp, NodeMemory);
 
@@ -21,7 +21,7 @@ EBTNodeResult::Type UBTTask_ShootD::ExecuteTask(UBehaviorTreeComponent& OwnerCom
         return EBTNodeResult::Failed;
     }
 
-    Character->Shoot();
+    Character->MeleeAttack();
 
     return EBTNodeResult::Succeeded;
 }

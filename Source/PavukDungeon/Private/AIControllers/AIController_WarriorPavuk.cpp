@@ -16,6 +16,6 @@ void AAIController_WarriorPavuk::BeginPlay()
         APawn* OwnerPawn = GetPawn();
 
         GetBlackboardComponent()->SetValueAsVector(TEXT("WarriorPavukStartLocation"), OwnerPawn->GetActorLocation());
-        GetBlackboardComponent()->SetValueAsVector(TEXT("WarriorStartPavukForwardVector"), OwnerPawn->GetActorForwardVector() * 800 + OwnerPawn->GetActorLocation());
+        GetBlackboardComponent()->SetValueAsVector(TEXT("WarriorPavukStartForwardVector"), OwnerPawn->GetActorForwardVector() * 800 + OwnerPawn->GetActorLocation());
     }
 }

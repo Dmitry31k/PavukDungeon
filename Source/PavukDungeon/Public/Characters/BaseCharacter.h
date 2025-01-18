@@ -36,4 +36,11 @@ public:
 	virtual void Shoot();
 	virtual void MeleeAttack();
 
+	bool IsWasHitByPlayer = false;
+
+private:
+
+	UFUNCTION()
+	void WasHitByPlayer(AActor* DamagedActor, float Damage, const UDamageType* DamageType, AController* InstigatedBy, AActor* DamageCauser);
+
 };

@@ -2,7 +2,7 @@
 
 
 #include "BTServices/BTService_UpdatePlLocIfShooted.h"
-#include "Characters/Drones/ShootingDrone.h"
+#include "Characters/BaseCharacter.h"
 #include "BehaviorTree/BlackboardComponent.h"
 #include "AIController.h"
 #include "Kismet/GameplayStatics.h"
@@ -16,22 +16,22 @@ void UBTService_UpdatePlLocIfShooted::TickNode(UBehaviorTreeComponent& OwnerComp
 {
     Super::TickNode(OwnerComp, NodeMemory, DeltaSeconds);
 
-    AShootingDrone* Drone = Cast<AShootingDrone>(OwnerComp.GetAIOwner()->GetPawn());
+    ABaseCharacter* OwnerBaseCharacterPawn = Cast<ABaseCharacter>(OwnerComp.GetAIOwner()->GetPawn());
     APawn* PlayerPawn = UGameplayStatics::GetPlayerPawn(this, 0);
 
-    if (Drone == nullptr || PlayerPawn == nullptr)
+    if (OwnerBaseCharacterPawn == nullptr || PlayerPawn == nullptr)
     {
         return;
     }
 
-    UpdatePlayerLocationIfShootedByPlayer(OwnerComp, Drone, PlayerPawn);
+    UpdatePlayerLocationIfShootedByPlayer(OwnerComp, OwnerBaseCharacterPawn, PlayerPawn);
 }
 
-void UBTService_UpdatePlLocIfShooted::UpdatePlayerLocationIfShootedByPlayer(UBehaviorTreeComponent& OwnerComp, class AShootingDrone* Drone, APawn* PlayerPawn)
+void UBTService_UpdatePlLocIfShooted::UpdatePlayerLocationIfShootedByPlayer(UBehaviorTreeComponent& OwnerComp, class ABaseCharacter* OwnerBaseCharacterPawn, APawn* PlayerPawn)
 {
-    if (Drone->IsWasShotedByPlayer)
+    if (OwnerBaseCharacterPawn->IsWasHitByPlayer)
     {
         OwnerComp.GetBlackboardComponent()->SetValueAsVector(GetSelectedBlackboardKey(), PlayerPawn->GetActorLocation());
-        Drone->IsWasShotedByPlayer = false;
+        OwnerBaseCharacterPawn->IsWasHitByPlayer = false;
     }
 }

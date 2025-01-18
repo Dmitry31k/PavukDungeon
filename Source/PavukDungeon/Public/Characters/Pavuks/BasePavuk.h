@@ -54,9 +54,7 @@ public:
 private:
 
 	UPROPERTY(VisibleDefaultsOnly)
-	class USphereComponent* SphereCollision1;
-	UPROPERTY(VisibleDefaultsOnly)
-	class USphereComponent* SphereCollision2;
+	class UBoxComponent* CharacterBoxCollision;
 
 	bool IsHoldingObject = false;
 
@@ -81,4 +79,6 @@ private:
 
 	UPROPERTY()
 	AActor* HaveToDamageActor;
+
+	bool DroneLineOfSight(UPrimitiveComponent* OtherComp);
 };

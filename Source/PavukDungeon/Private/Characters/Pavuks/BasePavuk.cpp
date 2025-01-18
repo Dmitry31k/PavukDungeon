@@ -1,8 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "Characters/Pavuks/BasePavuk.h"
 #include "Components/SphereComponent.h"
+#include "Components/BoxComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/Character.h"
 #include "PhysicsEngine/PhysicsHandleComponent.h"
@@ -13,6 +13,7 @@
 #include "Components/BoxComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "Components/SpotLightComponent.h"
+#include "Characters/Drones/ShootingDrone.h"
 
 // Sets default values
 ABasePavuk::ABasePavuk()
@@ -20,18 +21,16 @@ ABasePavuk::ABasePavuk()
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	SphereCollision1 = CreateDefaultSubobject<USphereComponent>(TEXT("Collion1"));
-	SphereCollision2 = CreateDefaultSubobject<USphereComponent>(TEXT("Collion2"));
+	CharacterBoxCollision = CreateDefaultSubobject<UBoxComponent>(TEXT("Collion1"));
+	CharacterBoxCollision->SetCanEverAffectNavigation(false);
+
 	PhysicsHandle = CreateDefaultSubobject<UPhysicsHandleComponent>(TEXT("PhysicsHandle"));
 
-	SphereCollision1->AddLocalOffset(FVector(-40, 0, 7));
-	SphereCollision2->AddLocalOffset(FVector(50, 0, 7));
-	SphereCollision1->SetupAttachment(RootComponent);
-	SphereCollision2->SetupAttachment(RootComponent);
-	SphereCollision1->SetCollisionProfileName(TEXT("Pawn"));
-	SphereCollision2->SetCollisionProfileName(TEXT("Pawn"));
-	SphereCollision1->CanCharacterStepUpOn = ECB_No;
-	SphereCollision2->CanCharacterStepUpOn = ECB_No;
+	CharacterBoxCollision->SetBoxExtent(FVector(60, 32, 32));
+	CharacterBoxCollision->AddLocalOffset(FVector(0, 0, 7));
+	CharacterBoxCollision->SetupAttachment(RootComponent);
+	CharacterBoxCollision->SetCollisionProfileName(TEXT("Pawn"));
+	CharacterBoxCollision->CanCharacterStepUpOn = ECB_No;
 
 	ProjectileSpawnPoint = CreateDefaultSubobject<USceneComponent>(TEXT("ProjectileSpawner"));
 	ProjectileSpawnPoint->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform, TEXT("SpawnSocket"));
@@ -124,6 +123,7 @@ void ABasePavuk::MeleeAttack()
 
 		if (HaveToDamageActor && MeleeAttacksArray[RandomAttackIndex] != TailAttack)
 		{
+			UE_LOG(LogTemp, Display, TEXT("ApplyDamage jaw"));
 			UGameplayStatics::ApplyDamage(HaveToDamageActor, MeleeDamage, GetInstigatorController(), this, UDamageType::StaticClass());
 		}
 	}
@@ -131,7 +131,7 @@ void ABasePavuk::MeleeAttack()
 
 void ABasePavuk::OverlapJawDamagerBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
 {
-	if (OverlappedComp->GetOwner() != OtherActor)
+	if (OverlappedComp->GetOwner() != OtherActor && !DroneLineOfSight(OtherComp))
 	{
 		HaveToDamageActor = OtherActor;
 	}
@@ -146,12 +146,8 @@ void ABasePavuk::OverlapJawDamagerEnd(UPrimitiveComponent* OverlappedComponent, 
 
 void ABasePavuk::OverlapTailDamagerBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
 {
-	if (OverlappedComp->GetOwner() != OtherActor, OtherActor != this)
+	if (OverlappedComp->GetOwner() != OtherActor && OtherActor != this && !DroneLineOfSight(OtherComp))
 	{
-		if (Cast<USphereComponent>(OtherComp) || Cast<USpotLightComponent>(OtherComp))
-		{
-			return;
-		}
 		UGameplayStatics::ApplyDamage(OtherActor, MeleeDamage, GetInstigatorController(), this, UDamageType::StaticClass());
 	}
 }
@@ -166,4 +162,16 @@ void ABasePavuk::UpdatePhysicsHandleComponent()
 	PhysicsHandle->SetTargetLocationAndRotation(HoldLocation, GetActorRotation());
 	
 	GetWorld()->GetTimerManager().SetTimerForNextTick(this, &ABasePavuk::UpdatePhysicsHandleComponent);	
+}
+
+bool ABasePavuk::DroneLineOfSight(UPrimitiveComponent* OtherComp)
+{
+	if (OtherComp->GetName() == TEXT("Drone line of sight") || Cast<USpotLightComponent>(OtherComp))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }

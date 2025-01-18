@@ -21,7 +21,7 @@ void AShootingDrone::BeginPlay()
 	
 	DroneLineOfSight->OnComponentBeginOverlap.AddDynamic(this, &AShootingDrone::IsDroneLineOfSightBeginOverlapByPlayer);
 	DroneLineOfSight->OnComponentEndOverlap.AddDynamic(this, &AShootingDrone::IsDroneLineOfSightEndOverlapByPlayer);
-	OnTakeAnyDamage.AddDynamic(this, &AShootingDrone::DroneWasShotedByPlayer);
+
 }
 
 void AShootingDrone::Shoot()
@@ -42,13 +42,5 @@ void AShootingDrone::IsDroneLineOfSightEndOverlapByPlayer(UPrimitiveComponent* O
 	if (Cast<APlayerPavuk>(OtherActor))
 	{
 		IsDroneLineOfSightOverlappedByPlayer = false;
-	}
-}
-
-void AShootingDrone::DroneWasShotedByPlayer(AActor* DamagedActor, float Damage, const UDamageType* DamageType, AController* InstigatedBy, AActor* DamageCauser)
-{
-	if (Cast<APlayerPavuk>(DamageCauser->GetOwner()))
-	{
-		IsWasShotedByPlayer = true;
 	}
 }

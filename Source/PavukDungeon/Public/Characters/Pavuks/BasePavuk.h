@@ -75,10 +75,17 @@ private:
 	UPROPERTY(EditDefaultsOnly, category = "Animation")
 	UAnimMontage* JawAttack;
 
+	UPROPERTY()
+	UAnimMontage* CurrentAnimMontage;
+
 	TArray<UAnimMontage*> MeleeAttacksArray;
 
 	UPROPERTY()
 	AActor* HaveToDamageActor;
+	UPROPERTY()
+	AActor* DamagedActor;
 
-	bool DroneLineOfSight(UPrimitiveComponent* OtherComp);
+	bool IsDroneLineOfSight(UPrimitiveComponent* OtherComp);
+
+	void ClearDamagedActor(UAnimMontage* Montage, bool bInterrupted);
 };

@@ -33,4 +33,11 @@ private:
 
 	UPROPERTY(EditAnywhere, category = "Combat")
 	float DistFromTarget = 500;
+
+	UPROPERTY(EditAnywhere, category = "Combat")
+	int32 LimitRandomPathGen = 100;
+
+	bool CanReach = false;
+
+	void GoToRandomPointWithDistFromTarget(class UNavigationSystemV1* InNavMesh, FVector CurrentOwnerLocation, FVector TargetLocation);
 };

@@ -5,9 +5,9 @@
 #include "BehaviorTree/BlackboardComponent.h"
 #include "BehaviorTree/BehaviorTree.h"
 
-void AAIController_SummonerPavuk::BeginPlay()
+void AAIController_SummonerPavuk::OnPossess(APawn* InPawn)
 {
-    Super::BeginPlay();
+    Super::OnPossess(InPawn);
 
     if (SummonerPavukBehaviorTreeClass)
     {

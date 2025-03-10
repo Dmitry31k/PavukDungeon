@@ -5,11 +5,11 @@
 #include "BehaviorTree/BlackboardComponent.h"
 #include "BehaviorTree/BehaviorTree.h"
 
-void AAIController_DroneWithLaser::BeginPlay()
+void AAIController_DroneWithLaser::OnPossess(APawn* InPawn)
 {
-    Super::BeginPlay();
-    
-    if (DroneWithLaserBehaviorTreeClass)
+    Super::OnPossess(InPawn);
+
+        if (DroneWithLaserBehaviorTreeClass)
     {
         RunBehaviorTree(DroneWithLaserBehaviorTreeClass);
 

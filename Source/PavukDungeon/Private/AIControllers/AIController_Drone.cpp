@@ -5,9 +5,9 @@
 #include "BehaviorTree/BlackboardComponent.h"
 #include "BehaviorTree/BehaviorTree.h"
 
-void AAIController_Drone::BeginPlay()
+void AAIController_Drone::OnPossess(APawn* InPawn)
 {
-    Super::BeginPlay();
+    Super::OnPossess(InPawn);
 
     if (DroneBehaviorTreeClass)
     {

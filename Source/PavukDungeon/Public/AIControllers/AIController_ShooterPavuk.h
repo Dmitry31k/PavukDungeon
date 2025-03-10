@@ -16,7 +16,7 @@ class PAVUKDUNGEON_API AAIController_ShooterPavuk : public AAIController
 
 protected:
 
-	virtual void BeginPlay() override;
+	virtual void OnPossess(APawn* InPawn) override;
 
 private:
 

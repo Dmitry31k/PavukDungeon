@@ -4,6 +4,7 @@
 #include "Actors/EnemyActors/Projectile.h"
 #include "Components/StaticMeshComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "GameFramework/ProjectileMovementComponent.h"
 
 // Sets default values
 AProjectile::AProjectile()
@@ -13,6 +14,11 @@ AProjectile::AProjectile()
 
 	ProjectileMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("BodyMesh"));
 	RootComponent = ProjectileMesh;
+
+	ProjectileMovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("MovementComponent"));
+	ProjectileMovementComponent->MaxSpeed = LaunchSpeed;
+	ProjectileMovementComponent->InitialSpeed = LaunchSpeed;
+	ProjectileMovementComponent->ProjectileGravityScale = 0.f;
 }
 
 // Called when the game starts or when spawned
@@ -20,22 +26,6 @@ void AProjectile::BeginPlay()
 {
 	Super::BeginPlay();
 	ProjectileMesh->OnComponentHit.AddDynamic(this, &AProjectile::OnComponentHit);
-}
-
-// Called every frame
-void AProjectile::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
-	MoveProjectile(DeltaTime);
-}
-
-void AProjectile::MoveProjectile(float DeltaTime)
-{
-	FVector CurrentLocation = GetActorLocation();
-	FVector TargetLocation = CurrentLocation + ProjectileMesh->GetForwardVector() * LaunchSpeed * DeltaTime;
-
-	SetActorLocation(TargetLocation, true);
 }
 
 void AProjectile::OnComponentHit(UPrimitiveComponent* HitComp, AActor* GotHitActor, UPrimitiveComponent* GotHitComp, FVector NormalImpulse, const FHitResult& Hit)

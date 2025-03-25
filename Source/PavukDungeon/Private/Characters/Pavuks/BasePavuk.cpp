@@ -19,7 +19,7 @@
 ABasePavuk::ABasePavuk()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = false;
 
 	CharacterBoxCollision = CreateDefaultSubobject<UBoxComponent>(TEXT("Collion1"));
 	CharacterBoxCollision->SetCanEverAffectNavigation(false);
@@ -91,13 +91,6 @@ void ABasePavuk::Grab()
 	IsHoldingObject = true;
 
 	UpdatePhysicsHandleComponent();
-}
-
-// Called every frame
-void ABasePavuk::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
 }
 
 void ABasePavuk::Release()

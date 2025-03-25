@@ -10,7 +10,7 @@
 ABaseDrone::ABaseDrone()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = false;
 
 	DroneFan = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Drone fan"));
 	DroneFan->SetupAttachment(RootComponent);
@@ -24,13 +24,6 @@ void ABaseDrone::BeginPlay()
 {
 	Super::BeginPlay();
 	
-}
-
-// Called every frame
-void ABaseDrone::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
 }
 
 void ABaseDrone::Shoot()

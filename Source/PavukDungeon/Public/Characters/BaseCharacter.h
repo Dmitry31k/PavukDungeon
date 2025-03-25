@@ -27,9 +27,7 @@ protected:
 	UPROPERTY(VisibleDefaultsOnly)
 	class USceneComponent* ProjectileSpawnPoint;
 
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+public:
 
 	virtual void CharacterDied();
 

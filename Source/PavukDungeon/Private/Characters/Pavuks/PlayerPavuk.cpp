@@ -12,7 +12,7 @@
 APlayerPavuk::APlayerPavuk()
 {
     // Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = false;
     Arm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
     Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 
@@ -25,13 +25,6 @@ void APlayerPavuk::BeginPlay()
     Super::BeginPlay();
     
 	DefaultPlayerController = Cast<ADefaultPlayerController>(GetController());    
-}
-
-// Called every frame
-void APlayerPavuk::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);    
-
 }
 
 // Called to bind functionality to input

@@ -12,8 +12,6 @@
 #include "Animation/AnimMontage.h"
 #include "Components/BoxComponent.h"
 #include "Kismet/GameplayStatics.h"
-#include "Components/SpotLightComponent.h"
-#include "Characters/Drones/ShootingDrone.h"
 
 // Sets default values
 ABasePavuk::ABasePavuk()
@@ -167,7 +165,7 @@ void ABasePavuk::UpdatePhysicsHandleComponent()
 
 bool ABasePavuk::IsDroneLineOfSight(UPrimitiveComponent* OtherComp)
 {
-	if (OtherComp->GetName() == TEXT("Drone line of sight") || Cast<USpotLightComponent>(OtherComp))
+	if (OtherComp->GetName() == TEXT("Drone line of sight") || OtherComp->GetName() == TEXT("Wision backlight"))
 	{
 		return true;
 	}

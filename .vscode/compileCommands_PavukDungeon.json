@@ -352,6 +352,38 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
+		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\UI\\HUD\\BaseHUD.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\UI\\WidgetControllers\\OverlayWidgetControllers.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\UI\\WidgetControllers\\WidgetControllerBase.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\UI\\Widgets\\BaseUserWidget.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
+	},
+	{
 		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\AIControllers\\AIController_Drone.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
@@ -673,6 +705,38 @@
 	},
 	{
 		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Triggers\\DeathBoxVolume.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\UI\\HUD\\BaseHUD.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\UI\\WidgetControllers\\OverlayWidgetControllers.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\UI\\WidgetControllers\\WidgetControllerBase.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\UI\\Widgets\\BaseUserWidget.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
 			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"

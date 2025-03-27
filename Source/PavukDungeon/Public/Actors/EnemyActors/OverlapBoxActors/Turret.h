@@ -3,11 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "BaseEnemyActor.h"
+#include "EnemyActorWithOverlapBoxComp.h"
 #include "Turret.generated.h"
 
 UCLASS()
-class PAVUKDUNGEON_API ATurret : public ABaseEnemyActor
+class PAVUKDUNGEON_API ATurret : public AEnemyActorWithOverlapBoxComp
 {
 	GENERATED_BODY()
 	
@@ -21,9 +21,11 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	virtual void TriggerBoxComponentBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult) override;
+	virtual void TriggerBoxComponentEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex) override;
+
 public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+
 
 private:
 
@@ -57,4 +59,5 @@ private:
 	TSubclassOf<class AProjectile> ProjectileClass;
 	
 	bool InFireRange = false;
+	bool IsActivated = false;
 };

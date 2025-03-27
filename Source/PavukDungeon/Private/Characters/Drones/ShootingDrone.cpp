@@ -13,6 +13,7 @@ AShootingDrone::AShootingDrone()
 
     DroneLineOfSight = CreateDefaultSubobject<USphereComponent>(TEXT("Drone line of sight"));
 	DroneLineOfSight->SetupAttachment(RootComponent);
+	DroneLineOfSight->ComponentTags.Add(FName("IgnoreDamage"));
 }
 
 void AShootingDrone::BeginPlay()

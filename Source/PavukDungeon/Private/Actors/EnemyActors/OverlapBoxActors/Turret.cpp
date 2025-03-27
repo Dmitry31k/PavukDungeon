@@ -1,26 +1,24 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "Actors/EnemyActors/Turret.h"
+#include "Actors/EnemyActors/OverlapBoxActors/Turret.h"
 #include "Kismet/GameplayStatics.h"
 #include "Characters/Pavuks/PlayerPavuk.h"
 #include "Math/UnrealMathUtility.h"
 #include "Components/SceneComponent.h"
 #include "Actors/EnemyActors/Projectile.h"
-#include "NiagaraFunctionLibrary.h"
-#include "NiagaraSystem.h"
 
 // Sets default values
 ATurret::ATurret()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = false;
 
 	TurretBase = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Base"));
 	TurretHead = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Head"));
 	ProjectileSpawnPoint = CreateDefaultSubobject<USceneComponent>(TEXT("ProjectileSpawner"));
 
-	RootComponent = TurretBase;
+	TurretBase->SetupAttachment(RootComponent);
 	TurretHead->SetupAttachment(TurretBase);
 	ProjectileSpawnPoint->SetupAttachment(TurretHead);
 }
@@ -31,19 +29,15 @@ void ATurret::BeginPlay()
 	Super::BeginPlay();
 	
 	PlayerPavuk = Cast<APlayerPavuk>(UGameplayStatics::GetPlayerCharacter(this, 0));
-	GetWorldTimerManager().SetTimer(ShootingTimerHandle, this, &ATurret::Shoot, ShootTimer, true);
-}
-
-// Called every frame
-void ATurret::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
-	RotateTurretHead();
 }
 
 void ATurret::RotateTurretHead()
 {
+	if (!IsActivated)
+	{
+		return;
+	}
+
 	FRotator CurrentTurretHeadRotation = TurretHead->GetRelativeRotation();
 
 	if (PlayerPavuk)
@@ -69,6 +63,8 @@ void ATurret::RotateTurretHead()
 			InFireRange = false;
 		}
 	}
+
+	GetWorldTimerManager().SetTimerForNextTick(this, &ATurret::RotateTurretHead);
 }
 
 void ATurret::Shoot()
@@ -87,4 +83,23 @@ void ATurret::Shoot()
 void ATurret::ActorDied()
 {
 	Super::ActorDied();
+}
+
+void ATurret::TriggerBoxComponentBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+	if (Cast<APlayerPavuk>(OtherActor))
+	{
+		IsActivated = true;
+		RotateTurretHead();
+		GetWorldTimerManager().SetTimer(ShootingTimerHandle, this, &ATurret::Shoot, ShootTimer, true);
+	}
+}
+
+void ATurret::TriggerBoxComponentEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+{
+	if (Cast<APlayerPavuk>(OtherActor))
+	{
+		IsActivated = false;
+		GetWorldTimerManager().ClearTimer(ShootingTimerHandle);
+	}
 }

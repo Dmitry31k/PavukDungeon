@@ -118,7 +118,7 @@ void ABasePavuk::MeleeAttack()
 			GetMesh()->GetAnimInstance()->Montage_SetEndDelegate(MontageEndedDelegate, MeleeAttacksArray[RandomAttackIndex]);
 		}
 
-		if (HaveToDamageActor && MeleeAttacksArray[RandomAttackIndex] != TailAttack)
+		if (HaveToDamageActor && MeleeAttacksArray[RandomAttackIndex])
 		{
 			DamageActor(HaveToDamageActor);
 		}
@@ -127,7 +127,7 @@ void ABasePavuk::MeleeAttack()
 
 void ABasePavuk::OverlapJawDamagerBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
 {
-	if (OverlappedComp->GetOwner() != OtherActor && !IsDroneLineOfSight(OtherComp))
+	if (OverlappedComp->GetOwner() != OtherActor && !OtherComp->ComponentHasTag(FName("IgnoreDamage")))
 	{
 		HaveToDamageActor = OtherActor;
 	}
@@ -142,10 +142,9 @@ void ABasePavuk::OverlapJawDamagerEnd(UPrimitiveComponent* OverlappedComponent, 
 
 void ABasePavuk::OverlapTailDamagerBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
 {
-	if (OverlappedComp->GetOwner() != OtherActor && OtherActor != this && !IsDroneLineOfSight(OtherComp) && DamagedActor != OtherActor)
-	{
+	if (OverlappedComp->GetOwner() != OtherActor && OtherActor != this && DamagedActor != OtherActor && !OtherComp->ComponentHasTag(FName("IgnoreDamage")))
+	{	
 		DamageActor(OtherActor);
-
 		DamagedActor = OtherActor;
 	}
 }
@@ -162,11 +161,6 @@ void ABasePavuk::UpdatePhysicsHandleComponent()
 	GetWorld()->GetTimerManager().SetTimerForNextTick(this, &ABasePavuk::UpdatePhysicsHandleComponent);	
 }
 
-bool ABasePavuk::IsDroneLineOfSight(UPrimitiveComponent* OtherComp)
-{
-	return OtherComp->GetName() == TEXT("Drone line of sight") || OtherComp->GetName() == TEXT("Wision backlight");
-}
-
 void ABasePavuk::ClearDamagedActor(UAnimMontage* Montage, bool bInterrupted)
 {
 	if (CurrentAnimMontage == Montage)
@@ -177,6 +171,7 @@ void ABasePavuk::ClearDamagedActor(UAnimMontage* Montage, bool bInterrupted)
 }
 
 void ABasePavuk::DamageActor(AActor* ToDamageActor)
-{
+{		
 	UGameplayStatics::ApplyDamage(ToDamageActor, MeleeDamage, GetInstigatorController(), this, UDamageType::StaticClass());
+	UE_LOG(LogTemp, Warning, TEXT("MeleeDamage to: %s"), *ToDamageActor->GetName());
 }

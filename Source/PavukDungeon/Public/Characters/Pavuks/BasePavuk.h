@@ -82,8 +82,6 @@ private:
 	UPROPERTY()
 	AActor* DamagedActor;
 
-	bool IsDroneLineOfSight(UPrimitiveComponent* OtherComp);
-
 	void ClearDamagedActor(UAnimMontage* Montage, bool bInterrupted);
 
 	void DamageActor(AActor* ToDamageActor);

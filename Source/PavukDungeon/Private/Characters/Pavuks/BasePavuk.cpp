@@ -120,7 +120,7 @@ void ABasePavuk::MeleeAttack()
 
 		if (HaveToDamageActor && MeleeAttacksArray[RandomAttackIndex] != TailAttack)
 		{
-			UGameplayStatics::ApplyDamage(HaveToDamageActor, MeleeDamage, GetInstigatorController(), this, UDamageType::StaticClass());
+			DamageActor(HaveToDamageActor);
 		}
 	}
 }
@@ -144,8 +144,7 @@ void ABasePavuk::OverlapTailDamagerBegin(UPrimitiveComponent* OverlappedComp, AA
 {
 	if (OverlappedComp->GetOwner() != OtherActor && OtherActor != this && !IsDroneLineOfSight(OtherComp) && DamagedActor != OtherActor)
 	{
-		UE_LOG(LogTemp, Display, TEXT("OverlapTailDamagerBegin: %s"), *OtherComp->GetName());
-		UGameplayStatics::ApplyDamage(OtherActor, MeleeDamage, GetInstigatorController(), this, UDamageType::StaticClass());
+		DamageActor(OtherActor);
 
 		DamagedActor = OtherActor;
 	}
@@ -165,14 +164,7 @@ void ABasePavuk::UpdatePhysicsHandleComponent()
 
 bool ABasePavuk::IsDroneLineOfSight(UPrimitiveComponent* OtherComp)
 {
-	if (OtherComp->GetName() == TEXT("Drone line of sight") || OtherComp->GetName() == TEXT("Wision backlight"))
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
+	return OtherComp->GetName() == TEXT("Drone line of sight") || OtherComp->GetName() == TEXT("Wision backlight");
 }
 
 void ABasePavuk::ClearDamagedActor(UAnimMontage* Montage, bool bInterrupted)
@@ -182,4 +174,9 @@ void ABasePavuk::ClearDamagedActor(UAnimMontage* Montage, bool bInterrupted)
 		DamagedActor = nullptr;
 		CurrentAnimMontage = nullptr;
 	}
+}
+
+void ABasePavuk::DamageActor(AActor* ToDamageActor)
+{
+	UGameplayStatics::ApplyDamage(ToDamageActor, MeleeDamage, GetInstigatorController(), this, UDamageType::StaticClass());
 }

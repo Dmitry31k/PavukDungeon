@@ -9,7 +9,7 @@
 
 ADroneWithLaser::ADroneWithLaser()
 {
-
+    PrimaryActorTick.bCanEverTick = true;
 }
 
 void ADroneWithLaser::BeginPlay()

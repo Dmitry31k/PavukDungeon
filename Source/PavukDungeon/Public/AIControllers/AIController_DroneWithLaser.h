@@ -6,6 +6,13 @@
 #include "AIController.h"
 #include "AIController_DroneWithLaser.generated.h"
 
+struct OffsetData
+{
+    FString Key;
+    FVector CurrentValue;
+    FVector PreviousValue;
+};
+
 /**
  * 
  */

@@ -6,6 +6,8 @@
 #include "Components/ActorComponent.h"
 #include "HealthComponent.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnCurrentHealthChangedSignature, float, NewHealth);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnMaxHealthChangedSignature, float, NewMaxHealth);
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class PAVUKDUNGEON_API UHealthComponent : public UActorComponent
@@ -23,6 +25,16 @@ protected:
 public:
 
 	bool IsAlive = true;
+	virtual float GetCurrentHealth() const;
+	virtual float GetMaxHealth() const;
+	virtual void SetCurrentHealth(float NewCurrentHealth);
+	virtual void SetMaxHealth(float NewMaxHealth);
+
+	UPROPERTY(BlueprintAssignable, category = "Variables")
+	FOnCurrentHealthChangedSignature OnCurrentHealthChanged;
+
+	UPROPERTY(BlueprintAssignable, category = "Variables")
+	FOnMaxHealthChangedSignature OnMaxHealthChanged;
 
 private:
 

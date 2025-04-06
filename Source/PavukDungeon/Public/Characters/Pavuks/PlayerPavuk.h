@@ -66,4 +66,6 @@ private:
 	float RechargingMeleeDamageSpeed = 0.25;
 	bool WasMeleeDamage = false;
 	FTimerHandle SetWasMeleeDamagedTimerHandle;
+
+	void InitOverlayOnHUD(APlayerController* InPlayerController, UHealthComponent* InHealthComponent);
 };

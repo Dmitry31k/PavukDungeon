@@ -40,6 +40,9 @@ protected:
 	FHitResult GrabHitResult;
 	float GrabSphereRadius = 30;
 
+	UPROPERTY(EditAnywhere)
+	class UHealthComponent* HealthComponent;
+
 	UPROPERTY()
 	class UPhysicsHandleComponent* PhysicsHandle;
 
@@ -56,9 +59,6 @@ private:
 	bool IsHoldingObject = false;
 
 	void UpdatePhysicsHandleComponent();
-
-	UPROPERTY(EditAnywhere)
-	class UHealthComponent* HealthComponent;
 
 	UPROPERTY(EditDefaultsOnly)
 	class UBoxComponent* BoxDamagerTail;

@@ -8,6 +8,7 @@
 #include "Actors/InteractiveActors/Lever.h"
 #include "Gamemodes/DefaultGamemode.h"
 #include "PlayerControllers/DefaultPlayerController.h"
+#include "UI/HUD/BaseHUD.h"
 
 APlayerPavuk::APlayerPavuk()
 {
@@ -24,7 +25,12 @@ void APlayerPavuk::BeginPlay()
 {
     Super::BeginPlay();
     
-	DefaultPlayerController = Cast<ADefaultPlayerController>(GetController());    
+	DefaultPlayerController = Cast<ADefaultPlayerController>(GetController());
+    
+    if (DefaultPlayerController)
+    {
+        InitOverlayOnHUD(DefaultPlayerController, HealthComponent);
+    }
 }
 
 // Called to bind functionality to input
@@ -137,5 +143,15 @@ void APlayerPavuk::MeleeAttack()
 
         WasMeleeDamage = true;
         GetWorldTimerManager().SetTimer(SetWasMeleeDamagedTimerHandle, this, &APlayerPavuk::SetWasMeleeDamageFalse, RechargingMeleeDamageSpeed, false);
+    }
+}
+
+void APlayerPavuk::InitOverlayOnHUD(APlayerController* InPlayerController, UHealthComponent* InHealthComponent)
+{
+    ABaseHUD* PlayerPavukHUD = Cast<ABaseHUD>(InPlayerController->GetHUD());
+
+    if (PlayerPavukHUD)
+    {
+        PlayerPavukHUD->InitOverlay(InPlayerController, InHealthComponent);
     }
 }

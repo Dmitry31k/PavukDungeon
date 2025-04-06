@@ -13,5 +13,18 @@ UCLASS()
 class PAVUKDUNGEON_API UBaseUserWidget : public UUserWidget
 {
 	GENERATED_BODY()
+
+public:
+
+	UPROPERTY(BlueprintReadOnly)
+	TObjectPtr<UObject> WidgetController;
+
+	UFUNCTION(BlueprintCallable)
+	void SetWidgetController(UObject* NewWidgetController);
+
+protected:
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void WidgetControllerSet();
 	
 };

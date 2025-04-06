@@ -30,9 +30,9 @@ void UHealthComponent::BeginPlay()
 	OwnerBaseActor = Cast<ABaseActor>(OwnerActor);
 }
 
-void UHealthComponent::DamageTaken (AActor* DamagedActor, float Damage, const UDamageType* DamageType, AController* Instigator, AActor* DamageCauser)
+void UHealthComponent::DamageTaken(AActor* DamagedActor, float Damage, const UDamageType* DamageType, AController* Instigator, AActor* DamageCauser)
 {
-	CurrentHealth -= Damage;
+	SetCurrentHealth(GetCurrentHealth() - Damage);
 	if (CurrentHealth <= 0 && DamagedActor == OwnerActor && OwnerActor)
 	{
 		if (OwnerCharacter)
@@ -44,4 +44,26 @@ void UHealthComponent::DamageTaken (AActor* DamagedActor, float Damage, const UD
 			OwnerBaseActor->ActorDied();
 		}
 	}
+}
+
+float UHealthComponent::GetCurrentHealth() const
+{
+	return CurrentHealth;
+}
+
+float UHealthComponent::GetMaxHealth() const
+{
+	return MaxHealth;
+}
+
+void UHealthComponent::SetCurrentHealth(float NewCurrentHealth)
+{
+	CurrentHealth = NewCurrentHealth;
+	OnCurrentHealthChanged.Broadcast(CurrentHealth);
+}
+
+void UHealthComponent::SetMaxHealth(float NewMaxHealth)
+{
+	MaxHealth = NewMaxHealth;
+	OnMaxHealthChanged.Broadcast(MaxHealth);
 }

@@ -6,10 +6,16 @@
 #include "Characters/Pavuks/PlayerPavuk.h"
 #include "Kismet/GameplayStatics.h"
 #include "AIControllers/AIController_DroneWithLaser.h"
+#include "NiagaraComponent.h"
+#include "NiagaraFunctionLibrary.h"
+#include "NiagaraSystem.h"
 
 ADroneWithLaser::ADroneWithLaser()
 {
     PrimaryActorTick.bCanEverTick = true;
+
+    LaserNiagaraComponent = CreateDefaultSubobject<UNiagaraComponent>(TEXT("LaserBeam"));
+    LaserNiagaraComponent->SetupAttachment(RootComponent);
 }
 
 void ADroneWithLaser::BeginPlay()
@@ -38,11 +44,15 @@ void ADroneWithLaser::LaserShoot()
 
     if(IsBlockingLaser)
     {
-        DrawDebugLine(GetWorld(), StartDrawingLineLocation, LineTraceHitResult.ImpactPoint, FColor::Red);
+        LaserNiagaraComponent->SetVectorParameter(TEXT("Beam End"), LineTraceHitResult.ImpactPoint);
+        // NOTE: Emitter spawn rate is currently tied to frame rate.
+        //       Lower FPS = fewer emitters = better performance on low-end devices.
+        //       TODO: Maybe make emitter spawn independent from FPS in the future.
+        UNiagaraFunctionLibrary::SpawnSystemAtLocation(GetWorld(), LaserFlashNiagaraSystem, LineTraceHitResult.ImpactPoint);
     }
     else
     {
-        DrawDebugLine(GetWorld(), StartDrawingLineLocation, EndDrawingLineLocation, FColor::Red);
+        LaserNiagaraComponent->SetVectorParameter(TEXT("Beam End"), EndDrawingLineLocation);
     }    
 }
 

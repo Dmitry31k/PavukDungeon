@@ -6,6 +6,8 @@
 #include "Characters/Drones/BaseDrone.h"
 #include "DroneWithLaser.generated.h"
 
+class UNiagaraComponent;
+
 /**
  * 
  */
@@ -69,5 +71,11 @@ private:
 
 	//Function that send Vectors & bools variables into AI controller for using into behavior script
 	void SendDataIntoAIController(class AAIController_DroneWithLaser* OwnerAIController);
+
+	UPROPERTY(EditDefaultsOnly, category = "Visual")
+	UNiagaraComponent* LaserNiagaraComponent;
+
+	UPROPERTY(EditDefaultsOnly, category = "Visual")
+	UNiagaraSystem* LaserFlashNiagaraSystem;
 
 };

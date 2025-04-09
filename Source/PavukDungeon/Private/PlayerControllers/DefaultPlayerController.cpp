@@ -2,10 +2,17 @@
 
 
 #include "PlayerControllers/DefaultPlayerController.h"
-#include "Blueprint/UserWidget.h"
+#include "UI/HUD/BaseHUD.h"
+#include "UI/Widgets/BaseUserWidget.h"
 
 void ADefaultPlayerController::GameHasFinished(bool IsPlayerWon)
 {
+    if (ABaseHUD* ActiveHUD = Cast<ABaseHUD>(GetHUD()))
+    {
+        ActiveHUD->OverlayWidget->RemoveFromViewport();
+    }
+    
+
     if (IsPlayerWon)
     {
 

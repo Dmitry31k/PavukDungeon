@@ -23,12 +23,10 @@ protected:
 	virtual void Release();
 
 	UFUNCTION()
-	virtual void OverlapJawDamagerBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult);
+	virtual void OverlapDamagerBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult);
 	UFUNCTION()
-	virtual void OverlapJawDamagerEnd(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
-	UFUNCTION()
-	virtual void OverlapTailDamagerBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult);
-
+	virtual void OverlapDamagerEnd(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+	
 	UPROPERTY(EditDefaultsOnly, category = "movement")
 	float GrabDistance = 150;
 	UPROPERTY(EditDefaultsOnly, category = "movement")
@@ -40,13 +38,9 @@ protected:
 	FHitResult GrabHitResult;
 	float GrabSphereRadius = 30;
 
-	UPROPERTY(EditAnywhere)
-	class UHealthComponent* HealthComponent;
-
 	UPROPERTY()
 	class UPhysicsHandleComponent* PhysicsHandle;
 
-	virtual void Shoot() override;
 	virtual void MeleeAttack() override;
 
 public:
@@ -85,4 +79,5 @@ private:
 	void ClearDamagedActor(UAnimMontage* Montage, bool bInterrupted);
 
 	void DamageActor(AActor* ToDamageActor);
+	bool bWasDamage = false;
 };

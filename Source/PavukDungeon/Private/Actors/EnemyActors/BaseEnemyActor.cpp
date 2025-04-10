@@ -28,9 +28,9 @@ void ABaseEnemyActor::BeginPlay()
     }
 }
 
-void ABaseEnemyActor::ActorDied()
+void ABaseEnemyActor::HandleDeath()
 {
-    Super::ActorDied();
+    Super::HandleDeath();
     
     DeleteActorFromAliveActors();
 }
@@ -53,4 +53,9 @@ void ABaseEnemyActor::DeleteActorFromAliveActors()
     }
     UnlockerComponent->AliveActors.Remove(this);
     UnlockerComponent->MoveToTargetLocation();
+}
+
+UHealthComponent* ABaseEnemyActor::GetHealthComponent()
+{
+    return HealthComponent;
 }

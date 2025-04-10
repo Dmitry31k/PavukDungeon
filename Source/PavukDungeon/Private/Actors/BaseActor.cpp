@@ -4,6 +4,7 @@
 #include "Actors/BaseActor.h"
 #include "NiagaraFunctionLibrary.h"
 #include "NiagaraSystem.h"
+#include "Components/HealthComponent.h"
 
 // Sets default values
 ABaseActor::ABaseActor()
@@ -13,7 +14,7 @@ ABaseActor::ABaseActor()
 
 }
 
-void ABaseActor::ActorDied()
+void ABaseActor::HandleDeath()
 {
 	if (DeathParticles)
 	{
@@ -21,4 +22,10 @@ void ABaseActor::ActorDied()
 	}
 
 	Destroy();
+}
+
+UHealthComponent* ABaseActor::GetHealthComponent()
+{
+	//Not used here
+	return nullptr;
 }

@@ -5,6 +5,7 @@
 #include "Characters/Pavuks/PlayerPavuk.h"
 #include "Characters/BaseCharacter.h"
 #include "Actors/BaseActor.h"
+#include "Interfaces/DeathInterface.h"
 
 // Sets default values for this component's properties
 UHealthComponent::UHealthComponent()
@@ -25,23 +26,16 @@ void UHealthComponent::BeginPlay()
 	CurrentHealth = MaxHealth;
 	OwnerActor = GetOwner();
 	OwnerActor->OnTakeAnyDamage.AddDynamic(this, &UHealthComponent::DamageTaken);
-
-	OwnerCharacter = Cast<ABaseCharacter>(OwnerActor);
-	OwnerBaseActor = Cast<ABaseActor>(OwnerActor);
 }
 
 void UHealthComponent::DamageTaken(AActor* DamagedActor, float Damage, const UDamageType* DamageType, AController* Instigator, AActor* DamageCauser)
 {
 	SetCurrentHealth(GetCurrentHealth() - Damage);
-	if (CurrentHealth <= 0 && DamagedActor == OwnerActor && OwnerActor)
+	if (CurrentHealth <= 0 && DamagedActor == OwnerActor)
 	{
-		if (OwnerCharacter)
+		if (IDeathInterface* OwnerDeathInterface = Cast<IDeathInterface>(OwnerActor))
 		{
-			OwnerCharacter->CharacterDied();
-		}
-		else if (OwnerBaseActor)
-		{
-			OwnerBaseActor->ActorDied();
+			OwnerDeathInterface->HandleDeath();
 		}
 	}
 }

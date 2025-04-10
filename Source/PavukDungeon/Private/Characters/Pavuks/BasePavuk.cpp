@@ -36,8 +36,6 @@ ABasePavuk::ABasePavuk()
 	GetCapsuleComponent()->SetCapsuleSize(25.f, 25.f);
 	GetCapsuleComponent()->SetSimulatePhysics(true);
 
-	HealthComponent = CreateDefaultSubobject<UHealthComponent>(TEXT("Character Health Component"));
-
 	BoxDamagerTail = CreateDefaultSubobject<UBoxComponent>(TEXT("Damager box tail"));
 	BoxDamagerTail->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform, TEXT("DamagerSocket"));
 
@@ -54,10 +52,10 @@ void ABasePavuk::BeginPlay()
 	MeleeAttacksArray.Add(TailAttack);
 	MeleeAttacksArray.Add(JawAttack);
 
-	BoxDamagerTail->OnComponentBeginOverlap.AddDynamic(this, &ABasePavuk::OverlapTailDamagerBegin);
-	BoxDamagerJaw->OnComponentBeginOverlap.AddDynamic(this, &ABasePavuk::OverlapJawDamagerBegin);
-	
-	BoxDamagerJaw->OnComponentEndOverlap.AddDynamic(this, &ABasePavuk::OverlapJawDamagerEnd);
+	BoxDamagerTail->OnComponentBeginOverlap.AddDynamic(this, &ABasePavuk::OverlapDamagerBegin);
+	BoxDamagerJaw->OnComponentBeginOverlap.AddDynamic(this, &ABasePavuk::OverlapDamagerBegin);
+	BoxDamagerTail->OnComponentEndOverlap.AddDynamic(this, &ABasePavuk::OverlapDamagerEnd);
+	BoxDamagerJaw->OnComponentEndOverlap.AddDynamic(this, &ABasePavuk::OverlapDamagerEnd);
 }
 
 void ABasePavuk::Grab()
@@ -97,11 +95,6 @@ void ABasePavuk::Release()
 	IsHoldingObject = false;
 }
 
-void ABasePavuk::Shoot()
-{
-	Super::Shoot();
-}
-
 void ABasePavuk::MeleeAttack()
 {
 	if (MeleeAttacksArray.Num() > 0)
@@ -118,34 +111,32 @@ void ABasePavuk::MeleeAttack()
 			GetMesh()->GetAnimInstance()->Montage_SetEndDelegate(MontageEndedDelegate, MeleeAttacksArray[RandomAttackIndex]);
 		}
 
-		if (HaveToDamageActor && MeleeAttacksArray[RandomAttackIndex])
+		if (HaveToDamageActor && MeleeAttacksArray[RandomAttackIndex] == JawAttack)
 		{
 			DamageActor(HaveToDamageActor);
 		}
 	}
 }
 
-void ABasePavuk::OverlapJawDamagerBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
+void ABasePavuk::OverlapDamagerBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
 {
 	if (OverlappedComp->GetOwner() != OtherActor && !OtherComp->ComponentHasTag(FName("IgnoreDamage")))
 	{
+		if (OverlappedComp == BoxDamagerTail && !bWasDamage)
+		{
+			DamageActor(OtherActor);
+			bWasDamage = true;
+		}
+
 		HaveToDamageActor = OtherActor;
 	}
 }
-void ABasePavuk::OverlapJawDamagerEnd(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+void ABasePavuk::OverlapDamagerEnd(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
 	if (HaveToDamageActor == OtherActor)
 	{
 		HaveToDamageActor = nullptr;
-	}
-}
-
-void ABasePavuk::OverlapTailDamagerBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
-{
-	if (OverlappedComp->GetOwner() != OtherActor && OtherActor != this && DamagedActor != OtherActor && !OtherComp->ComponentHasTag(FName("IgnoreDamage")))
-	{	
-		DamageActor(OtherActor);
-		DamagedActor = OtherActor;
+		bWasDamage = false;
 	}
 }
 
@@ -171,7 +162,7 @@ void ABasePavuk::ClearDamagedActor(UAnimMontage* Montage, bool bInterrupted)
 }
 
 void ABasePavuk::DamageActor(AActor* ToDamageActor)
-{		
+{
 	UGameplayStatics::ApplyDamage(ToDamageActor, MeleeDamage, GetInstigatorController(), this, UDamageType::StaticClass());
 	UE_LOG(LogTemp, Warning, TEXT("MeleeDamage to: %s"), *ToDamageActor->GetName());
 }

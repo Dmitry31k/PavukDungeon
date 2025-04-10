@@ -6,6 +6,7 @@
 #include "NiagaraSystem.h"
 #include "Actors/EnemyActors/Projectile.h"
 #include "Characters/Pavuks/PlayerPavuk.h"
+#include "Components/HealthComponent.h"
 
 // Sets default values
 ABaseCharacter::ABaseCharacter()
@@ -13,6 +14,7 @@ ABaseCharacter::ABaseCharacter()
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
 
+	HealthComponent = CreateDefaultSubobject<UHealthComponent>(TEXT("Character Health Component"));
 }
 
 // Called when the game starts or when spawned
@@ -23,7 +25,7 @@ void ABaseCharacter::BeginPlay()
 	OnTakeAnyDamage.AddDynamic(this, &ABaseCharacter::WasHitByPlayer);
 }
 
-void ABaseCharacter::CharacterDied()
+void ABaseCharacter::HandleDeath()
 {
 	if (DeathParticles)
 	{
@@ -58,4 +60,9 @@ void ABaseCharacter::WasHitByPlayer(AActor* DamagedActor, float Damage, const UD
 	{
 		IsWasHitByPlayer = true;
 	}
+}
+
+UHealthComponent* ABaseCharacter::GetHealthComponent()
+{
+	return HealthComponent;
 }

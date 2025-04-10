@@ -17,11 +17,9 @@ class PAVUKDUNGEON_API ABaseEnemyActor : public ABaseActor
 public:
 
 	ABaseEnemyActor();
-
-private:
-
-	UPROPERTY(EditAnywhere)
-	class UHealthComponent* HealthComponent;
+	
+	virtual void HandleDeath() override;
+	virtual UHealthComponent* GetHealthComponent() override; 
 
 protected:
 
@@ -30,7 +28,8 @@ protected:
 	virtual void AddActorIntoAliveActors();
 	virtual void DeleteActorFromAliveActors();
 
-	virtual void ActorDied();
+	UPROPERTY(EditAnywhere)
+	UHealthComponent* HealthComponent;
 
 private:
 

@@ -9,6 +9,7 @@
 #include "NiagaraComponent.h"
 #include "NiagaraFunctionLibrary.h"
 #include "NiagaraSystem.h"
+#include "Components/HealthComponent.h"
 
 ADroneWithLaser::ADroneWithLaser()
 {
@@ -16,6 +17,9 @@ ADroneWithLaser::ADroneWithLaser()
 
     LaserNiagaraComponent = CreateDefaultSubobject<UNiagaraComponent>(TEXT("LaserBeam"));
     LaserNiagaraComponent->SetupAttachment(RootComponent);
+
+    HealthComponent->DestroyComponent();
+    HealthComponent = nullptr;
 }
 
 void ADroneWithLaser::BeginPlay()

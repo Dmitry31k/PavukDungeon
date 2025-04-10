@@ -18,15 +18,3 @@ ABaseDrone::ABaseDrone()
 	ProjectileSpawnPoint = CreateDefaultSubobject<USceneComponent>(TEXT("Drone projectile spawnpoint"));
 	ProjectileSpawnPoint->SetupAttachment(RootComponent);
 }
-
-// Called when the game starts or when spawned
-void ABaseDrone::BeginPlay()
-{
-	Super::BeginPlay();
-	
-}
-
-void ABaseDrone::Shoot()
-{
-	Super::Shoot();
-}

@@ -4,10 +4,13 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Interfaces/DeathInterface.h"
 #include "BaseCharacter.generated.h"
 
+class UHealthComponent;
+
 UCLASS()
-class PAVUKDUNGEON_API ABaseCharacter : public ACharacter
+class PAVUKDUNGEON_API ABaseCharacter : public ACharacter, public IDeathInterface
 {
 	GENERATED_BODY()
 
@@ -27,9 +30,13 @@ protected:
 	UPROPERTY(VisibleDefaultsOnly)
 	class USceneComponent* ProjectileSpawnPoint;
 
+	UPROPERTY(EditAnywhere)
+	UHealthComponent* HealthComponent;
+
 public:
 
-	virtual void CharacterDied();
+	virtual void HandleDeath() override;
+	virtual UHealthComponent* GetHealthComponent() override;
 
 	virtual void Shoot();
 	virtual void MeleeAttack();

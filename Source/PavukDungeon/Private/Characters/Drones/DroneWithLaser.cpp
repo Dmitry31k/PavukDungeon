@@ -10,6 +10,7 @@
 #include "NiagaraFunctionLibrary.h"
 #include "NiagaraSystem.h"
 #include "Components/HealthComponent.h"
+#include "Components/TickOptimizerBox.h"
 
 ADroneWithLaser::ADroneWithLaser()
 {
@@ -20,11 +21,16 @@ ADroneWithLaser::ADroneWithLaser()
 
     HealthComponent->DestroyComponent();
     HealthComponent = nullptr;
+
+    ActiveTickZone = CreateDefaultSubobject<UTickOptimizerBox>(TEXT("ActiveZoneForTickFunction"));
+    ActiveTickZone->SetupAttachment(RootComponent);
 }
 
 void ADroneWithLaser::BeginPlay()
 {
     Super::BeginPlay();
+    SetActorTickEnabled(false);
+    LaserNiagaraComponent->SetVectorParameter(TEXT("Beam End"), ProjectileSpawnPoint->GetComponentLocation());
 
     AAIController_DroneWithLaser* OwnerAIController = Cast<AAIController_DroneWithLaser>(GetController());
 

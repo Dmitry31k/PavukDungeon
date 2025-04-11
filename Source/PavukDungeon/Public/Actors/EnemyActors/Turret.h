@@ -3,11 +3,14 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "EnemyActorWithOverlapBoxComp.h"
+#include "BaseEnemyActor.h"
 #include "Turret.generated.h"
 
+class APlayerPavuk;
+class UTickOptimizerBox;
+
 UCLASS()
-class PAVUKDUNGEON_API ATurret : public AEnemyActorWithOverlapBoxComp
+class PAVUKDUNGEON_API ATurret : public ABaseEnemyActor
 {
 	GENERATED_BODY()
 	
@@ -15,15 +18,11 @@ public:
 	// Sets default values for this actor's properties
 	ATurret();
 
+	virtual void Tick(float DeltaTime) override;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-
-	virtual void TriggerBoxComponentBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult) override;
-	virtual void TriggerBoxComponentEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex) override;
-
-public:	
-
 
 private:
 
@@ -37,15 +36,15 @@ private:
 	USceneComponent* ProjectileSpawnPoint;
 
 	UPROPERTY()
-	class APlayerPavuk* PlayerPavuk;
+	APlayerPavuk* PlayerPavuk;
 
-	UPROPERTY(EditAnywhere, category = "combat")
+	UPROPERTY(EditAnywhere, category = "Combat")
 	float MaxDistanceRange = 1000;
 
-	UPROPERTY(EditAnywhere, category = "combat")
+	UPROPERTY(EditAnywhere, category = "Combat")
 	float TurretRotationSpeed = 20;
 
-	UPROPERTY(EditAnywhere, category = "combat")
+	UPROPERTY(EditAnywhere, category = "Combat")
 	float ShootTimer = 0;
 
 	void RotateTurretHead();
@@ -53,9 +52,11 @@ private:
 	
 	FTimerHandle ShootingTimerHandle;
 
+	bool bWasSetTimer = false;
+
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<class AProjectile> ProjectileClass;
-	
-	bool InFireRange = false;
-	bool IsActivated = false;
+
+	UPROPERTY(EditDefaultsOnly, category = "Combat")
+	UTickOptimizerBox* ActiveTickZone;
 };

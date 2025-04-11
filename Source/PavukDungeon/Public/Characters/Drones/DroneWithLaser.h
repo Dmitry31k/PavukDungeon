@@ -7,6 +7,7 @@
 #include "DroneWithLaser.generated.h"
 
 class UNiagaraComponent;
+class UTickOptimizerBox;
 
 /**
  * 
@@ -68,6 +69,9 @@ private:
 	//bool that will be send into AI controller for choosing separated behavior script
 	UPROPERTY(EditAnywhere, category = "Combat")
 	bool MustMoving_Drone;
+
+	UPROPERTY(EditDefaultsOnly, category = "Combat")
+	UTickOptimizerBox* ActiveTickZone;
 
 	//Function that send Vectors & bools variables into AI controller for using into behavior script
 	void SendDataIntoAIController(class AAIController_DroneWithLaser* OwnerAIController);

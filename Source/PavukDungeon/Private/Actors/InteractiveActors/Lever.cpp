@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "Actors/InteractiveActors/Lever.h"
+#include "Components/BoxComponent.h"
 
 // Sets default values
 ALever::ALever()
@@ -14,6 +15,11 @@ ALever::ALever()
 	LeverMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("LeverMesh"));
 	LeverMesh->SetupAttachment(BaseMesh);
 	LeverMesh->SetRelativeRotation(FRotator(0.f, 0.f, -45.f));
+
+	OverlapBoxTrigger->SetupAttachment(BaseMesh);
+
+	ToHighlightStaticMesh.Add(BaseMesh);
+	ToHighlightStaticMesh.Add(LeverMesh);
 }
 
 // Called when the game starts or when spawned

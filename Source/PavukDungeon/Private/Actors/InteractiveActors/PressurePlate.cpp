@@ -17,6 +17,9 @@ APressurePlate::APressurePlate()
 
 	RootComponent = PlateMesh;
 	CollisionBox->SetupAttachment(PlateMesh);
+	OverlapBoxTrigger->SetupAttachment(PlateMesh);
+
+	ToHighlightStaticMesh.Add(PlateMesh);
 }
 
 // Called when the game starts or when spawned

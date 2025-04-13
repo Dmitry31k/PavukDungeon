@@ -4,6 +4,14 @@
 #include "Actors/InteractiveActors/BaseInteractiveActor.h"
 #include "Components/MoverComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "Components/BoxComponent.h"
+#include "Characters/Pavuks/PlayerPavuk.h"
+
+ABaseInteractiveActor::ABaseInteractiveActor()
+{
+    OverlapBoxTrigger = CreateDefaultSubobject<UBoxComponent>(TEXT("Highlight/unhighlight trigger box"));
+    OverlapBoxTrigger->ComponentTags.Add("IgnoreDamage");
+}
 
 void ABaseInteractiveActor::BeginPlay()
 {
@@ -20,6 +28,9 @@ void ABaseInteractiveActor::BeginPlay()
 
         AddActorIntoNotActivatedUnlockerActors();
     }
+
+    OverlapBoxTrigger->OnComponentBeginOverlap.AddDynamic(this, &ABaseInteractiveActor::OnOverlapBegin);
+    OverlapBoxTrigger->OnComponentEndOverlap.AddDynamic(this, &ABaseInteractiveActor::OnOverlapEnd);
 }
 
 void ABaseInteractiveActor::AddActorIntoNotActivatedUnlockerActors()
@@ -40,4 +51,60 @@ void ABaseInteractiveActor::DeleteActorFromNotActivatedUnlockerActors()
     }
     UnlockerComponent->NotActivatedUnlockerActors.Remove(this);
     UnlockerComponent->MoveToTargetLocation();
+}
+
+void ABaseInteractiveActor::HighlightObject()
+{
+    if (ToHighlightStaticMesh.Num() > 0)
+    {
+        for (auto Mesh : ToHighlightStaticMesh)
+        {
+            Mesh->SetRenderCustomDepth(true);
+            Mesh->SetCustomDepthStencilValue(CUSTOM_DEPTH_HIGHLIGHT_GREEN);
+        }
+    }
+    else if (ToHighlightSkeletalMesh.Num() > 0)
+    {
+        for (auto Mesh : ToHighlightSkeletalMesh)
+        {
+            Mesh->SetRenderCustomDepth(true);
+            Mesh->SetCustomDepthStencilValue(CUSTOM_DEPTH_HIGHLIGHT_GREEN);
+        }
+    }
+}
+
+void ABaseInteractiveActor::UnHighlightObject()
+{
+    if (ToHighlightStaticMesh.Num() > 0)
+    {
+        for (auto Mesh : ToHighlightStaticMesh)
+        {
+            Mesh->SetRenderCustomDepth(false);
+            Mesh->SetCustomDepthStencilValue(0);
+        }
+    }
+    else if (ToHighlightSkeletalMesh.Num() > 0)
+    {
+        for (auto Mesh : ToHighlightSkeletalMesh)
+        {
+            Mesh->SetRenderCustomDepth(false);
+            Mesh->SetCustomDepthStencilValue(0);
+        }
+    }
+}
+
+void ABaseInteractiveActor::OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+    if (Cast<APlayerPavuk>(OtherActor))
+    {
+        HighlightObject();
+    }
+}
+
+void ABaseInteractiveActor::OnOverlapEnd(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+{
+    if (Cast<APlayerPavuk>(OtherActor))
+    {
+        UnHighlightObject();
+    }
 }

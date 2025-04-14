@@ -8,6 +8,7 @@
 
 class UNiagaraComponent;
 class UTickOptimizerBox;
+enum class EMovingType : uint8;
 
 /**
  * 
@@ -60,15 +61,9 @@ private:
 	//Vector that will be send into AI controller for using in behavior tree
 	UPROPERTY(EditAnywhere, category = "Combat")
 	FVector FifthMoveOffset_Drone;
-	//bool that will be send into AI controller for choosing separated behavior script
+	//Enum that determine type of behavior
 	UPROPERTY(EditAnywhere, category = "Combat")
-	bool MustRotating_Drone;
-	//bool that will be send into AI controller for choosing separated behavior script
-	UPROPERTY(EditAnywhere, category = "Combat")
-	bool MustRotatingAndMoving_Drone;
-	//bool that will be send into AI controller for choosing separated behavior script
-	UPROPERTY(EditAnywhere, category = "Combat")
-	bool MustMoving_Drone;
+	EMovingType MovingPolicy;
 
 	UPROPERTY(EditDefaultsOnly, category = "Combat")
 	UTickOptimizerBox* ActiveTickZone;

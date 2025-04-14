@@ -13,6 +13,14 @@ struct OffsetData
     FVector PreviousValue;
 };
 
+UENUM(BlueprintType)
+enum class EMovingType : uint8
+{
+	MustMovingOnly,
+	MustMovingAndRotating,
+	MustRotatingOnly
+};
+
 /**
  * 
  */
@@ -28,10 +36,7 @@ public:
 	FVector ThirdtMoveOffset_AIController;
 	FVector FourthMoveOffset_AIController;
 	FVector FifthMoveOffset_AIController;
-	
-	bool MustRotating_AIController;
-	bool MustRotatingAndMoving_AIController;
-	bool MustMoving_AIController;
+	EMovingType MovingPolicy_AIController;
 
 protected:
 

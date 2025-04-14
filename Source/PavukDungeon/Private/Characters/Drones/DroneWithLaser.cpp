@@ -86,8 +86,6 @@ void ADroneWithLaser::SendDataIntoAIController(AAIController_DroneWithLaser* Own
         OwnerAIController->FourthMoveOffset_AIController = OwnerAIController->ThirdtMoveOffset_AIController + FourthMoveOffset_Drone;
         OwnerAIController->FifthMoveOffset_AIController = OwnerAIController->FourthMoveOffset_AIController + FifthMoveOffset_Drone;
 
-        OwnerAIController->MustMoving_AIController = MustMoving_Drone;
-        OwnerAIController->MustRotating_AIController = MustRotating_Drone;
-        OwnerAIController->MustRotatingAndMoving_AIController = MustRotatingAndMoving_Drone;
+        OwnerAIController->MovingPolicy_AIController = MovingPolicy;
     }
 }

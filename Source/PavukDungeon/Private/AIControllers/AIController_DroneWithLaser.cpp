@@ -25,9 +25,7 @@ void AAIController_DroneWithLaser::OnPossess(APawn* InPawn)
 
 void AAIController_DroneWithLaser::SetVariabledIntoBlackboard()
 {
-    GetBlackboardComponent()->SetValueAsBool(TEXT("MustRotating"), MustRotating_AIController);
-    GetBlackboardComponent()->SetValueAsBool(TEXT("MustMoving"), MustMoving_AIController);
-    GetBlackboardComponent()->SetValueAsBool(TEXT("MustRotatingAndMoving"), MustRotatingAndMoving_AIController);
+    GetBlackboardComponent()->SetValueAsEnum(TEXT("MovingPolicy"), static_cast<uint8>(MovingPolicy_AIController));
 
     TArray<OffsetData> OffsetArray = {
         {"FirstMoveOffset", FirstMoveOffset_AIController, StartLocation},
@@ -44,5 +42,4 @@ void AAIController_DroneWithLaser::SetVariabledIntoBlackboard()
             GetBlackboardComponent()->SetValueAsVector(*Offset.Key, Offset.CurrentValue);
         }
     }
-    
 }

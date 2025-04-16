@@ -17,7 +17,6 @@ UHealthComponent::UHealthComponent()
 	// ...
 }
 
-
 // Called when the game starts
 void UHealthComponent::BeginPlay()
 {
@@ -30,13 +29,9 @@ void UHealthComponent::BeginPlay()
 
 void UHealthComponent::DamageTaken(AActor* DamagedActor, float Damage, const UDamageType* DamageType, AController* Instigator, AActor* DamageCauser)
 {
-	SetCurrentHealth(GetCurrentHealth() - Damage);
-	if (CurrentHealth <= 0 && DamagedActor == OwnerActor)
+	if (DamagedActor == OwnerActor)
 	{
-		if (IDeathInterface* OwnerDeathInterface = Cast<IDeathInterface>(OwnerActor))
-		{
-			OwnerDeathInterface->HandleDeath();
-		}
+		SetClampedCurrentHealth(GetCurrentHealth() - Damage);
 	}
 }
 
@@ -60,4 +55,28 @@ void UHealthComponent::SetMaxHealth(float NewMaxHealth)
 {
 	MaxHealth = NewMaxHealth;
 	OnMaxHealthChanged.Broadcast(MaxHealth);
+}
+
+void UHealthComponent::SetClampedCurrentHealth(float NewCurrentHealth)
+{
+	if (bKillable)
+	{
+		SetCurrentHealth(FMath::Clamp(NewCurrentHealth, 0, MaxHealth));
+	}
+
+	IDeathInterface* OwnerActorDeathInterface = Cast<IDeathInterface>(OwnerActor);
+	if (GetCurrentHealth() <= 0 && OwnerActorDeathInterface)
+	{
+		OwnerActorDeathInterface->HandleDeath();
+	}
+}
+
+void UHealthComponent::SetKillable(bool bNewKillable)
+{
+	bKillable = bNewKillable;
+}
+
+bool UHealthComponent::GetKillable() const
+{
+	return bKillable;
 }

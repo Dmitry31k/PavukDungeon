@@ -9,7 +9,7 @@ void ADefaultPlayerController::GameHasFinished(bool IsPlayerWon)
 {
     if (ABaseHUD* ActiveHUD = Cast<ABaseHUD>(GetHUD()))
     {
-        ActiveHUD->OverlayWidget->RemoveFromViewport();
+        ActiveHUD->OverlayWidget->RemoveFromParent();
     }
     
 

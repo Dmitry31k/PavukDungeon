@@ -40,8 +40,9 @@ protected:
 	UPROPERTY()
 	TArray<USkeletalMeshComponent*> ToHighlightSkeletalMesh;
 
+	//Trigger responsible for highlighting/unhighlighting meshes in ToHighlightStaticMesh and ToHighlightSkeletalMesh
 	UPROPERTY(EditDefaultsOnly, category = "Visual")
-	UBoxComponent* OverlapBoxTrigger;
+	UBoxComponent* OverlapBoxHighlighterTrigger;
 
 	UFUNCTION()
 	virtual void OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);

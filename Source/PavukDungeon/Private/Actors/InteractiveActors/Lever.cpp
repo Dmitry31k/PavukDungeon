@@ -16,7 +16,7 @@ ALever::ALever()
 	LeverMesh->SetupAttachment(BaseMesh);
 	LeverMesh->SetRelativeRotation(FRotator(0.f, 0.f, -45.f));
 
-	OverlapBoxTrigger->SetupAttachment(BaseMesh);
+	OverlapBoxHighlighterTrigger->SetupAttachment(BaseMesh);
 
 	ToHighlightStaticMesh.Add(BaseMesh);
 	ToHighlightStaticMesh.Add(LeverMesh);

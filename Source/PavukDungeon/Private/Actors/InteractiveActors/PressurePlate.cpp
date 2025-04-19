@@ -17,7 +17,7 @@ APressurePlate::APressurePlate()
 
 	RootComponent = PlateMesh;
 	CollisionBox->SetupAttachment(PlateMesh);
-	OverlapBoxTrigger->SetupAttachment(PlateMesh);
+	OverlapBoxHighlighterTrigger->SetupAttachment(PlateMesh);
 
 	ToHighlightStaticMesh.Add(PlateMesh);
 }

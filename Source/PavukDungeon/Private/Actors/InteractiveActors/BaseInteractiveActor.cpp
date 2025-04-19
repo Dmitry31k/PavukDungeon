@@ -9,8 +9,8 @@
 
 ABaseInteractiveActor::ABaseInteractiveActor()
 {
-    OverlapBoxTrigger = CreateDefaultSubobject<UBoxComponent>(TEXT("Highlight/unhighlight trigger box"));
-    OverlapBoxTrigger->ComponentTags.Add("IgnoreDamage");
+    OverlapBoxHighlighterTrigger = CreateDefaultSubobject<UBoxComponent>(TEXT("Highlight/unhighlight trigger box"));
+    OverlapBoxHighlighterTrigger->ComponentTags.Add("IgnoreDamage");
 }
 
 void ABaseInteractiveActor::BeginPlay()
@@ -29,8 +29,8 @@ void ABaseInteractiveActor::BeginPlay()
         AddActorIntoNotActivatedUnlockerActors();
     }
 
-    OverlapBoxTrigger->OnComponentBeginOverlap.AddDynamic(this, &ABaseInteractiveActor::OnOverlapBegin);
-    OverlapBoxTrigger->OnComponentEndOverlap.AddDynamic(this, &ABaseInteractiveActor::OnOverlapEnd);
+    OverlapBoxHighlighterTrigger->OnComponentBeginOverlap.AddDynamic(this, &ABaseInteractiveActor::OnOverlapBegin);
+    OverlapBoxHighlighterTrigger->OnComponentEndOverlap.AddDynamic(this, &ABaseInteractiveActor::OnOverlapEnd);
 }
 
 void ABaseInteractiveActor::AddActorIntoNotActivatedUnlockerActors()

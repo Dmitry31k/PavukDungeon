@@ -63,7 +63,7 @@ void ATeleportCrystalPair::FindTeleportPlace(FVector TeleportCrystalLocation, AA
 
             if (CheckerOverlapActors.IsEmpty())
             {
-                PlayerActor->SetActorLocation(TeleportLocation, true);
+                PlayerActor->SetActorLocation(TeleportLocation);
                 break;
             }
         }

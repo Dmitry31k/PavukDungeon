@@ -13,3 +13,8 @@ PavukDungeon is an engaging 3D game developed using Unreal Engine. In this game,
 - Unreal Engine: Core engine for game development, providing the framework for all game mechanics and rendering.
 - C++: Programming language used to implement game logic, including AI behavior trees.
 - 3D Modeling: All game assets were modeled in 3D, providing a visually rich environment.
+
+## License
+
+This project is licensed under the [Creative Commons Attribution-NonCommercial 4.0 International License](http://creativecommons.org/licenses/by-nc/4.0/).  
+© 2024–2025 Dmitry Florinsky Andreevich (Dmitry31k) — You are free to use or modify this for non-commercial purposes with attribution.

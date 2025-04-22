@@ -6,6 +6,8 @@
 #include "BehaviorTree/Services/BTService_BlackboardBase.h"
 #include "BTService_UpdatePlLocIfShooted.generated.h"
 
+class ABaseCharacter;
+
 /**
  * 
  */
@@ -21,9 +23,12 @@ public:
 protected:
 
 	virtual void TickNode(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory, float DeltaSeconds) override;
+	virtual void OnSearchStart(FBehaviorTreeSearchData& SearchData) override;
 
-private:
+	TWeakObjectPtr<APawn> PlayerPawn;
+	UPROPERTY()
+	ABaseCharacter* OwnerBaseCharacterPawn;
 
-	void UpdatePlayerLocationIfShootedByPlayer(UBehaviorTreeComponent& OwnerComp, class ABaseCharacter* OwnerBaseCharacterPawn, APawn* PlayerPawn);
+	void UpdatePlayerLocationIfShootedByPlayer(UBehaviorTreeComponent& OwnerComp);
 
 };

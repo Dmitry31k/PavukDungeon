@@ -12,10 +12,8 @@ UBTService_UpdatePlLocIfShooted::UBTService_UpdatePlLocIfShooted()
 {
     NodeName = "Get player location if player hit";
 
-    bNotifyBecomeRelevant = true;
     bCreateNodeInstance = true;
     bNotifyTick = true;
-    bNotifyCeaseRelevant = true;
 }
 
 void UBTService_UpdatePlLocIfShooted::OnSearchStart(FBehaviorTreeSearchData& SearchData)

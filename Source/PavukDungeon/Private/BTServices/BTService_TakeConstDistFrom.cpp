@@ -29,23 +29,19 @@ void UBTService_TakeConstDistFrom::TickNode(UBehaviorTreeComponent &OwnerComp, u
     }
 
     FVector TargetLocation = OwnerComp.GetBlackboardComponent()->GetValueAsVector(GetSelectedBlackboardKey());
+
+    FVector MoveToTarget;
     FVector CurrentOwnerLocation = OwnerController->GetPawn()->GetActorLocation();
 
-    FVector DirectionToTarget = TargetLocation - CurrentOwnerLocation;
-    DirectionToTarget.Normalize();
-    
-    FVector MoveToTarget = TargetLocation - DirectionToTarget * DistFromTarget;
+    UNavigationPath* FoundPath = FindPathInNavMeshFromTarget(CurrentNavMesh, TargetLocation, CurrentOwnerLocation, MoveToTarget);
 
-    UNavigationSystemV1* InNavMesh = FNavigationSystem::GetCurrent<UNavigationSystemV1>(GetWorld());
-    UNavigationPath* Path = InNavMesh->FindPathToLocationSynchronously(GetWorld(), CurrentOwnerLocation, MoveToTarget);
-
-    if (Path && Path->IsValid() && Path->GetPathLength() > 0)
+    if (FoundPath->IsValid() && FoundPath->GetPathLength() > 0)
     {
         OwnerController->MoveTo(MoveToTarget);
     }
     else
     {
-        GoToRandomPointWithDistFromTarget(InNavMesh, CurrentOwnerLocation, TargetLocation);
+        GoToSmartPointAroundTarget(CurrentNavMesh, CurrentOwnerLocation, TargetLocation);
     }
 }
 
@@ -61,6 +57,8 @@ void UBTService_TakeConstDistFrom::OnBecomeRelevant(UBehaviorTreeComponent &Owne
         return;
     }
 
+    CurrentNavMesh = FNavigationSystem::GetCurrent<UNavigationSystemV1>(GetWorld());
+
     OwnerController->SetFocus(PlayerPawn);
 }
 
@@ -68,28 +66,60 @@ void UBTService_TakeConstDistFrom::OnCeaseRelevant(UBehaviorTreeComponent &Owner
 {
     Super::OnCeaseRelevant(OwnerComp, NodeMemory);
 
-    OwnerController->ClearFocus(EAIFocusPriority::Gameplay);
+    if (OwnerComp.GetBlackboardComponent()->GetValueAsVector(GetSelectedBlackboardKey()).IsZero())
+    {
+        OwnerController->ClearFocus(EAIFocusPriority::Gameplay);
+    }
 }
 
-void UBTService_TakeConstDistFrom::GoToRandomPointWithDistFromTarget(UNavigationSystemV1* InNavMesh, FVector CurrentOwnerLocation, FVector TargetLocation)
+UNavigationPath* UBTService_TakeConstDistFrom::FindPathInNavMeshFromTarget(UNavigationSystemV1* InNavMesh, FVector TargetLocation, FVector CurrentOwnerLocation, FVector& MoveToTarget)
 {
-    bool bFoundValidPath = false;
-
-    for (size_t i = 0; i <= LimitRandomPathGen; i++)
+    if (InNavMesh == nullptr)
     {
-        FNavLocation ResultRandomLocation;
-            
-        bFoundValidPath = InNavMesh->GetRandomPointInNavigableRadius(CurrentOwnerLocation, DistFromTarget * 2, ResultRandomLocation);
+        return nullptr;
+    }
 
-        if (bFoundValidPath)
+    FVector DirectionToTarget = TargetLocation - CurrentOwnerLocation;
+    DirectionToTarget.Normalize();
+    
+    MoveToTarget = TargetLocation - DirectionToTarget * DistFromTarget;
+    return InNavMesh->FindPathToLocationSynchronously(GetWorld(), CurrentOwnerLocation, MoveToTarget);
+}
+
+void UBTService_TakeConstDistFrom::GoToSmartPointAroundTarget(UNavigationSystemV1* InNavMesh, FVector CurrentOwnerLocation, FVector TargetLocation)
+{
+    const float AngleStep = 360.f / NumPoints;
+
+    TArray<FVector> CandidatePoints;
+
+    for (int i = 0; i < NumPoints; ++i)
+    {
+        float AngleRad = FMath::DegreesToRadians(i * AngleStep);
+        FVector Offset = FVector(FMath::Cos(AngleRad), FMath::Sin(AngleRad), 0.f) * DistFromTarget;
+        FVector TestPoint = TargetLocation + Offset;
+
+        // Navigation check
+        FNavLocation NavLoc;
+        if (InNavMesh->ProjectPointToNavigation(TestPoint, NavLoc))
         {
-            FVector MoveToRandomLocation = FVector(ResultRandomLocation.Location.X, ResultRandomLocation.Location.Y, CurrentOwnerLocation.Z);
-                
-            if (FVector::Dist(MoveToRandomLocation, TargetLocation) >= DistFromTarget)
-            {
-                OwnerController->MoveTo(MoveToRandomLocation);
-                break;
-            }
+            CandidatePoints.Add(NavLoc.Location);
+        }
+    }
+
+    // Sort by distance from current AIOwner location
+    CandidatePoints.Sort([&](const FVector& Min, const FVector& Max)
+    {
+        return FVector::DistSquared(CurrentOwnerLocation, Min) < FVector::DistSquared(CurrentOwnerLocation, Max);
+    });
+
+    for (const FVector& Point : CandidatePoints)
+    {
+        UNavigationPath* Path = InNavMesh->FindPathToLocationSynchronously(GetWorld(), CurrentOwnerLocation, Point);
+
+        if (Path && Path->IsValid() && Path->GetPathLength() > 0)
+        {
+            OwnerController->MoveTo(Point);
+            return;
         }
     }
 }

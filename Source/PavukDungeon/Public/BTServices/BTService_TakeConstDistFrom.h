@@ -6,6 +6,9 @@
 #include "BehaviorTree/Services/BTService_BlackboardBase.h"
 #include "BTService_TakeConstDistFrom.generated.h"
 
+class UNavigationSystemV1;
+class UNavigationPath;
+
 /**
  * 
  */
@@ -34,10 +37,18 @@ private:
 	UPROPERTY(EditAnywhere, category = "Combat")
 	float DistFromTarget = 500;
 
+	// Number of points in a circle around the AI to evaluate for movement
 	UPROPERTY(EditAnywhere, category = "Combat")
-	int32 LimitRandomPathGen = 100;
+    int32 NumPoints = 8;
 
-	bool CanReach = false;
+	UNavigationSystemV1* CurrentNavMesh;
 
-	void GoToRandomPointWithDistFromTarget(class UNavigationSystemV1* InNavMesh, FVector CurrentOwnerLocation, FVector TargetLocation);
+	// Attempts to find a within a certain radius and moves the AI to that location.
+	void GoToSmartPointAroundTarget(UNavigationSystemV1* InNavMesh, FVector CurrentOwnerLocation, FVector TargetLocation);
+	
+	/**
+ 	* Calculates a path to the target location while ensuring the AI maintains the specified distance.
+	* If the path is valid, it returns the path and the final position for the AI to move towards.
+ 	*/
+	UNavigationPath* FindPathInNavMeshFromTarget(UNavigationSystemV1* InNavMesh, FVector TargetLocation, FVector CurrentOwnerLocation, FVector& MoveToTarget);
 };

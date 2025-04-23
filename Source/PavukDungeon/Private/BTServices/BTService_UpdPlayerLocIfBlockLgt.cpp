@@ -6,28 +6,42 @@
 #include "BehaviorTree/BlackboardComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "AIController.h"
+#include "BehaviorTree/BehaviorTreeTypes.h"
 
 UBTService_UpdPlayerLocIfBlockLgt::UBTService_UpdPlayerLocIfBlockLgt()
 {
     NodeName = "Update player location if overlap backlight";
+
+    bCreateNodeInstance = true;
+    bNotifyTick = true;
+}
+
+void UBTService_UpdPlayerLocIfBlockLgt::OnSearchStart(FBehaviorTreeSearchData& SearchData)
+{
+    Super::OnSearchStart(SearchData);
+
+    Drone = Cast<AShootingDrone>(SearchData.OwnerComp.GetAIOwner()->GetPawn());
+    PlayerPawn = UGameplayStatics::GetPlayerPawn(this, 0);
+
+    if (Drone == nullptr)
+    {
+        return;
+    }
 }
 
 void UBTService_UpdPlayerLocIfBlockLgt::TickNode(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory, float DeltaSeconds)
 {
     Super::TickNode(OwnerComp, NodeMemory, DeltaSeconds);
 
-    AShootingDrone* Drone = Cast<AShootingDrone>(OwnerComp.GetAIOwner()->GetPawn());
-    APawn* PlayerPawn = UGameplayStatics::GetPlayerPawn(this, 0);
-
-    if (Drone == nullptr || PlayerPawn == nullptr)
+    if (PlayerPawn == nullptr)
     {
         return;
     }
 
-    UpdatePlayerLocationIfInDroneRangeOfVision(OwnerComp, Drone, PlayerPawn);
+    UpdatePlayerLocationIfInDroneRangeOfVision(OwnerComp);
 }
 
-void UBTService_UpdPlayerLocIfBlockLgt::UpdatePlayerLocationIfInDroneRangeOfVision(UBehaviorTreeComponent& OwnerComp, AShootingDrone* Drone, APawn* PlayerPawn)
+void UBTService_UpdPlayerLocIfBlockLgt::UpdatePlayerLocationIfInDroneRangeOfVision(UBehaviorTreeComponent& OwnerComp)
 {
     if (Drone->IsDroneLineOfSightOverlappedByPlayer == true)
     {

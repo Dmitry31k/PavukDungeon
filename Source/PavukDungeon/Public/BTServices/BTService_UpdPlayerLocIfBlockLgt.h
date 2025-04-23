@@ -6,6 +6,8 @@
 #include "BehaviorTree/Services/BTService_BlackboardBase.h"
 #include "BTService_UpdPlayerLocIfBlockLgt.generated.h"
 
+class AShootingDrone;
+
 /**
  * 
  */
@@ -22,8 +24,15 @@ protected:
 
 	virtual void TickNode(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory, float DeltaSeconds) override;
 
+	virtual void OnSearchStart(FBehaviorTreeSearchData& SearchData) override;
+
+	UPROPERTY()
+	AShootingDrone* Drone;
+
+    TWeakObjectPtr<APawn> PlayerPawn;
+
 private:
 
-	void UpdatePlayerLocationIfInDroneRangeOfVision(UBehaviorTreeComponent& OwnerComp, class AShootingDrone* Drone, APawn* PlayerPawn);
+	void UpdatePlayerLocationIfInDroneRangeOfVision(UBehaviorTreeComponent& OwnerComp);
 
 };

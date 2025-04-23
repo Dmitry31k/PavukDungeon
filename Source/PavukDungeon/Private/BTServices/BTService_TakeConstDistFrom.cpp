@@ -66,7 +66,7 @@ void UBTService_TakeConstDistFrom::OnCeaseRelevant(UBehaviorTreeComponent &Owner
 {
     Super::OnCeaseRelevant(OwnerComp, NodeMemory);
 
-    if (OwnerComp.GetBlackboardComponent()->GetValueAsVector(GetSelectedBlackboardKey()).IsZero())
+    if (!OwnerComp.GetAIOwner()->LineOfSightTo(PlayerPawn))
     {
         OwnerController->ClearFocus(EAIFocusPriority::Gameplay);
     }

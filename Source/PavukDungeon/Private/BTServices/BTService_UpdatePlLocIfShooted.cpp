@@ -20,8 +20,11 @@ void UBTService_UpdatePlLocIfShooted::OnSearchStart(FBehaviorTreeSearchData& Sea
 {
     Super::OnSearchStart(SearchData);
 
-    OwnerBaseCharacterPawn = Cast<ABaseCharacter>(SearchData.OwnerComp.GetAIOwner()->GetPawn());
-    PlayerPawn = UGameplayStatics::GetPlayerPawn(this, 0);
+    if (OwnerPawn == nullptr || PlayerPawn == nullptr)
+    {
+        OwnerPawn = Cast<ABaseCharacter>(SearchData.OwnerComp.GetAIOwner()->GetPawn());
+        PlayerPawn = UGameplayStatics::GetPlayerPawn(this, 0);
+    }
 }
 
 void UBTService_UpdatePlLocIfShooted::TickNode(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory, float DeltaSeconds)
@@ -33,14 +36,9 @@ void UBTService_UpdatePlLocIfShooted::TickNode(UBehaviorTreeComponent& OwnerComp
 
 void UBTService_UpdatePlLocIfShooted::UpdatePlayerLocationIfShootedByPlayer(UBehaviorTreeComponent& OwnerComp)
 {
-    if (OwnerBaseCharacterPawn == nullptr || PlayerPawn == nullptr)
-    {
-        return;
-    }
-
-    if (OwnerBaseCharacterPawn->IsWasHitByPlayer)
+    if (OwnerPawn->IsWasHitByPlayer)
     {
         OwnerComp.GetBlackboardComponent()->SetValueAsVector(GetSelectedBlackboardKey(), PlayerPawn->GetActorLocation());
-        OwnerBaseCharacterPawn->IsWasHitByPlayer = false;
+        OwnerPawn->IsWasHitByPlayer = false;
     }
 }

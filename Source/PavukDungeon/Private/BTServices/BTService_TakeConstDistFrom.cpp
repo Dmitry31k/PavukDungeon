@@ -49,11 +49,11 @@ void UBTService_TakeConstDistFrom::OnBecomeRelevant(UBehaviorTreeComponent &Owne
 {
     Super::OnBecomeRelevant(OwnerComp, NodeMemory);
 
-    OwnerController = OwnerComp.GetAIOwner();
-    PlayerPawn = UGameplayStatics::GetPlayerPawn(GetWorld(), 0);
-
     if (OwnerController == nullptr || PlayerPawn == nullptr)
     {
+        OwnerController = OwnerComp.GetAIOwner();
+        PlayerPawn = UGameplayStatics::GetPlayerPawn(GetWorld(), 0);
+
         return;
     }
 

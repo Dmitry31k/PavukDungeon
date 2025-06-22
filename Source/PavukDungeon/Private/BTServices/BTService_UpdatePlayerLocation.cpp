@@ -11,18 +11,22 @@ UBTService_UpdatePlayerLocation::UBTService_UpdatePlayerLocation()
     NodeName = "Update location if see player";
 }
 
+void UBTService_UpdatePlayerLocation::OnSearchStart(FBehaviorTreeSearchData& SearchData)
+{
+    Super::OnSearchStart(SearchData);
+
+    if (PlayerPawn == nullptr || AIOwnerController == nullptr)
+    {
+        PlayerPawn = UGameplayStatics::GetPlayerPawn(this, 0);
+        AIOwnerController = SearchData.OwnerComp.GetAIOwner();
+    }
+}
+
 void UBTService_UpdatePlayerLocation::TickNode(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory, float DeltaSeconds)
 {
     Super::TickNode(OwnerComp, NodeMemory, DeltaSeconds);
 
-    APawn* PlayerPawn = UGameplayStatics::GetPlayerPawn(this, 0);
-    AAIController* AIOwnerController = OwnerComp.GetAIOwner();
-    if (PlayerPawn == nullptr || AIOwnerController == nullptr)
-    {
-        return;
-    }
-
-    if (AIOwnerController->LineOfSightTo(PlayerPawn))
+    if (AIOwnerController->LineOfSightTo(PlayerPawn.Get()))
     {
         OwnerComp.GetBlackboardComponent()->SetValueAsVector(GetSelectedBlackboardKey(), PlayerPawn->GetActorLocation());
     }

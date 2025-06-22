@@ -24,6 +24,7 @@ public:
 protected:
 
 	virtual void TickNode(UBehaviorTreeComponent &OwnerComp, uint8* NodeMemory, float DeltaSeconds) override;
+
 	virtual void OnBecomeRelevant(UBehaviorTreeComponent &OwnerComp, uint8* NodeMemory) override;
 	virtual void OnCeaseRelevant(UBehaviorTreeComponent &OwnerComp, uint8* NodeMemory) override;
 
@@ -46,9 +47,9 @@ private:
 	// Attempts to find a within a certain radius and moves the AI to that location.
 	void GoToSmartPointAroundTarget(UNavigationSystemV1* InNavMesh, FVector CurrentOwnerLocation, FVector TargetLocation);
 	
-	/**
- 	* Calculates a path to the target location while ensuring the AI maintains the specified distance.
-	* If the path is valid, it returns the path and the final position for the AI to move towards.
- 	*/
+	/*
+ 	 * Calculates a path to the target location while ensuring the AI maintains the specified distance.
+	 * If the path is valid, it returns the path and the final position for the AI to move towards.
+ 	 */
 	UNavigationPath* FindPathInNavMeshFromTarget(UNavigationSystemV1* InNavMesh, FVector TargetLocation, FVector CurrentOwnerLocation, FVector& MoveToTarget);
 };

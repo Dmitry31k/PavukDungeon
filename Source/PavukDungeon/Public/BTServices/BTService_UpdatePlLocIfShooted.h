@@ -27,7 +27,7 @@ protected:
 
 	TWeakObjectPtr<APawn> PlayerPawn;
 	UPROPERTY()
-	ABaseCharacter* OwnerBaseCharacterPawn;
+	ABaseCharacter* OwnerPawn;
 
 	void UpdatePlayerLocationIfShootedByPlayer(UBehaviorTreeComponent& OwnerComp);
 

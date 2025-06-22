@@ -1,857 +1,857 @@
 [
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\PavukDungeon.Build.cs",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\PavukDungeon.Build.cs",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\PavukDungeon.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\PavukDungeon.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\PavukDungeon.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\PavukDungeon.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\AIControllers\\AIController_Drone.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\AIControllers\\AIController_Drone.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\AIControllers\\AIController_DroneWithLaser.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\AIControllers\\AIController_DroneWithLaser.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\AIControllers\\AIController_ShooterPavuk.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\AIControllers\\AIController_ShooterPavuk.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\AIControllers\\AIController_SummonerPavuk.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\AIControllers\\AIController_SummonerPavuk.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\AIControllers\\AIController_WarriorPavuk.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\AIControllers\\AIController_WarriorPavuk.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Actors\\BaseActor.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Actors\\BaseActor.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Actors\\EnemyActors\\BaseEnemyActor.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Actors\\EnemyActors\\BaseEnemyActor.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Actors\\EnemyActors\\EnemyHealActor.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Actors\\EnemyActors\\EnemyHealActor.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Actors\\EnemyActors\\Projectile.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Actors\\EnemyActors\\Projectile.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Actors\\EnemyActors\\Turret.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Actors\\EnemyActors\\Turret.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Actors\\InteractiveActors\\BaseInteractiveActor.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Actors\\InteractiveActors\\BaseInteractiveActor.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Actors\\InteractiveActors\\HealthOnOverlapInteractor.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Actors\\InteractiveActors\\HealthOnOverlapInteractor.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Actors\\InteractiveActors\\Lever.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Actors\\InteractiveActors\\Lever.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Actors\\InteractiveActors\\LeverWithTimer.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Actors\\InteractiveActors\\LeverWithTimer.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Actors\\InteractiveActors\\PressurePlate.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Actors\\InteractiveActors\\PressurePlate.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Actors\\InteractiveActors\\TeleportCrystalPair.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Actors\\InteractiveActors\\TeleportCrystalPair.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Actors\\KineticActors\\BaseKineticActor.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Actors\\KineticActors\\BaseKineticActor.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Actors\\KineticActors\\MultiplePlatform.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Actors\\KineticActors\\MultiplePlatform.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Actors\\KineticActors\\OverlapEventPlatform.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Actors\\KineticActors\\OverlapEventPlatform.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\BTServices\\BTService_TakeConstDistFrom.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\BTServices\\BTService_TakeConstDistFrom.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\BTServices\\BTService_UpdPlayerLocIfBlockLgt.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\BTServices\\BTService_UpdPlayerLocIfBlockLgt.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\BTServices\\BTService_UpdateLastPlayerPos.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\BTServices\\BTService_UpdateLastPlayerPos.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\BTServices\\BTService_UpdatePlLocIfShooted.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\BTServices\\BTService_UpdatePlLocIfShooted.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\BTServices\\BTService_UpdatePlayerLocation.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\BTServices\\BTService_UpdatePlayerLocation.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\BTTasks\\BTTask_ChangeDroneColor.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\BTTasks\\BTTask_ChangeDroneColor.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\BTTasks\\BTTask_ClearBlackboardValue.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\BTTasks\\BTTask_ClearBlackboardValue.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\BTTasks\\BTTask_MeleeAttack.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\BTTasks\\BTTask_MeleeAttack.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\BTTasks\\BTTask_MoveToWithConstDist.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\BTTasks\\BTTask_MoveToWithConstDist.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\BTTasks\\BTTask_MoveToWithoutRotation.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\BTTasks\\BTTask_MoveToWithoutRotation.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\BTTasks\\BTTask_ScanForwardAngle.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\BTTasks\\BTTask_ScanForwardAngle.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\BTTasks\\BTTask_ShootD.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\BTTasks\\BTTask_ShootD.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\BTTasks\\BTTask_SmoothRotateTo.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\BTTasks\\BTTask_SmoothRotateTo.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\BTTasks\\BTTask_SpawnActorAtLocation.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\BTTasks\\BTTask_SpawnActorAtLocation.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Characters\\BaseCharacter.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Characters\\BaseCharacter.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Characters\\Drones\\BaseDrone.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Characters\\Drones\\BaseDrone.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Characters\\Drones\\DroneWithLaser.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Characters\\Drones\\DroneWithLaser.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Characters\\Drones\\ShootingDrone.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Characters\\Drones\\ShootingDrone.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Characters\\Pavuks\\BasePavuk.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Characters\\Pavuks\\BasePavuk.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Characters\\Pavuks\\PlayerPavuk.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Characters\\Pavuks\\PlayerPavuk.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Components\\HealthComponent.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Components\\HealthComponent.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Components\\MoverComponent.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Components\\MoverComponent.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Components\\OnOverlapBoxComponent.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Components\\OnOverlapBoxComponent.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Components\\TickOptimizerBox.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Components\\TickOptimizerBox.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Gamemodes\\DefaultGamemode.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Gamemodes\\DefaultGamemode.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Interfaces\\DeathInterface.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Interfaces\\DeathInterface.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Interfaces\\HighligningInterface.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Interfaces\\HighligningInterface.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\PlayerControllers\\DefaultPlayerController.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\PlayerControllers\\DefaultPlayerController.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Triggers\\DeathBoxVolume.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Triggers\\DeathBoxVolume.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\UI\\HUD\\BaseHUD.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\UI\\HUD\\BaseHUD.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\UI\\WidgetControllers\\OverlayWidgetController.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\UI\\WidgetControllers\\OverlayWidgetController.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\UI\\WidgetControllers\\WidgetControllerBase.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\UI\\WidgetControllers\\WidgetControllerBase.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\UI\\Widgets\\BaseUserWidget.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\UI\\Widgets\\BaseUserWidget.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\AIControllers\\AIController_Drone.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\AIControllers\\AIController_Drone.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\AIControllers\\AIController_DroneWithLaser.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\AIControllers\\AIController_DroneWithLaser.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\AIControllers\\AIController_ShooterPavuk.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\AIControllers\\AIController_ShooterPavuk.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\AIControllers\\AIController_SummonerPavuk.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\AIControllers\\AIController_SummonerPavuk.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\AIControllers\\AIController_WarriorPavuk.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\AIControllers\\AIController_WarriorPavuk.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Actors\\BaseActor.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Actors\\BaseActor.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Actors\\EnemyActors\\BaseEnemyActor.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Actors\\EnemyActors\\BaseEnemyActor.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Actors\\EnemyActors\\EnemyHealActor.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Actors\\EnemyActors\\EnemyHealActor.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Actors\\EnemyActors\\Projectile.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Actors\\EnemyActors\\Projectile.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Actors\\EnemyActors\\Turret.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Actors\\EnemyActors\\Turret.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Actors\\InteractiveActors\\BaseInteractiveActor.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Actors\\InteractiveActors\\BaseInteractiveActor.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Actors\\InteractiveActors\\HealthOnOverlapInteractor.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Actors\\InteractiveActors\\HealthOnOverlapInteractor.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Actors\\InteractiveActors\\Lever.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Actors\\InteractiveActors\\Lever.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Actors\\InteractiveActors\\LeverWithTimer.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Actors\\InteractiveActors\\LeverWithTimer.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Actors\\InteractiveActors\\PressurePlate.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Actors\\InteractiveActors\\PressurePlate.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Actors\\InteractiveActors\\TeleportCrystalPair.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Actors\\InteractiveActors\\TeleportCrystalPair.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Actors\\KineticActors\\BaseKineticActor.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Actors\\KineticActors\\BaseKineticActor.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Actors\\KineticActors\\MultiplePlatform.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Actors\\KineticActors\\MultiplePlatform.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Actors\\KineticActors\\OverlapEventPlatform.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Actors\\KineticActors\\OverlapEventPlatform.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\BTServices\\BTService_TakeConstDistFrom.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\BTServices\\BTService_TakeConstDistFrom.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\BTServices\\BTService_UpdPlayerLocIfBlockLgt.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\BTServices\\BTService_UpdPlayerLocIfBlockLgt.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\BTServices\\BTService_UpdateLastPlayerPos.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\BTServices\\BTService_UpdateLastPlayerPos.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\BTServices\\BTService_UpdatePlLocIfShooted.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\BTServices\\BTService_UpdatePlLocIfShooted.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\BTServices\\BTService_UpdatePlayerLocation.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\BTServices\\BTService_UpdatePlayerLocation.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\BTTasks\\BTTask_ChangeDroneColor.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\BTTasks\\BTTask_ChangeDroneColor.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\BTTasks\\BTTask_ClearBlackboardValue.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\BTTasks\\BTTask_ClearBlackboardValue.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\BTTasks\\BTTask_MeleeAttack.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\BTTasks\\BTTask_MeleeAttack.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\BTTasks\\BTTask_MoveToWithConstDist.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\BTTasks\\BTTask_MoveToWithConstDist.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\BTTasks\\BTTask_MoveToWithoutRotation.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\BTTasks\\BTTask_MoveToWithoutRotation.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\BTTasks\\BTTask_ScanForwardAngle.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\BTTasks\\BTTask_ScanForwardAngle.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\BTTasks\\BTTask_ShootD.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\BTTasks\\BTTask_ShootD.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\BTTasks\\BTTask_SmoothRotateTo.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\BTTasks\\BTTask_SmoothRotateTo.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\BTTasks\\BTTask_SpawnActorAtLocation.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\BTTasks\\BTTask_SpawnActorAtLocation.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Characters\\BaseCharacter.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Characters\\BaseCharacter.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Characters\\Drones\\BaseDrone.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Characters\\Drones\\BaseDrone.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Characters\\Drones\\DroneWithLaser.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Characters\\Drones\\DroneWithLaser.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Characters\\Drones\\ShootingDrone.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Characters\\Drones\\ShootingDrone.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Characters\\Pavuks\\BasePavuk.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Characters\\Pavuks\\BasePavuk.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Characters\\Pavuks\\PlayerPavuk.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Characters\\Pavuks\\PlayerPavuk.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Components\\HealthComponent.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Components\\HealthComponent.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Components\\MoverComponent.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Components\\MoverComponent.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Components\\OnOverlapBoxComponent.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Components\\OnOverlapBoxComponent.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Components\\TickOptimizerBox.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Components\\TickOptimizerBox.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Gamemodes\\DefaultGamemode.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Gamemodes\\DefaultGamemode.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Interfaces\\DeathInterface.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Interfaces\\DeathInterface.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Interfaces\\HighligningInterface.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Interfaces\\HighligningInterface.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\PlayerControllers\\DefaultPlayerController.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\PlayerControllers\\DefaultPlayerController.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Triggers\\DeathBoxVolume.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Triggers\\DeathBoxVolume.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\UI\\HUD\\BaseHUD.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\UI\\HUD\\BaseHUD.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\UI\\WidgetControllers\\OverlayWidgetController.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\UI\\WidgetControllers\\OverlayWidgetController.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\UI\\WidgetControllers\\WidgetControllerBase.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\UI\\WidgetControllers\\WidgetControllerBase.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\UI\\Widgets\\BaseUserWidget.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\UI\\Widgets\\BaseUserWidget.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
-			"@C:\\Users\\profl\\Documents\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
+			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
 		],
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	}

@@ -20,23 +20,16 @@ void UBTService_UpdPlayerLocIfBlockLgt::OnSearchStart(FBehaviorTreeSearchData& S
 {
     Super::OnSearchStart(SearchData);
 
-    Drone = Cast<AShootingDrone>(SearchData.OwnerComp.GetAIOwner()->GetPawn());
-    PlayerPawn = UGameplayStatics::GetPlayerPawn(this, 0);
-
-    if (Drone == nullptr)
+    if (Drone == nullptr || PlayerPawn == nullptr)
     {
-        return;
+        Drone = Cast<AShootingDrone>(SearchData.OwnerComp.GetAIOwner()->GetPawn());
+        PlayerPawn = UGameplayStatics::GetPlayerPawn(this, 0);
     }
 }
 
 void UBTService_UpdPlayerLocIfBlockLgt::TickNode(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory, float DeltaSeconds)
 {
     Super::TickNode(OwnerComp, NodeMemory, DeltaSeconds);
-
-    if (PlayerPawn == nullptr)
-    {
-        return;
-    }
 
     UpdatePlayerLocationIfInDroneRangeOfVision(OwnerComp);
 }

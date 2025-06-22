@@ -17,7 +17,10 @@ void UBTService_UpdateLastPlayerPos::OnSearchStart(FBehaviorTreeSearchData& Sear
 {
     Super::OnSearchStart(SearchData);
 
-    PlayerPawn = UGameplayStatics::GetPlayerPawn(this, 0);
+    if (PlayerPawn == nullptr)
+    {
+        PlayerPawn = UGameplayStatics::GetPlayerPawn(this, 0);
+    }
 }
 
 void UBTService_UpdateLastPlayerPos::TickNode(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory, float DeltaSeconds)

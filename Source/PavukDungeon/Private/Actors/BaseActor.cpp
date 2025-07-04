@@ -23,9 +23,3 @@ void ABaseActor::HandleDeath()
 
 	Destroy();
 }
-
-UHealthComponent* ABaseActor::GetHealthComponent()
-{
-	//Not used here
-	return nullptr;
-}

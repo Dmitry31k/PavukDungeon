@@ -26,5 +26,5 @@ class PAVUKDUNGEON_API IDeathInterface
 public:
 
 	virtual void HandleDeath() = 0;
-	virtual UHealthComponent* GetHealthComponent() = 0;
+	virtual UHealthComponent* GetHealthComponent();
 };

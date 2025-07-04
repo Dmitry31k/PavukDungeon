@@ -4,3 +4,8 @@
 #include "Interfaces/DeathInterface.h"
 
 // Add default functionality here for any IDeathInterface functions that are not pure virtual.
+
+UHealthComponent* IDeathInterface::GetHealthComponent()
+{
+    return nullptr;
+}

@@ -5,41 +5,18 @@
 #include "Characters/Pavuks/PlayerPavuk.h"
 #include "Kismet/GameplayStatics.h"
 
-ADeathBoxVolume::ADeathBoxVolume()
-{
-
-}
-
-void ADeathBoxVolume::BeginPlay()
-{
-    Super::BeginPlay();
-
-    OnActorBeginOverlap.AddDynamic(this, &ADeathBoxVolume::OverlapBegin);
-    OnActorEndOverlap.AddDynamic(this, &ADeathBoxVolume::OnEndOverlap);
-
-    PlayerPavuk = Cast<APlayerPavuk>(UGameplayStatics::GetPlayerPawn(GetWorld(), 0));
-
-    if (PlayerPavuk)
-    {
-        DamageTimerDelegate.BindUFunction(this, FName("DamageOverlappedActor"), PlayerPavuk);
-    }
-}
-
-void ADeathBoxVolume::OverlapBegin(AActor* OverlappedActor, AActor* OverlappingActor)
+void ADeathBoxVolume::PlayerStartOverlap(AActor* OverlappedActor, AActor* OverlappingActor)
 {   
-    if (PlayerPavuk && PlayerPavuk == OverlappingActor)
-    {
-        UGameplayStatics::ApplyDamage(OverlappingActor, DamageForPlayer, GetInstigatorController(), this, UDamageType::StaticClass());
-        GetWorldTimerManager().SetTimer(DamageTimer, DamageTimerDelegate, ApplyDamageTimer, true);  
-    } 
+    DamagePlayer();
+    GetWorldTimerManager().SetTimer(DamageTimer, this, &ADeathBoxVolume::DamagePlayer, ApplyDamageTimer, true);
 }
 
-void ADeathBoxVolume::OnEndOverlap(AActor* OverlappedActor, AActor* OtherActor)
+void ADeathBoxVolume::PlayerEndOverlap(AActor* OverlappedActor, AActor* OverlappingActor)
 {
     GetWorldTimerManager().ClearTimer(DamageTimer);
 }
 
-void ADeathBoxVolume::DamageOverlappedActor(AActor* DamagedActor)
+void ADeathBoxVolume::DamagePlayer()
 {
-    UGameplayStatics::ApplyDamage(DamagedActor, DamageForPlayer, GetInstigatorController(), this, UDamageType::StaticClass());
+    UGameplayStatics::ApplyDamage(PlayerActor.Get(), DamageForPlayer, GetInstigatorController(), this, UDamageType::StaticClass());
 }

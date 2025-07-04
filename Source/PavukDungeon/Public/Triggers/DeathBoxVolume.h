@@ -3,46 +3,30 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Engine/TriggerBox.h"
+#include "Triggers/PlayerTrigger.h"
 #include "DeathBoxVolume.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class PAVUKDUNGEON_API ADeathBoxVolume : public ATriggerBox
+class PAVUKDUNGEON_API ADeathBoxVolume : public APlayerTrigger
 {
 	GENERATED_BODY()
-	
-public: 
-
-	ADeathBoxVolume();
-
-protected:
-
-	virtual void BeginPlay();
 
 private:
 
 	UPROPERTY(EditAnywhere, category = "Damage")
 	float DamageForPlayer = 100;
 
-	UFUNCTION()
-	void OverlapBegin(AActor* OverlappedActor, AActor* OverlappingActor);
+	virtual void PlayerStartOverlap(AActor* OverlappedActor, AActor* OverlappingActor) override;
+	virtual void PlayerEndOverlap(AActor* OverlappedActor, AActor* OverlappingActor) override;
 
-	UFUNCTION()
-	void OnEndOverlap(AActor* OverlappedActor, AActor* OtherActor);
-
-	UFUNCTION()
-	void DamageOverlappedActor(AActor* DamagedActor);
+	void DamagePlayer();
 
 	FTimerHandle DamageTimer;
-	FTimerDelegate DamageTimerDelegate;
 
 	UPROPERTY(EditAnywhere, category = "Damage")
 	float ApplyDamageTimer = 1;
-
-	UPROPERTY()
-	class APlayerPavuk* PlayerPavuk;
 
 };

@@ -35,12 +35,6 @@ void UBTService_TakeConstDistFrom::TickNode(UBehaviorTreeComponent &OwnerComp, u
 
     UNavigationPath* FoundPath = FindPathInNavMeshFromTarget(CurrentNavMesh, TargetLocation, CurrentOwnerLocation, MoveToTarget);
 
-    if (FoundPath == nullptr)
-    {
-        UE_LOG(LogTemp, Error, TEXT("FoundPath Error"));
-        return;
-    }
-
     if (FoundPath->IsValid() && FoundPath->GetPathLength() > 0)
     {
         OwnerController->MoveTo(MoveToTarget);
@@ -57,22 +51,32 @@ void UBTService_TakeConstDistFrom::OnBecomeRelevant(UBehaviorTreeComponent &Owne
 
     if (OwnerController == nullptr || PlayerPawn == nullptr)
     {
-        OwnerController = OwnerComp.GetAIOwner();
-        PlayerPawn = UGameplayStatics::GetPlayerPawn(GetWorld(), 0);
-
         return;
     }
 
     CurrentNavMesh = FNavigationSystem::GetCurrent<UNavigationSystemV1>(GetWorld());
 
-    OwnerController->SetFocus(PlayerPawn);
+    OwnerController->SetFocus(PlayerPawn.Get());
+}
+
+void UBTService_TakeConstDistFrom::OnSearchStart(FBehaviorTreeSearchData& SearchData)
+{
+    Super::OnSearchStart(SearchData);
+
+    if (OwnerController == nullptr || PlayerPawn == nullptr)
+    {
+        OwnerController = SearchData.OwnerComp.GetAIOwner();
+        PlayerPawn = UGameplayStatics::GetPlayerPawn(GetWorld(), 0);
+
+        return;
+    }
 }
 
 void UBTService_TakeConstDistFrom::OnCeaseRelevant(UBehaviorTreeComponent &OwnerComp, uint8* NodeMemory)
 {
     Super::OnCeaseRelevant(OwnerComp, NodeMemory);
 
-    if (!OwnerComp.GetAIOwner()->LineOfSightTo(PlayerPawn))
+    if (!OwnerComp.GetAIOwner()->LineOfSightTo(PlayerPawn.Get()))
     {
         OwnerController->ClearFocus(EAIFocusPriority::Gameplay);
     }

@@ -19,6 +19,7 @@ AEnemyHealActor::AEnemyHealActor()
 
     RangeOfHeal = CreateDefaultSubobject<USphereComponent>(TEXT("Mesh for determin radius of healing for this actor"));
     RangeOfHeal->SetupAttachment(RootComponent);
+    RangeOfHeal->ComponentTags.Add(FName("IgnoreDamage"));
 }
 
 void AEnemyHealActor::BeginPlay()

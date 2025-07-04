@@ -35,6 +35,12 @@ void UBTService_TakeConstDistFrom::TickNode(UBehaviorTreeComponent &OwnerComp, u
 
     UNavigationPath* FoundPath = FindPathInNavMeshFromTarget(CurrentNavMesh, TargetLocation, CurrentOwnerLocation, MoveToTarget);
 
+    if (FoundPath == nullptr)
+    {
+        UE_LOG(LogTemp, Error, TEXT("FoundPath Error"));
+        return;
+    }
+
     if (FoundPath->IsValid() && FoundPath->GetPathLength() > 0)
     {
         OwnerController->MoveTo(MoveToTarget);

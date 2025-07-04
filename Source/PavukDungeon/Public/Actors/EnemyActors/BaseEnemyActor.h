@@ -28,8 +28,16 @@ protected:
 	virtual void AddActorIntoAliveActors();
 	virtual void DeleteActorFromAliveActors();
 
+	virtual void Shoot();
+
+	UPROPERTY(EditDefaultsOnly)
+	TSubclassOf<class AProjectile> ProjectileClass;
+
 	UPROPERTY(EditAnywhere)
 	UHealthComponent* HealthComponent;
+
+	UPROPERTY(VisibleDefaultsOnly)
+	USceneComponent* ProjectileSpawnPoint;
 
 private:
 

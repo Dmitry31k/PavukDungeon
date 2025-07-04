@@ -5,6 +5,7 @@
 #include "Components/GameplayComponents/HealthComponent.h"
 #include "Components/GameplayComponents/MoverComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "Actors/EnemyActors/Projectile.h"
 
 ABaseEnemyActor::ABaseEnemyActor()
 {
@@ -58,4 +59,14 @@ void ABaseEnemyActor::DeleteActorFromAliveActors()
 UHealthComponent* ABaseEnemyActor::GetHealthComponent()
 {
     return HealthComponent;
+}
+
+void ABaseEnemyActor::Shoot()
+{
+    AProjectile* Projectile = GetWorld()->SpawnActor<AProjectile>(ProjectileClass, 
+	ProjectileSpawnPoint->GetComponentLocation(), 
+	ProjectileSpawnPoint->GetComponentRotation()
+		);
+
+	Projectile->SetOwner(this);
 }

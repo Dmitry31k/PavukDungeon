@@ -32,9 +32,6 @@ private:
 	UPROPERTY(VisibleDefaultsOnly)
 	UStaticMeshComponent* TurretHead;
 
-	UPROPERTY(VisibleDefaultsOnly)
-	USceneComponent* ProjectileSpawnPoint;
-
 	UPROPERTY()
 	APlayerPavuk* PlayerPavuk;
 
@@ -48,14 +45,11 @@ private:
 	float ShootTimer = 0;
 
 	void RotateTurretHead();
-	void Shoot();
+	void Shoot() override;
 	
 	FTimerHandle ShootingTimerHandle;
 
 	bool bWasSetTimer = false;
-
-	UPROPERTY(EditDefaultsOnly)
-	TSubclassOf<class AProjectile> ProjectileClass;
 
 	UPROPERTY(EditDefaultsOnly, category = "Combat")
 	UTickOptimizerBox* ActiveTickZone;

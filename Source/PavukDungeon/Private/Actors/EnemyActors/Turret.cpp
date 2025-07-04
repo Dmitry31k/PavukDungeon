@@ -80,13 +80,5 @@ void ATurret::RotateTurretHead()
 
 void ATurret::Shoot()
 {
-	if (ProjectileClass && PlayerPavuk)
-	{
-		AProjectile* Projectile = GetWorld()->SpawnActor<AProjectile>(ProjectileClass, 
-			ProjectileSpawnPoint->GetComponentLocation(), 
-			ProjectileSpawnPoint->GetComponentRotation()
-		);
-
-		Projectile->SetOwner(this);
-	}
+	Super::Shoot();
 }

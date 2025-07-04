@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "Components/OnOverlapBoxComponent.h"
+#include "Components/OverlapTriggerComponents/OnOverlapBoxComponent.h"
 
 void UOnOverlapBoxComponent::BeginPlay()
 {

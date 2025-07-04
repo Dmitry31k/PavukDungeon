@@ -7,7 +7,7 @@
 #include "Math/UnrealMathUtility.h"
 #include "Components/SceneComponent.h"
 #include "Actors/EnemyActors/Projectile.h"
-#include "Components/TickOptimizerBox.h"
+#include "Components/OverlapTriggerComponents/TickOptimizerBox.h"
 
 // Sets default values
 ATurret::ATurret()

@@ -2,7 +2,7 @@
 
 
 #include "Actors/InteractiveActors/BaseInteractiveActor.h"
-#include "Components/MoverComponent.h"
+#include "Components/GameplayComponents/MoverComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "Components/BoxComponent.h"
 #include "Characters/Pavuks/PlayerPavuk.h"

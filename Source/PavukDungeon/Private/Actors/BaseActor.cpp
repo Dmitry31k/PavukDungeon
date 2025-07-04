@@ -4,7 +4,7 @@
 #include "Actors/BaseActor.h"
 #include "NiagaraFunctionLibrary.h"
 #include "NiagaraSystem.h"
-#include "Components/HealthComponent.h"
+#include "Components/GameplayComponents/HealthComponent.h"
 
 // Sets default values
 ABaseActor::ABaseActor()

@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "Components/TickOptimizerBox.h"
+#include "Components/OverlapTriggerComponents/TickOptimizerBox.h"
 #include "Characters/Pavuks/PlayerPavuk.h"
 
 UTickOptimizerBox::UTickOptimizerBox()

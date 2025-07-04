@@ -6,7 +6,7 @@
 #include "NiagaraSystem.h"
 #include "Actors/EnemyActors/Projectile.h"
 #include "Characters/Pavuks/PlayerPavuk.h"
-#include "Components/HealthComponent.h"
+#include "Components/GameplayComponents/HealthComponent.h"
 
 // Sets default values
 ABaseCharacter::ABaseCharacter()

@@ -6,7 +6,7 @@
 #include "Components/SkeletalMeshComponent.h"
 #include "Components/SphereComponent.h"
 #include "Interfaces/DeathInterface.h"
-#include "Components/HealthComponent.h"
+#include "Components/GameplayComponents/HealthComponent.h"
 #include "Kismet/GameplayStatics.h"
 
 AEnemyHealActor::AEnemyHealActor()

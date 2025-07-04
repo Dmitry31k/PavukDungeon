@@ -2,8 +2,8 @@
 
 
 #include "Actors/EnemyActors/BaseEnemyActor.h"
-#include "Components/HealthComponent.h"
-#include "Components/MoverComponent.h"
+#include "Components/GameplayComponents/HealthComponent.h"
+#include "Components/GameplayComponents/MoverComponent.h"
 #include "Kismet/GameplayStatics.h"
 
 ABaseEnemyActor::ABaseEnemyActor()

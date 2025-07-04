@@ -9,8 +9,8 @@
 #include "NiagaraComponent.h"
 #include "NiagaraFunctionLibrary.h"
 #include "NiagaraSystem.h"
-#include "Components/HealthComponent.h"
-#include "Components/TickOptimizerBox.h"
+#include "Components/GameplayComponents/HealthComponent.h"
+#include "Components/OverlapTriggerComponents/TickOptimizerBox.h"
 
 ADroneWithLaser::ADroneWithLaser()
 {

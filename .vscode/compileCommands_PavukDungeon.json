@@ -336,7 +336,7 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Components\\HealthComponent.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Components\\GameplayComponents\\HealthComponent.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
 			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
@@ -344,7 +344,7 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Components\\MoverComponent.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Components\\GameplayComponents\\MoverComponent.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
 			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
@@ -352,7 +352,7 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Components\\OnOverlapBoxComponent.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Components\\OverlapTriggerComponents\\OnOverlapBoxComponent.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
 			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
@@ -360,7 +360,7 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Components\\TickOptimizerBox.cpp",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Private\\Components\\OverlapTriggerComponents\\TickOptimizerBox.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
 			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
@@ -752,7 +752,7 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Components\\HealthComponent.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Components\\GameplayComponents\\HealthComponent.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
 			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
@@ -760,7 +760,7 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Components\\MoverComponent.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Components\\GameplayComponents\\MoverComponent.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
 			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
@@ -768,7 +768,7 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Components\\OnOverlapBoxComponent.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Components\\OverlapTriggerComponents\\OnOverlapBoxComponent.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
 			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"
@@ -776,7 +776,7 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
-		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Components\\TickOptimizerBox.h",
+		"file": "F:\\Unreal Projects\\PavukDungeon 5.4\\Source\\PavukDungeon\\Public\\Components\\OverlapTriggerComponents\\TickOptimizerBox.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe",
 			"@F:\\Unreal Projects\\PavukDungeon 5.4\\.vscode\\compileCommands_PavukDungeon\\PavukDungeon.1.rsp"

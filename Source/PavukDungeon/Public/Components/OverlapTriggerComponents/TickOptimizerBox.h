@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Components/OnOverlapBoxComponent.h"
+#include "Components/OverlapTriggerComponents/OnOverlapBoxComponent.h"
 #include "TickOptimizerBox.generated.h"
 
 /**

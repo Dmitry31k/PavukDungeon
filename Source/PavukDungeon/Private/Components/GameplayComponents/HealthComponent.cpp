@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "Components/HealthComponent.h"
+#include "Components/GameplayComponents/HealthComponent.h"
 #include "Characters/Pavuks/PlayerPavuk.h"
 #include "Characters/BaseCharacter.h"
 #include "Actors/BaseActor.h"

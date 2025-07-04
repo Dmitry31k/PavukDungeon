@@ -4,7 +4,7 @@
 #include "Actors/InteractiveActors/HealthOnOverlapInteractor.h"
 #include "Components/BoxComponent.h"
 #include "Components/SphereComponent.h"
-#include "Components/HealthComponent.h"
+#include "Components/GameplayComponents/HealthComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "Interfaces/DeathInterface.h"
 

@@ -9,9 +9,9 @@ UTickOptimizerBox::UTickOptimizerBox()
     ComponentTags.Add("IgnoreDamage");
 }
 
-void UTickOptimizerBox::OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+void UTickOptimizerBox::PlayerStartOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp)
 {
-    Super::OnOverlapBegin(OverlappedComponent, OtherActor, OtherComp, OtherBodyIndex, bFromSweep, SweepResult);
+    Super::PlayerStartOverlap(OverlappedComponent, OtherActor, OtherComp);
 
     if (Cast<APlayerPavuk>(OtherActor))
     {
@@ -19,9 +19,9 @@ void UTickOptimizerBox::OnOverlapBegin(UPrimitiveComponent* OverlappedComponent,
     }
 }
 
-void UTickOptimizerBox::OnOverlapEnd(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+void UTickOptimizerBox::PlayerEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp)
 {
-    Super::OnOverlapEnd(OverlappedComponent, OtherActor, OtherComp, OtherBodyIndex);
+    Super::PlayerEndOverlap(OverlappedComponent, OtherActor, OtherComp);
 
     if (Cast<APlayerPavuk>(OtherActor))
     {

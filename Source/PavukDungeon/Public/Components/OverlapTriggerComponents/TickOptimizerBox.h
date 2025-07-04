@@ -3,14 +3,14 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Components/OverlapTriggerComponents/OnOverlapBoxComponent.h"
+#include "Components/OverlapTriggerComponents/OnPlayerOverlapComponent.h"
 #include "TickOptimizerBox.generated.h"
 
 /**
  * 
  */
 UCLASS(meta=(BlueprintSpawnableComponent))
-class PAVUKDUNGEON_API UTickOptimizerBox : public UOnOverlapBoxComponent
+class PAVUKDUNGEON_API UTickOptimizerBox : public UOnPlayerOverlapComponent
 {
 	GENERATED_BODY()
 
@@ -20,7 +20,7 @@ public:
 
 private:
 
-	virtual void OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult) override;
-	virtual void OnOverlapEnd(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex) override;
+	virtual void PlayerStartOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp) override;
+	virtual void PlayerEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp) override;
 	
 };

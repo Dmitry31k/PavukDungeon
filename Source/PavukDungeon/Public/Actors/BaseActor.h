@@ -19,7 +19,6 @@ public:
 	ABaseActor();
 
 	virtual void HandleDeath() override;
-	virtual UHealthComponent* GetHealthComponent() override;
 
 protected:
 

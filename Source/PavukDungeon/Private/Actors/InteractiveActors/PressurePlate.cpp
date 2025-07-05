@@ -33,7 +33,7 @@ void APressurePlate::BeginPlay()
 
 void APressurePlate::StartOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	if (OverlappedComponent && OtherActor)
+	if (OtherActor != this)
 	{
 		DeleteActorFromNotActivatedUnlockerActors();
 	}
@@ -42,7 +42,9 @@ void APressurePlate::StartOverlap(UPrimitiveComponent* OverlappedComponent, AAct
 void APressurePlate::EndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
 	CollisionBox->GetOverlappingActors(OverlappingActors);
-	if (OverlappedComponent && OtherActor && OverlappingActors.Num() == 0)
+	OverlappingActors.Remove(this);
+	
+	if (OtherActor != this && OverlappingActors.Num() == 0)
 	{
 		AddActorIntoNotActivatedUnlockerActors();
 	}

@@ -18,7 +18,13 @@ public:
 	// Sets default values for this actor's properties
 	ABaseActor();
 
+	// DeathInterface start
 	virtual void HandleDeath() override;
+	virtual FOnActorDeadSignature& GetOnActorDeadDelegate() override { return OnActorDead; }
+	// DeathInterface end
+
+	UPROPERTY(BlueprintAssignable)
+	FOnActorDeadSignature OnActorDead;
 
 protected:
 

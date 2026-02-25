@@ -18,8 +18,8 @@ ALever::ALever()
 
 	OverlapBoxHighlighterTrigger->SetupAttachment(BaseMesh);
 
-	ToHighlightStaticMesh.Add(BaseMesh);
-	ToHighlightStaticMesh.Add(LeverMesh);
+	ToHighlightMesh.Add(BaseMesh);
+	ToHighlightMesh.Add(LeverMesh);
 }
 
 // Called when the game starts or when spawned
@@ -37,6 +37,6 @@ void ALever::ActivateLever()
 	{
 		CurrentLeverMeshRotation.Roll += 90.f;
 		LeverMesh->SetRelativeRotation(CurrentLeverMeshRotation);
-		DeleteActorFromNotActivatedUnlockerActors();
+		OnActivated.Broadcast(this);
 	}
 }

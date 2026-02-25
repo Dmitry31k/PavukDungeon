@@ -4,13 +4,16 @@
 #include "Components/GameplayComponents/MoverComponent.h"
 #include "Math/UnrealMathUtility.h"
 #include "Kismet/GameplayStatics.h"
+#include "Interfaces/DeathInterface.h"
+#include "Interfaces/ActivatableInterface.h"
 
 // Sets default values for this component's properties
 UMoverComponent::UMoverComponent()
 {
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
-	PrimaryComponentTick.bCanEverTick = false;
+	PrimaryComponentTick.bCanEverTick = true;
+	PrimaryComponentTick.bStartWithTickEnabled = false;
 
 	// ...
 }
@@ -22,32 +25,113 @@ void UMoverComponent::BeginPlay()
 
 	StartLocation = GetOwner()->GetActorLocation();
 	TargetLocation = StartLocation + MoveOffset;
-}
 
-void UMoverComponent::MoveToTargetLocation()
-{
-	FVector CurrentLocation = GetOwner()->GetActorLocation();
-	FVector NewLocation = FMath::VInterpConstantTo(GetOwner()->GetActorLocation(), TargetLocation, 
-	UGameplayStatics::GetWorldDeltaSeconds(GetWorld()), MovementSpeed);
-
-	GetOwner()->SetActorLocation(NewLocation);
-
-	if (CurrentLocation != TargetLocation && (NotActivatedUnlockerActors.Num() == 0 && AliveActors.Num() == 0))
+	if (ToKillActorTagName != NAME_None)
 	{
-		GetWorld()->GetTimerManager().SetTimerForNextTick(this, &UMoverComponent::MoveToTargetLocation);
+		TArray<AActor*> FoundActors;
+		UGameplayStatics::GetAllActorsWithTag(this, ToKillActorTagName, FoundActors);
+
+		if (FoundActors.Num() > 0)
+		{
+			for (AActor* Actor : FoundActors)
+			{
+				if (IDeathInterface* DeathInterface = Cast<IDeathInterface>(Actor))
+				{
+					FoundToKillInterfaces.AddUnique(DeathInterface);
+					DeathInterface->GetOnActorDeadDelegate().AddDynamic(this, &UMoverComponent::HandleDeathOrActivationActor);
+				}
+			}
+		}
+	}
+
+	if (ToActivateActorTagName != NAME_None)
+	{
+		TArray<AActor*> FoundActors;
+		UGameplayStatics::GetAllActorsWithTag(this, ToActivateActorTagName, FoundActors);
+
+		if (FoundActors.Num() > 0)
+		{
+			for (AActor* Actor : FoundActors)
+			{
+				if (IActivatableInterface* ActivatableInterface = Cast<IActivatableInterface>(Actor))
+				{
+					FoundToActivateInterfaces.AddUnique(ActivatableInterface);
+					ActivatableInterface->GetOnActivatedDelegate().AddDynamic(this, &UMoverComponent::HandleDeathOrActivationActor);
+					ActivatableInterface->GetOnDeactivatedDelegate().AddDynamic(this, &UMoverComponent::HandleDeactivationActor);
+				}
+			}
+		}
 	}
 }
 
-void UMoverComponent::MoveToStartLocation()
+void UMoverComponent::TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction)
 {
-	FVector CurrentLocation = GetOwner()->GetActorLocation();
-	FVector NewLocation = FMath::VInterpConstantTo(CurrentLocation, StartLocation, 
-    UGameplayStatics::GetWorldDeltaSeconds(GetWorld()), MovementSpeed);
+	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-    GetOwner()->SetActorLocation(NewLocation);
-
-	if (CurrentLocation != StartLocation  && (NotActivatedUnlockerActors.Num() > 0 || AliveActors.Num() > 0))
+	if (bMoveToTargetLocation)
 	{
-		GetWorld()->GetTimerManager().SetTimerForNextTick(this, &UMoverComponent::MoveToStartLocation);
+		FVector CurrentLocation = GetOwner()->GetActorLocation();
+		FVector NewLocation = FMath::VInterpConstantTo(GetOwner()->GetActorLocation(), 
+			TargetLocation, 
+			DeltaTime,
+			MovementSpeed
+		);
+
+		GetOwner()->SetActorLocation(NewLocation);
+
+		if (CurrentLocation == TargetLocation)
+		{
+			SetComponentTickEnabled(false);
+		}
+	}
+	else
+	{
+		FVector CurrentLocation = GetOwner()->GetActorLocation();
+		FVector NewLocation = FMath::VInterpConstantTo(CurrentLocation,
+			StartLocation, 
+    		DeltaTime,
+			MovementSpeed
+		);
+
+    	GetOwner()->SetActorLocation(NewLocation);
+
+		if (CurrentLocation == StartLocation)
+		{
+			SetComponentTickEnabled(false);
+		}
+	}
+
+	if (bPrintTickLog)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Actor %s is ticking"), *GetNameSafe(this));
 	}
 }
+
+void UMoverComponent::HandleDeathOrActivationActor(AActor* DeadOrActivatedActor)
+{
+	if (IDeathInterface* DeathInterface = Cast<IDeathInterface>(DeadOrActivatedActor))
+	{
+		FoundToKillInterfaces.Remove(DeathInterface);
+	}
+	if (IActivatableInterface* ActivatableInterface = Cast<IActivatableInterface>(DeadOrActivatedActor))
+	{
+		FoundToActivateInterfaces.Remove(ActivatableInterface);
+	}
+
+	if (FoundToKillInterfaces.Num() == 0 && FoundToActivateInterfaces.Num() == 0)
+	{
+		bMoveToTargetLocation = true;
+		SetComponentTickEnabled(true);
+	}
+}
+void UMoverComponent::HandleDeactivationActor(AActor* DeactivatedActor)
+{
+	if (IActivatableInterface* ActivatableInterface = Cast<IActivatableInterface>(DeactivatedActor))
+	{
+		FoundToActivateInterfaces.Add(ActivatableInterface);
+	}
+
+	bMoveToTargetLocation = false;
+	SetComponentTickEnabled(true);
+}
+	

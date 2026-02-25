@@ -19,7 +19,7 @@ APressurePlate::APressurePlate()
 	CollisionBox->SetupAttachment(PlateMesh);
 	OverlapBoxHighlighterTrigger->SetupAttachment(PlateMesh);
 
-	ToHighlightStaticMesh.Add(PlateMesh);
+	ToHighlightMesh.Add(PlateMesh);
 }
 
 // Called when the game starts or when spawned
@@ -35,17 +35,17 @@ void APressurePlate::StartOverlap(UPrimitiveComponent* OverlappedComponent, AAct
 {
 	if (OtherActor != this)
 	{
-		DeleteActorFromNotActivatedUnlockerActors();
+		OnActivated.Broadcast(this);
+		OverlappingActors.AddUnique(OtherActor);
 	}
 }
 
 void APressurePlate::EndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
-	CollisionBox->GetOverlappingActors(OverlappingActors);
-	OverlappingActors.Remove(this);
+	OverlappingActors.Remove(OtherActor);
 	
 	if (OtherActor != this && OverlappingActors.Num() == 0)
 	{
-		AddActorIntoNotActivatedUnlockerActors();
+		OnDeactivated.Broadcast(this);
 	}
 }

@@ -15,5 +15,5 @@ void ALeverWithTimer::ActivateLever()
 void ALeverWithTimer::DeactivateLever()
 {
     LeverMesh->SetRelativeRotation(StartLeverMeshRotation);
-    AddActorIntoNotActivatedUnlockerActors();
+    OnDeactivated.Broadcast(this);
 }

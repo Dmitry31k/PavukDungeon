@@ -17,7 +17,7 @@ AHealthOnOverlapInteractor::AHealthOnOverlapInteractor()
     InteractSphere->SetupAttachment(MeshForActor);
 
     OverlapBoxHighlighterTrigger->SetupAttachment(RootComponent);
-    ToHighlightStaticMesh.Add(MeshForActor);
+    ToHighlightMesh.Add(MeshForActor);
 }
 
 void AHealthOnOverlapInteractor::BeginPlay()

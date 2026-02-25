@@ -6,6 +6,8 @@
 #include "UObject/Interface.h"
 #include "DeathInterface.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnActorDeadSignature, AActor*, DeadActor);
+
 class UHealthComponent;
 
 // This class does not need to be modified.
@@ -27,4 +29,6 @@ public:
 
 	virtual void HandleDeath() = 0;
 	virtual UHealthComponent* GetHealthComponent();
+
+	virtual FOnActorDeadSignature& GetOnActorDeadDelegate() = 0;
 };

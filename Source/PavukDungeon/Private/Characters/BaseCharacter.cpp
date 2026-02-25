@@ -32,6 +32,7 @@ void ABaseCharacter::HandleDeath()
 		UNiagaraFunctionLibrary::SpawnSystemAtLocation(GetWorld(), DeathParticles, GetActorLocation());
 	}
 
+	OnActorDead.Broadcast(this);
 	Destroy();
 }
 

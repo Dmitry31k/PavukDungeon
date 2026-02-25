@@ -36,12 +36,19 @@ protected:
 public:
 
 	virtual void HandleDeath() override;
+
+	// DeathInterface start
 	virtual UHealthComponent* GetHealthComponent() override;
+	virtual FOnActorDeadSignature& GetOnActorDeadDelegate() { return OnActorDead; }
+	// DeathInterface end
 
 	virtual void Shoot();
 	virtual void MeleeAttack();
 
 	bool IsWasHitByPlayer = false;
+
+	UPROPERTY(BlueprintAssignable)
+	FOnActorDeadSignature OnActorDead;
 
 private:
 

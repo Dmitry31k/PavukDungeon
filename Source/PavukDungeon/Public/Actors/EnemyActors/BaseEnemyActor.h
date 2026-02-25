@@ -19,14 +19,14 @@ public:
 	ABaseEnemyActor();
 	
 	virtual void HandleDeath() override;
-	virtual UHealthComponent* GetHealthComponent() override; 
+
+	// DeathInterface start
+	virtual UHealthComponent* GetHealthComponent() override;
+	// DeathInterface end
 
 protected:
 
 	virtual void BeginPlay() override;
-
-	virtual void AddActorIntoAliveActors();
-	virtual void DeleteActorFromAliveActors();
 
 	virtual void Shoot();
 
@@ -40,14 +40,5 @@ protected:
 	USceneComponent* ProjectileSpawnPoint;
 
 private:
-
-	UPROPERTY(EditAnywhere)
-	FName MoverComponentTag;
-
-	UPROPERTY()
-	class UMoverComponent* UnlockerComponent;
-
-	UPROPERTY()
-	TArray<AActor*> FoundActorWithTag;
 	
 };

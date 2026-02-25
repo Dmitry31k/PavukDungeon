@@ -16,44 +16,14 @@ void ABaseEnemyActor::BeginPlay()
 {
     Super::BeginPlay();
 
-    if (!MoverComponentTag.IsNone())
-    {
-        UGameplayStatics::GetAllActorsWithTag(GetWorld(), MoverComponentTag, FoundActorWithTag);
 
-        if (FoundActorWithTag.Num() > 0)
-        {
-            UnlockerComponent = Cast<UMoverComponent>(FoundActorWithTag[0]->FindComponentByClass<UMoverComponent>());
-        }
-
-        AddActorIntoAliveActors();
-    }
 }
 
 void ABaseEnemyActor::HandleDeath()
 {
     Super::HandleDeath();
     
-    DeleteActorFromAliveActors();
-}
-
-void ABaseEnemyActor::AddActorIntoAliveActors()
-{
-    if (!UnlockerComponent)
-    {
-        return;
-    }
-    UnlockerComponent->AliveActors.Add(this);
-    UnlockerComponent->MoveToStartLocation();
-}
-
-void ABaseEnemyActor::DeleteActorFromAliveActors()
-{
-    if (!UnlockerComponent)
-    {
-        return;
-    }
-    UnlockerComponent->AliveActors.Remove(this);
-    UnlockerComponent->MoveToTargetLocation();
+    OnActorDead.Broadcast(this);
 }
 
 UHealthComponent* ABaseEnemyActor::GetHealthComponent()

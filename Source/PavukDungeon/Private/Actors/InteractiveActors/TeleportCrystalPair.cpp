@@ -14,7 +14,7 @@ ATeleportCrystalPair::ATeleportCrystalPair()
     OverlapBoxHighlighterTrigger->SetupAttachment(RootComponent);
     TeleportMeshTrigger->SetupAttachment(RootComponent);
 
-    ToHighlightStaticMesh.Add(TeleportCrystalMesh);
+    ToHighlightMesh.Add(TeleportCrystalMesh);
 
     BoxTeleportChecker = CreateDefaultSubobject<UBoxComponent>(TEXT("Simple cheker for teleport location"));
     BoxTeleportChecker->SetBoxExtent(BoxCheckerExtension);

@@ -50,8 +50,10 @@ private:
   UPROPERTY(EditAnywhere, category = "Activation")
   FName ToActivateActorTagName { NAME_None };
 
-  TArray<IActivatableInterface*> FoundToActivateInterfaces;
-  TArray<IDeathInterface*> FoundToKillInterfaces;
+  UPROPERTY()
+  TArray<AActor*> FoundToActivateActors;
+  UPROPERTY()
+  TArray<AActor*> FoundToKillActors;
 
   UFUNCTION()
   void HandleDeathOrActivationActor(AActor* DeadOrActivatedActor);

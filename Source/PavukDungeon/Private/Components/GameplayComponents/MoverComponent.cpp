@@ -37,7 +37,7 @@ void UMoverComponent::BeginPlay()
 			{
 				if (IDeathInterface* DeathInterface = Cast<IDeathInterface>(Actor))
 				{
-					FoundToKillInterfaces.AddUnique(DeathInterface);
+					FoundToKillActors.AddUnique(Actor);
 					DeathInterface->GetOnActorDeadDelegate().AddDynamic(this, &UMoverComponent::HandleDeathOrActivationActor);
 				}
 			}
@@ -55,7 +55,7 @@ void UMoverComponent::BeginPlay()
 			{
 				if (IActivatableInterface* ActivatableInterface = Cast<IActivatableInterface>(Actor))
 				{
-					FoundToActivateInterfaces.AddUnique(ActivatableInterface);
+					FoundToActivateActors.AddUnique(Actor);
 					ActivatableInterface->GetOnActivatedDelegate().AddDynamic(this, &UMoverComponent::HandleDeathOrActivationActor);
 					ActivatableInterface->GetOnDeactivatedDelegate().AddDynamic(this, &UMoverComponent::HandleDeactivationActor);
 				}
@@ -109,16 +109,11 @@ void UMoverComponent::TickComponent(float DeltaTime, enum ELevelTick TickType, F
 
 void UMoverComponent::HandleDeathOrActivationActor(AActor* DeadOrActivatedActor)
 {
-	if (IDeathInterface* DeathInterface = Cast<IDeathInterface>(DeadOrActivatedActor))
-	{
-		FoundToKillInterfaces.Remove(DeathInterface);
-	}
-	if (IActivatableInterface* ActivatableInterface = Cast<IActivatableInterface>(DeadOrActivatedActor))
-	{
-		FoundToActivateInterfaces.Remove(ActivatableInterface);
-	}
+	FoundToKillActors.Remove(DeadOrActivatedActor);
+	FoundToActivateActors.Remove(DeadOrActivatedActor);
+	
 
-	if (FoundToKillInterfaces.Num() == 0 && FoundToActivateInterfaces.Num() == 0)
+	if (FoundToKillActors.Num() == 0 && FoundToActivateActors.Num() == 0)
 	{
 		bMoveToTargetLocation = true;
 		SetComponentTickEnabled(true);
@@ -126,11 +121,8 @@ void UMoverComponent::HandleDeathOrActivationActor(AActor* DeadOrActivatedActor)
 }
 void UMoverComponent::HandleDeactivationActor(AActor* DeactivatedActor)
 {
-	if (IActivatableInterface* ActivatableInterface = Cast<IActivatableInterface>(DeactivatedActor))
-	{
-		FoundToActivateInterfaces.Add(ActivatableInterface);
-	}
 
+	FoundToActivateActors.Add(DeactivatedActor);
 	bMoveToTargetLocation = false;
 	SetComponentTickEnabled(true);
 }

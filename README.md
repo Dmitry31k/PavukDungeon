@@ -37,7 +37,10 @@ PavukDungeon is an engaging 3D game developed using Unreal Engine. In this game,
   <img src="Media/Screenshot02.png" width="700">
 </p>
 <p align="center">
-  <strong>Enemy AI Behavior Tree with custom C++ nodes</strong>
+  <img src="Media/Screenshot04.png" width="700">
+</p>
+<p align="center">
+  <strong>Enemy AI Behavior Trees with custom C++ nodes</strong>
 </p>
 
 ## License

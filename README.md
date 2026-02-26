@@ -9,7 +9,7 @@ PavukDungeon is an engaging 3D game developed using Unreal Engine. In this game,
   </a>
 </p>
 <p align="center">
-  <em>Gameplay Video</em>
+  <strong>Gameplay Video</strong>
 </p>
 
 ## Features
@@ -37,7 +37,7 @@ PavukDungeon is an engaging 3D game developed using Unreal Engine. In this game,
   <img src="Media/Screenshot02.png" width="700">
 </p>
 <p align="center">
-  <em>AI Example</em>
+  <strong>Enemy AI Behavior Tree with custom C++ nodes</strong>
 </p>
 
 ## License

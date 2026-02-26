@@ -6,6 +6,8 @@
 #include "Components/OverlapTriggerComponents/OnOverlapSphereComponent.h"
 #include "OnPlayerOverlapComponent.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnOverlappedByPlayerSignature, AActor*, OverlappedActor, UPrimitiveComponent*, OverlappedComp);
+
 /**
  * 
  */
@@ -13,6 +15,15 @@ UCLASS()
 class PAVUKDUNGEON_API UOnPlayerOverlapComponent : public UOnOverlapSphereComponent
 {
 	GENERATED_BODY()
+
+public:
+
+	// Called when this component is overlapped by a PlayerPavuk actor
+	UPROPERTY(BlueprintAssignable)
+	FOnOverlappedByPlayerSignature OnStartOverlappedByPlayer;
+	// Called when this component stops being overlapped by a PlayerPavuk actor
+	UPROPERTY(BlueprintAssignable)
+	FOnOverlappedByPlayerSignature OnEndOverlappedByPlayer;
 
 protected:
 

@@ -16,6 +16,7 @@ void UOnPlayerOverlapComponent::OnOverlapBegin(UPrimitiveComponent* OverlappedCo
     if (OtherActor == PlayerActor)
     {
         PlayerStartOverlap(OverlappedComponent, OtherActor, OtherComp);
+        OnStartOverlappedByPlayer.Broadcast(GetOwner(), this);
     }
 }
 
@@ -24,6 +25,7 @@ void UOnPlayerOverlapComponent::OnOverlapEnd(UPrimitiveComponent* OverlappedComp
     if (OtherActor == PlayerActor)
     {
         PlayerEndOverlap(OverlappedComponent, OtherActor, OtherComp);
+        OnEndOverlappedByPlayer.Broadcast(GetOwner(), this);
     }
 }
 

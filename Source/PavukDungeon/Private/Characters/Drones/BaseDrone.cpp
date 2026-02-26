@@ -2,9 +2,10 @@
 
 
 #include "Characters/Drones/BaseDrone.h"
-#include "Actors/EnemyActors/Projectile.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "Components/SceneComponent.h"
+#include "Kismet/GameplayStatics.h"
+
 
 // Sets default values
 ABaseDrone::ABaseDrone()
@@ -17,4 +18,14 @@ ABaseDrone::ABaseDrone()
 
 	ProjectileSpawnPoint = CreateDefaultSubobject<USceneComponent>(TEXT("Drone projectile spawnpoint"));
 	ProjectileSpawnPoint->SetupAttachment(RootComponent);
+}
+
+FVector ABaseDrone::GetPlayerLocation()
+{
+	FVector PlayerLocation { FVector::ZeroVector };
+
+	if (APawn* PlayerPawn = UGameplayStatics::GetPlayerPawn(this, 0))
+	PlayerLocation = PlayerPawn->GetActorLocation();
+
+	return PlayerLocation;
 }

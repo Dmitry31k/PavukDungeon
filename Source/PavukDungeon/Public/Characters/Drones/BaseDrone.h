@@ -4,10 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "Characters/BaseCharacter.h"
+#include "Interfaces/EnemyVisionInterface.h"
 #include "BaseDrone.generated.h"
 
 UCLASS()
-class PAVUKDUNGEON_API ABaseDrone : public ABaseCharacter
+class PAVUKDUNGEON_API ABaseDrone : public ABaseCharacter, public IEnemyVisionInterface
 {
 	GENERATED_BODY()
 
@@ -15,12 +16,17 @@ public:
 	// Sets default values for this character's properties
 	ABaseDrone();
 
+	// IEnemyVisionInterface start
+	virtual bool CanEnemySeePlayer() override { return bCanSeePlayer; }
+	virtual FVector GetPlayerLocation() override;
+	// IEnemyVisionInterface end
+
 protected:
 	
 	UPROPERTY(VisibleAnywhere)
-	class USkeletalMeshComponent* DroneFan;
+	USkeletalMeshComponent* DroneFan;
 
-public:	
+	bool bCanSeePlayer { false };	
 
 
 };

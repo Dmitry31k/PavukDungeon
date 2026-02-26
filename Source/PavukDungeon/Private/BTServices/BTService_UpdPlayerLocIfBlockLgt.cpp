@@ -2,11 +2,11 @@
 
 
 #include "BTServices/BTService_UpdPlayerLocIfBlockLgt.h"
-#include "Characters/Drones/ShootingDrone.h"
 #include "BehaviorTree/BlackboardComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "AIController.h"
 #include "BehaviorTree/BehaviorTreeTypes.h"
+#include "Interfaces/EnemyVisionInterface.h"
 
 UBTService_UpdPlayerLocIfBlockLgt::UBTService_UpdPlayerLocIfBlockLgt()
 {
@@ -20,10 +20,14 @@ void UBTService_UpdPlayerLocIfBlockLgt::OnSearchStart(FBehaviorTreeSearchData& S
 {
     Super::OnSearchStart(SearchData);
 
-    if (Drone == nullptr || PlayerPawn == nullptr)
+    if (!EnemyOwner)
     {
-        Drone = Cast<AShootingDrone>(SearchData.OwnerComp.GetAIOwner()->GetPawn());
-        PlayerPawn = UGameplayStatics::GetPlayerPawn(this, 0);
+        APawn* OwnerPawn = SearchData.OwnerComp.GetAIOwner()->GetPawn();
+
+        if (OwnerPawn->Implements<UEnemyVisionInterface>())
+        {
+            EnemyOwner = OwnerPawn;
+        }
     }
 }
 
@@ -36,9 +40,12 @@ void UBTService_UpdPlayerLocIfBlockLgt::TickNode(UBehaviorTreeComponent& OwnerCo
 
 void UBTService_UpdPlayerLocIfBlockLgt::UpdatePlayerLocationIfInDroneRangeOfVision(UBehaviorTreeComponent& OwnerComp)
 {
-    if (Drone->IsDroneLineOfSightOverlappedByPlayer == true)
+    if (!EnemyOwner)
+    return;
+
+    if (EnemyOwner->CanEnemySeePlayer())
     {
-        OwnerComp.GetBlackboardComponent()->SetValueAsVector(GetSelectedBlackboardKey(), PlayerPawn->GetActorLocation());
+        OwnerComp.GetBlackboardComponent()->SetValueAsVector(GetSelectedBlackboardKey(), EnemyOwner->GetPlayerLocation());
     }
     else
     {

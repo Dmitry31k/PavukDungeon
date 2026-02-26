@@ -6,6 +6,9 @@
 #include "Characters/Drones/BaseDrone.h"
 #include "ShootingDrone.generated.h"
 
+class USpotLightComponent;
+class UOnPlayerOverlapComponent;
+
 /**
  * 
  */
@@ -18,25 +21,25 @@ public:
 
 	AShootingDrone();
 
-	bool IsDroneLineOfSightOverlappedByPlayer = false;
-
 	UPROPERTY(EditAnywhere)
-	class USpotLightComponent* VisionBacklight;
+	TObjectPtr<USpotLightComponent> VisionBacklight;
+
+	
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	UFUNCTION()
+	virtual void HandleDroneVisionOverlapBegins(AActor* OverlappedActor, UPrimitiveComponent* OverlappedComponent);
+	UFUNCTION()
+	virtual void HandleDroneVisionOverlapEnds(AActor* OverlappedActor, UPrimitiveComponent* OverlappedComponent);
+
 private:
 
-	UFUNCTION()
-	void IsDroneLineOfSightBeginOverlapByPlayer(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
-
-	UFUNCTION()
-	void IsDroneLineOfSightEndOverlapByPlayer(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
-
+	// Component that rects when player overlaps it
 	UPROPERTY(VisibleAnywhere)
-	class USphereComponent* DroneLineOfSight;
+	TObjectPtr<UOnPlayerOverlapComponent> DroneVision;
 
 	virtual void Shoot() override;	
 };

@@ -2,7 +2,7 @@
 
 
 #include "Characters/Drones/ShootingDrone.h"
-#include "Components/SphereComponent.h"
+#include "Components/OverlapTriggerComponents/OnPlayerOverlapComponent.h"
 #include "Characters/Pavuks/PlayerPavuk.h"
 #include "Components/SpotLightComponent.h"
 
@@ -11,18 +11,17 @@ AShootingDrone::AShootingDrone()
     VisionBacklight = CreateDefaultSubobject<USpotLightComponent>(TEXT("Vision backlight"));
 	VisionBacklight->SetupAttachment(RootComponent);
 
-    DroneLineOfSight = CreateDefaultSubobject<USphereComponent>(TEXT("Drone line of sight"));
-	DroneLineOfSight->SetupAttachment(RootComponent);
-	DroneLineOfSight->ComponentTags.Add(FName("IgnoreDamage"));
+    DroneVision = CreateDefaultSubobject<UOnPlayerOverlapComponent>(TEXT("Drone line of sight"));
+	DroneVision->SetupAttachment(RootComponent);
+	DroneVision->ComponentTags.Add(FName("IgnoreDamage"));
 }
 
 void AShootingDrone::BeginPlay()
 {
 	Super::BeginPlay();
-	
-	DroneLineOfSight->OnComponentBeginOverlap.AddDynamic(this, &AShootingDrone::IsDroneLineOfSightBeginOverlapByPlayer);
-	DroneLineOfSight->OnComponentEndOverlap.AddDynamic(this, &AShootingDrone::IsDroneLineOfSightEndOverlapByPlayer);
 
+	DroneVision->OnStartOverlappedByPlayer.AddDynamic(this, &AShootingDrone::HandleDroneVisionOverlapBegins);
+	DroneVision->OnEndOverlappedByPlayer.AddDynamic(this, &AShootingDrone::HandleDroneVisionOverlapEnds);
 }
 
 void AShootingDrone::Shoot()
@@ -30,18 +29,11 @@ void AShootingDrone::Shoot()
     Super::Shoot();
 }
 
-void AShootingDrone::IsDroneLineOfSightBeginOverlapByPlayer(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+void AShootingDrone::HandleDroneVisionOverlapBegins(AActor* OverlappedActor, UPrimitiveComponent* OverlappedComponent)
 {
-	if (Cast<APlayerPavuk>(OtherActor))
-	{
-		IsDroneLineOfSightOverlappedByPlayer = true;
-	}
+	bCanSeePlayer = true;
 }
-
-void AShootingDrone::IsDroneLineOfSightEndOverlapByPlayer(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+void AShootingDrone::HandleDroneVisionOverlapEnds(AActor* OverlappedActor, UPrimitiveComponent* OverlappedComponent)
 {
-	if (Cast<APlayerPavuk>(OtherActor))
-	{
-		IsDroneLineOfSightOverlappedByPlayer = false;
-	}
+	bCanSeePlayer = false;
 }

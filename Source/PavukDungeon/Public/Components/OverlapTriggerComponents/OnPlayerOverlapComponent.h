@@ -3,14 +3,14 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Components/OverlapTriggerComponents/OnOverlapBoxComponent.h"
+#include "Components/OverlapTriggerComponents/OnOverlapSphereComponent.h"
 #include "OnPlayerOverlapComponent.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class PAVUKDUNGEON_API UOnPlayerOverlapComponent : public UOnOverlapBoxComponent
+class PAVUKDUNGEON_API UOnPlayerOverlapComponent : public UOnOverlapSphereComponent
 {
 	GENERATED_BODY()
 

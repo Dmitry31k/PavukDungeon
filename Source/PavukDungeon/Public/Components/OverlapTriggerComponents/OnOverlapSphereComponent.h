@@ -3,14 +3,14 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Components/BoxComponent.h"
-#include "OnOverlapBoxComponent.generated.h"
+#include "Components/SphereComponent.h"
+#include "OnOverlapSphereComponent.generated.h"
 
 /**
  * 
  */
 UCLASS(meta=(BlueprintSpawnableComponent))
-class PAVUKDUNGEON_API UOnOverlapBoxComponent : public UBoxComponent
+class PAVUKDUNGEON_API UOnOverlapSphereComponent : public USphereComponent
 {
 	GENERATED_BODY()
 

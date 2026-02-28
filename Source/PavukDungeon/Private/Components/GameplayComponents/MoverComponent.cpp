@@ -26,76 +26,40 @@ void UMoverComponent::BeginPlay()
 	StartLocation = GetOwner()->GetActorLocation();
 	TargetLocation = StartLocation + MoveOffset;
 
-	if (ToKillActorTagName != NAME_None)
-	{
-		TArray<AActor*> FoundActors;
-		UGameplayStatics::GetAllActorsWithTag(this, ToKillActorTagName, FoundActors);
+	StartRotation = GetOwner()->GetActorRotation();
+	TargetRotation = StartRotation + RotationOffset;
 
-		if (FoundActors.Num() > 0)
-		{
-			for (AActor* Actor : FoundActors)
-			{
-				if (IDeathInterface* DeathInterface = Cast<IDeathInterface>(Actor))
-				{
-					FoundToKillActors.AddUnique(Actor);
-					DeathInterface->GetOnActorDeadDelegate().AddDynamic(this, &UMoverComponent::HandleDeathOrActivationActor);
-				}
-			}
-		}
-	}
-
-	if (ToActivateActorTagName != NAME_None)
-	{
-		TArray<AActor*> FoundActors;
-		UGameplayStatics::GetAllActorsWithTag(this, ToActivateActorTagName, FoundActors);
-
-		if (FoundActors.Num() > 0)
-		{
-			for (AActor* Actor : FoundActors)
-			{
-				if (IActivatableInterface* ActivatableInterface = Cast<IActivatableInterface>(Actor))
-				{
-					FoundToActivateActors.AddUnique(Actor);
-					ActivatableInterface->GetOnActivatedDelegate().AddDynamic(this, &UMoverComponent::HandleDeathOrActivationActor);
-					ActivatableInterface->GetOnDeactivatedDelegate().AddDynamic(this, &UMoverComponent::HandleDeactivationActor);
-				}
-			}
-		}
-	}
+	InitArrayToCallbacks();
+	BindCallbacksToTaggedActors();
 }
 
 void UMoverComponent::TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	if (bMoveToTargetLocation)
+	MoveOwner(DeltaTime);
+}
+
+void UMoverComponent::MoveOwner(float DeltaTime)
+{
+	if (bMoveToDestination)
 	{
-		FVector CurrentLocation = GetOwner()->GetActorLocation();
-		FVector NewLocation = FMath::VInterpConstantTo(GetOwner()->GetActorLocation(), 
-			TargetLocation, 
-			DeltaTime,
-			MovementSpeed
-		);
+		SetOwnerLocationAndRotation(TargetLocation, TargetRotation, DeltaTime);
 
-		GetOwner()->SetActorLocation(NewLocation);
-
-		if (CurrentLocation == TargetLocation)
+		if (GetOwner()->GetActorLocation().Equals(TargetLocation, 1.f) && 
+			GetOwner()->GetActorRotation().Equals(TargetRotation, 1.f)
+		)
 		{
 			SetComponentTickEnabled(false);
 		}
 	}
 	else
 	{
-		FVector CurrentLocation = GetOwner()->GetActorLocation();
-		FVector NewLocation = FMath::VInterpConstantTo(CurrentLocation,
-			StartLocation, 
-    		DeltaTime,
-			MovementSpeed
-		);
+		SetOwnerLocationAndRotation(StartLocation, StartRotation, DeltaTime);
 
-    	GetOwner()->SetActorLocation(NewLocation);
-
-		if (CurrentLocation == StartLocation)
+		if (GetOwner()->GetActorLocation().Equals(StartLocation, 1.f) &&
+			GetOwner()->GetActorRotation().Equals(StartRotation, 1.f)
+		)
 		{
 			SetComponentTickEnabled(false);
 		}
@@ -107,23 +71,103 @@ void UMoverComponent::TickComponent(float DeltaTime, enum ELevelTick TickType, F
 	}
 }
 
+void UMoverComponent::SetOwnerLocationAndRotation(const FVector& DestinationLocation, const FRotator& DestinationRotation, const float& DeltaTime)
+{
+	FVector CurrentLocation = GetOwner()->GetActorLocation();
+	FVector NewLocation = FMath::VInterpConstantTo(CurrentLocation,
+		DestinationLocation, 
+    	DeltaTime,
+		MovementSpeed
+	);
+
+	FRotator CurrentRotation = GetOwner()->GetActorRotation();
+	FRotator NewRotation = FMath::RInterpConstantTo(CurrentRotation,
+		DestinationRotation,
+		DeltaTime,
+		RotationSpeed
+	);
+
+	GetOwner()->SetActorLocation(NewLocation);
+	GetOwner()->SetActorRotation(NewRotation);
+}
+
+void UMoverComponent::BindCallbacksToTaggedActors()
+{
+	for (auto& Pair : ArrayToCallbacks)
+	{
+		if (Pair.Key != NAME_None)
+		{
+			TArray<AActor*> FoundActors;
+			UGameplayStatics::GetAllActorsWithTag(this, Pair.Key, FoundActors);
+
+			for (AActor* Actor : FoundActors)
+			{
+				Pair.Value(Actor);
+			}
+		}		
+	}
+}
+
+void UMoverComponent::InitArrayToCallbacks()
+{
+	ArrayToCallbacks.Add(
+		ToKillActorTagName,
+		[this](AActor* Actor)
+		{
+			if (IDeathInterface* DeathInterface = Cast<IDeathInterface>(Actor))
+			{
+				FoundToKillActors.AddUnique(Actor);
+				DeathInterface->GetOnActorDeadDelegate().AddDynamic(this, &UMoverComponent::HandleDeathOrActivationActor);
+			}
+		}
+	);
+
+	ArrayToCallbacks.Add(
+		ToActivateActorTagName,
+		[this](AActor* Actor)
+		{
+			if (IActivatableInterface* ActivatableInterface = Cast<IActivatableInterface>(Actor))
+			{
+				FoundToActivateActors.AddUnique(Actor);
+				ActivatableInterface->GetOnActivatedDelegate().AddDynamic(this, &UMoverComponent::HandleDeathOrActivationActor);
+				ActivatableInterface->GetOnDeactivatedDelegate().AddDynamic(this, &UMoverComponent::HandleDeactivationActor);
+			}
+		}
+	);
+}
+
 void UMoverComponent::HandleDeathOrActivationActor(AActor* DeadOrActivatedActor)
 {
 	FoundToKillActors.Remove(DeadOrActivatedActor);
 	FoundToActivateActors.Remove(DeadOrActivatedActor);
 	
-
 	if (FoundToKillActors.Num() == 0 && FoundToActivateActors.Num() == 0)
 	{
-		bMoveToTargetLocation = true;
-		SetComponentTickEnabled(true);
+		bMoveToDestination = true;
+
+		if (bSmoothMovement)
+		{
+			SetComponentTickEnabled(true);
+		}
+		else
+		{
+			GetOwner()->SetActorLocation(TargetLocation);
+			GetOwner()->SetActorRotation(TargetRotation);
+		}
 	}
 }
 void UMoverComponent::HandleDeactivationActor(AActor* DeactivatedActor)
 {
-
 	FoundToActivateActors.Add(DeactivatedActor);
-	bMoveToTargetLocation = false;
-	SetComponentTickEnabled(true);
+	bMoveToDestination = false;
+
+	if (bSmoothMovement)
+	{
+		SetComponentTickEnabled(true);
+	}
+	else
+	{
+		GetOwner()->SetActorLocation(StartLocation);
+		GetOwner()->SetActorRotation(StartRotation);
+	}
 }
-	

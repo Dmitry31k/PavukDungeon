@@ -14,6 +14,10 @@ class PAVUKDUNGEON_API UOnOverlapSphereComponent : public USphereComponent
 {
 	GENERATED_BODY()
 
+public:
+
+	UOnOverlapSphereComponent();
+
 protected:
 
 	virtual void BeginPlay() override;

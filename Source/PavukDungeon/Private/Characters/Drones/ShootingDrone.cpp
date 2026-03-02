@@ -13,7 +13,6 @@ AShootingDrone::AShootingDrone()
 
     DroneVision = CreateDefaultSubobject<UOnPlayerOverlapComponent>(TEXT("Drone line of sight"));
 	DroneVision->SetupAttachment(RootComponent);
-	DroneVision->ComponentTags.Add(FName("IgnoreDamage"));
 }
 
 void AShootingDrone::BeginPlay()

@@ -3,6 +3,11 @@
 
 #include "Components/OverlapTriggerComponents/OnOverlapSphereComponent.h"
 
+UOnOverlapSphereComponent::UOnOverlapSphereComponent()
+{
+    ComponentTags.Add(FName("IgnoreDamage"));
+}
+
 void UOnOverlapSphereComponent::BeginPlay()
 {
     Super::BeginPlay();

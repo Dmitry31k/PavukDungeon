@@ -7,7 +7,7 @@
 #include "Turret.generated.h"
 
 class APlayerPavuk;
-class UTickOptimizerBox;
+class UTickOptimizer;
 
 UCLASS()
 class PAVUKDUNGEON_API ATurret : public ABaseEnemyActor
@@ -52,5 +52,5 @@ private:
 	bool bWasSetTimer = false;
 
 	UPROPERTY(EditDefaultsOnly, category = "Combat")
-	UTickOptimizerBox* ActiveTickZone;
+	UTickOptimizer* ActiveTickZone;
 };

@@ -7,7 +7,7 @@
 #include "DroneWithLaser.generated.h"
 
 class UNiagaraComponent;
-class UTickOptimizerBox;
+class UTickOptimizer;
 enum class EMovingType : uint8;
 
 /**
@@ -66,7 +66,7 @@ private:
 	EMovingType MovingPolicy;
 
 	UPROPERTY(EditDefaultsOnly, category = "Combat")
-	UTickOptimizerBox* ActiveTickZone;
+	UTickOptimizer* ActiveTickZone;
 
 	//Function that send Vectors & bools variables into AI controller for using into behavior script
 	void SendDataIntoAIController(class AAIController_DroneWithLaser* OwnerAIController);

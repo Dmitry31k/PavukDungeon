@@ -10,7 +10,7 @@
 #include "NiagaraFunctionLibrary.h"
 #include "NiagaraSystem.h"
 #include "Components/GameplayComponents/HealthComponent.h"
-#include "Components/OverlapTriggerComponents/TickOptimizerBox.h"
+#include "Components/OverlapTriggerComponents/TickOptimizer.h"
 
 ADroneWithLaser::ADroneWithLaser()
 {
@@ -22,7 +22,7 @@ ADroneWithLaser::ADroneWithLaser()
     HealthComponent->DestroyComponent();
     HealthComponent = nullptr;
 
-    ActiveTickZone = CreateDefaultSubobject<UTickOptimizerBox>(TEXT("ActiveZoneForTickFunction"));
+    ActiveTickZone = CreateDefaultSubobject<UTickOptimizer>(TEXT("ActiveZoneForTickFunction"));
     ActiveTickZone->SetupAttachment(RootComponent);
 }
 

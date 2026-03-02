@@ -4,19 +4,19 @@
 
 #include "CoreMinimal.h"
 #include "Components/OverlapTriggerComponents/OnPlayerOverlapComponent.h"
-#include "TickOptimizerBox.generated.h"
+#include "TickOptimizer.generated.h"
 
 /**
  * 
  */
 UCLASS(meta=(BlueprintSpawnableComponent))
-class PAVUKDUNGEON_API UTickOptimizerBox : public UOnPlayerOverlapComponent
+class PAVUKDUNGEON_API UTickOptimizer : public UOnPlayerOverlapComponent
 {
 	GENERATED_BODY()
 
 public:
 
-	UTickOptimizerBox();
+	UTickOptimizer();
 
 private:
 

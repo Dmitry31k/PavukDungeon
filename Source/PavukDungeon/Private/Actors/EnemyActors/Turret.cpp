@@ -7,7 +7,7 @@
 #include "Math/UnrealMathUtility.h"
 #include "Components/SceneComponent.h"
 #include "Actors/EnemyActors/Projectile.h"
-#include "Components/OverlapTriggerComponents/TickOptimizerBox.h"
+#include "Components/OverlapTriggerComponents/TickOptimizer.h"
 
 // Sets default values
 ATurret::ATurret()
@@ -23,7 +23,7 @@ ATurret::ATurret()
 	TurretHead->SetupAttachment(TurretBase);
 	ProjectileSpawnPoint->SetupAttachment(TurretHead);
 
-	ActiveTickZone = CreateDefaultSubobject<UTickOptimizerBox>(TEXT("ActiveZoneForTickFunction"));
+	ActiveTickZone = CreateDefaultSubobject<UTickOptimizer>(TEXT("ActiveZoneForTickFunction"));
 	ActiveTickZone->SetupAttachment(TurretBase);
 }
 

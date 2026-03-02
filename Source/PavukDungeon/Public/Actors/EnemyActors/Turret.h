@@ -27,30 +27,25 @@ protected:
 private:
 
 	UPROPERTY(VisibleDefaultsOnly)
-	UStaticMeshComponent* TurretBase;
+	TObjectPtr<UStaticMeshComponent> TurretBase;
 
 	UPROPERTY(VisibleDefaultsOnly)
-	UStaticMeshComponent* TurretHead;
+	TObjectPtr<UStaticMeshComponent> TurretHead;
 
 	UPROPERTY()
 	APlayerPavuk* PlayerPavuk;
 
 	UPROPERTY(EditAnywhere, category = "Combat")
-	float MaxDistanceRange = 1000;
+	float TurretRotationSpeed { 80 };
 
 	UPROPERTY(EditAnywhere, category = "Combat")
-	float TurretRotationSpeed = 20;
-
-	UPROPERTY(EditAnywhere, category = "Combat")
-	float ShootTimer = 0;
+	float ShootTimer { 3 };
 
 	void RotateTurretHead();
 	void Shoot() override;
 	
 	FTimerHandle ShootingTimerHandle;
 
-	bool bWasSetTimer = false;
-
-	UPROPERTY(EditDefaultsOnly, category = "Combat")
-	UTickOptimizer* ActiveTickZone;
+	UPROPERTY(EditAnywhere, category = "Combat")
+	TObjectPtr<UTickOptimizer> ActiveTickZone;
 };

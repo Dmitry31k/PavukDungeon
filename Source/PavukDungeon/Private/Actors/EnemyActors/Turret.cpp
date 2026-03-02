@@ -14,6 +14,7 @@ ATurret::ATurret()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bStartWithTickEnabled = false;
 
 	TurretBase = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Base"));
 	TurretHead = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Head"));
@@ -33,7 +34,6 @@ void ATurret::BeginPlay()
 	Super::BeginPlay();
 	
 	PlayerPavuk = Cast<APlayerPavuk>(UGameplayStatics::GetPlayerCharacter(this, 0));
-	SetActorTickEnabled(false);
 }
 
 void ATurret::Tick(float DeltaTime)
@@ -45,37 +45,24 @@ void ATurret::Tick(float DeltaTime)
 
 void ATurret::RotateTurretHead()
 {
-	FRotator CurrentTurretHeadRotation = TurretHead->GetRelativeRotation();
+	if (!PlayerPavuk) return;
 
-	if (PlayerPavuk)
-	{
-		FVector PavukLocation = PlayerPavuk->GetActorLocation();
-		FVector TurretHeadLocation = TurretHead->GetComponentLocation();
+	const FRotator CurrentTurretHeadRotation = TurretHead->GetRelativeRotation();
 
-		if (FVector::Dist(PavukLocation, TurretHeadLocation) <= MaxDistanceRange)
-		{
-			FVector TargetLocation = PavukLocation - TurretHeadLocation;
+	const FVector PavukLocation = PlayerPavuk->GetActorLocation();
+	const FVector TurretHeadLocation = TurretHead->GetComponentLocation();
+	const FVector TargetLocation = PavukLocation - TurretHeadLocation;
 
-			FRotator TargetRotation = FMath::RInterpConstantTo(CurrentTurretHeadRotation, 
-				TargetLocation.Rotation(), 
-				UGameplayStatics::GetWorldDeltaSeconds(GetWorld()), 
-				TurretRotationSpeed
-			);
+	const FRotator TargetRotation = FMath::RInterpConstantTo(CurrentTurretHeadRotation, 
+		TargetLocation.Rotation(), 
+		UGameplayStatics::GetWorldDeltaSeconds(GetWorld()), 
+		TurretRotationSpeed
+	);
 
-			TurretHead->SetRelativeRotation(FRotator(0.f, TargetRotation.Yaw, 0.f));
+	TurretHead->SetRelativeRotation(FRotator(0.f, TargetRotation.Yaw, 0.f));
 
-			if (!bWasSetTimer)
-			{
-				GetWorldTimerManager().SetTimer(ShootingTimerHandle, this, &ATurret::Shoot, ShootTimer, true);
-				bWasSetTimer = true;
-			}
-		}
-		else
-		{
-			GetWorldTimerManager().ClearTimer(ShootingTimerHandle);
-			bWasSetTimer = false;
-		}
-	}
+	if (!GetWorldTimerManager().IsTimerActive(ShootingTimerHandle))
+	GetWorldTimerManager().SetTimer(ShootingTimerHandle, this, &ATurret::Shoot, ShootTimer);
 }
 
 void ATurret::Shoot()

@@ -117,7 +117,7 @@ void UMoverComponent::InitArrayToCallbacks()
 			if (IDeathInterface* DeathInterface = Cast<IDeathInterface>(Actor))
 			{
 				FoundToKillActors.AddUnique(Actor);
-				DeathInterface->GetOnActorDeadDelegate().AddDynamic(this, &UMoverComponent::HandleDeathOrActivationActor);
+				DeathInterface->GetOnActorDeadDelegate().AddUObject(this, &UMoverComponent::HandleDeathOrActivationActor);
 			}
 		}
 	);
@@ -129,8 +129,8 @@ void UMoverComponent::InitArrayToCallbacks()
 			if (IActivatableInterface* ActivatableInterface = Cast<IActivatableInterface>(Actor))
 			{
 				FoundToActivateActors.AddUnique(Actor);
-				ActivatableInterface->GetOnActivatedDelegate().AddDynamic(this, &UMoverComponent::HandleDeathOrActivationActor);
-				ActivatableInterface->GetOnDeactivatedDelegate().AddDynamic(this, &UMoverComponent::HandleDeactivationActor);
+				ActivatableInterface->GetOnActivatedDelegate().AddUObject(this, &UMoverComponent::HandleDeathOrActivationActor);
+				ActivatableInterface->GetOnDeactivatedDelegate().AddUObject(this, &UMoverComponent::HandleDeactivationActor);
 			}
 		}
 	);

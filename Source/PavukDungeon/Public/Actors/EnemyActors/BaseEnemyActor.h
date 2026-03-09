@@ -6,6 +6,8 @@
 #include "Actors/BaseActor.h"
 #include "BaseEnemyActor.generated.h"
 
+class AProjectile;
+
 /**
  * 
  */
@@ -31,7 +33,7 @@ protected:
 	virtual void Shoot();
 
 	UPROPERTY(EditDefaultsOnly)
-	TSubclassOf<class AProjectile> ProjectileClass;
+	TSubclassOf<AProjectile> ProjectileClass;
 
 	UPROPERTY(EditAnywhere)
 	UHealthComponent* HealthComponent;

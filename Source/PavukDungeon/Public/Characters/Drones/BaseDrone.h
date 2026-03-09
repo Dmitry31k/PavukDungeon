@@ -4,22 +4,16 @@
 
 #include "CoreMinimal.h"
 #include "Characters/BaseCharacter.h"
-#include "Interfaces/EnemyVisionInterface.h"
 #include "BaseDrone.generated.h"
 
 UCLASS()
-class PAVUKDUNGEON_API ABaseDrone : public ABaseCharacter, public IEnemyVisionInterface
+class PAVUKDUNGEON_API ABaseDrone : public ABaseCharacter
 {
 	GENERATED_BODY()
 
 public:
 	// Sets default values for this character's properties
 	ABaseDrone();
-
-	// IEnemyVisionInterface start
-	virtual bool CanEnemySeePlayer() override { return bCanSeePlayer; }
-	virtual FVector GetPlayerLocation() override;
-	// IEnemyVisionInterface end
 
 protected:
 	

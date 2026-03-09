@@ -2,30 +2,31 @@
 
 
 #include "Components/OverlapTriggerComponents/OnPlayerOverlapComponent.h"
-#include "Kismet/GameplayStatics.h"
-
-void UOnPlayerOverlapComponent::BeginPlay()
-{
-    Super::BeginPlay();
-
-    PlayerActor = static_cast<AActor*>(UGameplayStatics::GetPlayerPawn(GetWorld(), 0));
-}
+#include "Characters/Pavuks/PlayerPavuk.h"
 
 void UOnPlayerOverlapComponent::OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-    if (OtherActor == PlayerActor)
+    if (OtherActor == GetOwner())
+    return;
+
+    if (OtherActor->IsA(APlayerPavuk::StaticClass()) && !OverlappedPlayer)
     {
         PlayerStartOverlap(OverlappedComponent, OtherActor, OtherComp);
-        OnStartOverlappedByPlayer.Broadcast(GetOwner(), this);
+        OnStartOverlappedByPlayer.Broadcast(GetOwner(), this, OtherActor);
+        OverlappedPlayer = OtherActor;
     }
 }
 
 void UOnPlayerOverlapComponent::OnOverlapEnd(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
-    if (OtherActor == PlayerActor)
+    if (OtherActor == GetOwner())
+    return;
+
+    if (!OverlappedComponent->IsOverlappingActor(OverlappedPlayer) && OverlappedPlayer)
     {
         PlayerEndOverlap(OverlappedComponent, OtherActor, OtherComp);
-        OnEndOverlappedByPlayer.Broadcast(GetOwner(), this);
+        OnEndOverlappedByPlayer.Broadcast(GetOwner(), this, OtherActor);
+        OverlappedPlayer = nullptr;
     }
 }
 

@@ -8,7 +8,7 @@
 
 class UNiagaraComponent;
 class UTickOptimizer;
-enum class EMovingType : uint8;
+class UPatrollingComponent;
 
 /**
  * 
@@ -46,30 +46,8 @@ private:
 	void LaserShoot();
 	void CheckIfPlayerTouchedLaser();
 
-	//Vector that will be send into AI controller for using in behavior tree
-	UPROPERTY(EditAnywhere, category = "Combat")
-	FVector FirstMoveOffset_Drone;
-	//Vector that will be send into AI controller for using in behavior tree
-	UPROPERTY(EditAnywhere, category = "Combat")
-	FVector SecondMoveOffset_Drone;
-	//Vector that will be send into AI controller for using in behavior tree
-	UPROPERTY(EditAnywhere, category = "Combat")
-	FVector ThirdMoveOffset_Drone;
-	//Vector that will be send into AI controller for using in behavior tree
-	UPROPERTY(EditAnywhere, category = "Combat")
-	FVector FourthMoveOffset_Drone;
-	//Vector that will be send into AI controller for using in behavior tree
-	UPROPERTY(EditAnywhere, category = "Combat")
-	FVector FifthMoveOffset_Drone;
-	//Enum that determine type of behavior
-	UPROPERTY(EditAnywhere, category = "Combat")
-	EMovingType MovingPolicy;
-
 	UPROPERTY(EditDefaultsOnly, category = "Combat")
 	UTickOptimizer* ActiveTickZone;
-
-	//Function that send Vectors & bools variables into AI controller for using into behavior script
-	void SendDataIntoAIController(class AAIController_DroneWithLaser* OwnerAIController);
 
 	UPROPERTY(EditDefaultsOnly, category = "Visual")
 	UNiagaraComponent* LaserNiagaraComponent;
@@ -77,4 +55,6 @@ private:
 	UPROPERTY(EditDefaultsOnly, category = "Visual")
 	UNiagaraSystem* LaserFlashNiagaraSystem;
 
+	UPROPERTY(VisibleAnywhere, category = "Combat")
+	TObjectPtr<UPatrollingComponent> PatrollingComponent;
 };

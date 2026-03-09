@@ -5,12 +5,12 @@
 #include "Kismet/KismetSystemLibrary.h"
 #include "Characters/Pavuks/PlayerPavuk.h"
 #include "Kismet/GameplayStatics.h"
-#include "AIControllers/AIController_DroneWithLaser.h"
 #include "NiagaraComponent.h"
 #include "NiagaraFunctionLibrary.h"
 #include "NiagaraSystem.h"
 #include "Components/GameplayComponents/HealthComponent.h"
 #include "Components/OverlapTriggerComponents/TickOptimizer.h"
+#include "Components/GameplayComponents/PatrollingComponent.h"
 
 ADroneWithLaser::ADroneWithLaser()
 {
@@ -22,6 +22,8 @@ ADroneWithLaser::ADroneWithLaser()
     HealthComponent->DestroyComponent();
     HealthComponent = nullptr;
 
+    PatrollingComponent = CreateDefaultSubobject<UPatrollingComponent>(TEXT("PatrollingComponent"));
+
     ActiveTickZone = CreateDefaultSubobject<UTickOptimizer>(TEXT("ActiveZoneForTickFunction"));
     ActiveTickZone->SetupAttachment(RootComponent);
 }
@@ -31,10 +33,6 @@ void ADroneWithLaser::BeginPlay()
     Super::BeginPlay();
     SetActorTickEnabled(false);
     LaserNiagaraComponent->SetVectorParameter(TEXT("Beam End"), ProjectileSpawnPoint->GetComponentLocation());
-
-    AAIController_DroneWithLaser* OwnerAIController = Cast<AAIController_DroneWithLaser>(GetController());
-
-    SendDataIntoAIController(OwnerAIController);
 }
 
 void ADroneWithLaser::Tick(float DeltaTime)
@@ -73,19 +71,5 @@ void ADroneWithLaser::CheckIfPlayerTouchedLaser()
     if (PlayerPavuk)
     {
         UGameplayStatics::ApplyDamage(PlayerPavuk, LaserDamage, GetInstigatorController(), this, UDamageType::StaticClass());
-    }
-}
-
-void ADroneWithLaser::SendDataIntoAIController(AAIController_DroneWithLaser* OwnerAIController)
-{
-    if (OwnerAIController)
-    {
-        OwnerAIController->FirstMoveOffset_AIController = GetActorLocation() + FirstMoveOffset_Drone;
-        OwnerAIController->SecondMoveOffset_AIController = OwnerAIController->FirstMoveOffset_AIController + SecondMoveOffset_Drone;
-        OwnerAIController->ThirdtMoveOffset_AIController = OwnerAIController->SecondMoveOffset_AIController + ThirdMoveOffset_Drone;
-        OwnerAIController->FourthMoveOffset_AIController = OwnerAIController->ThirdtMoveOffset_AIController + FourthMoveOffset_Drone;
-        OwnerAIController->FifthMoveOffset_AIController = OwnerAIController->FourthMoveOffset_AIController + FifthMoveOffset_Drone;
-
-        OwnerAIController->MovingPolicy_AIController = MovingPolicy;
     }
 }

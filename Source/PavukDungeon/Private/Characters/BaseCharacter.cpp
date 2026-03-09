@@ -5,7 +5,6 @@
 #include "NiagaraFunctionLibrary.h"
 #include "NiagaraSystem.h"
 #include "Actors/EnemyActors/Projectile.h"
-#include "Characters/Pavuks/PlayerPavuk.h"
 #include "Components/GameplayComponents/HealthComponent.h"
 
 // Sets default values
@@ -15,14 +14,6 @@ ABaseCharacter::ABaseCharacter()
 	PrimaryActorTick.bCanEverTick = false;
 
 	HealthComponent = CreateDefaultSubobject<UHealthComponent>(TEXT("Character Health Component"));
-}
-
-// Called when the game starts or when spawned
-void ABaseCharacter::BeginPlay()
-{
-	Super::BeginPlay();
-	
-	OnTakeAnyDamage.AddDynamic(this, &ABaseCharacter::WasHitByPlayer);
 }
 
 void ABaseCharacter::HandleDeath()
@@ -53,14 +44,6 @@ void ABaseCharacter::Shoot()
 void ABaseCharacter::MeleeAttack()
 {
 
-}
-
-void ABaseCharacter::WasHitByPlayer(AActor* DamagedActor, float Damage, const UDamageType* DamageType, AController* InstigatedBy, AActor* DamageCauser)
-{
-	if (Cast<APlayerPavuk>(DamageCauser->GetOwner()) || Cast<APlayerPavuk>(DamageCauser))
-	{
-		IsWasHitByPlayer = true;
-	}
 }
 
 UHealthComponent* ABaseCharacter::GetHealthComponent()

@@ -6,8 +6,7 @@
 #include "UObject/Interface.h"
 #include "ActivatableInterface.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnActivatedSignature, AActor*, ActivatedActor);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnDeactivatedSignature, AActor*, ActivatedActor);
+DECLARE_MULTICAST_DELEGATE_OneParam(FOnActivationSignature, AActor* /* ActivatedActor */);
 
 // This class does not need to be modified.
 UINTERFACE(MinimalAPI)
@@ -26,6 +25,6 @@ class PAVUKDUNGEON_API IActivatableInterface
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
 
-	virtual FOnActivatedSignature& GetOnActivatedDelegate() = 0;
-	virtual FOnDeactivatedSignature& GetOnDeactivatedDelegate() = 0;
+	virtual FOnActivationSignature& GetOnActivatedDelegate() = 0;
+	virtual FOnActivationSignature& GetOnDeactivatedDelegate() = 0;
 };

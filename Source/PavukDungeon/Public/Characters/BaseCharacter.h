@@ -8,6 +8,7 @@
 #include "BaseCharacter.generated.h"
 
 class UHealthComponent;
+class AProjectile;
 
 UCLASS()
 class PAVUKDUNGEON_API ABaseCharacter : public ACharacter, public IDeathInterface
@@ -19,14 +20,12 @@ public:
 	ABaseCharacter();
 
 protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
 
 	UPROPERTY(EditDefaultsOnly)
 	class UNiagaraSystem* DeathParticles;
 
 	UPROPERTY(EditDefaultsOnly)
-	TSubclassOf<class AProjectile> ProjectileClass;
+	TSubclassOf<AProjectile> ProjectileClass;
 	UPROPERTY(VisibleDefaultsOnly)
 	class USceneComponent* ProjectileSpawnPoint;
 
@@ -45,14 +44,5 @@ public:
 	virtual void Shoot();
 	virtual void MeleeAttack();
 
-	bool IsWasHitByPlayer = false;
-
-	UPROPERTY(BlueprintAssignable)
 	FOnActorDeadSignature OnActorDead;
-
-private:
-
-	UFUNCTION()
-	void WasHitByPlayer(AActor* DamagedActor, float Damage, const UDamageType* DamageType, AController* InstigatedBy, AActor* DamageCauser);
-
 };

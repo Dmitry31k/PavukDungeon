@@ -6,7 +6,7 @@
 #include "UObject/Interface.h"
 #include "DeathInterface.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnActorDeadSignature, AActor*, DeadActor);
+DECLARE_MULTICAST_DELEGATE_OneParam(FOnActorDeadSignature, AActor* /* Dead Actor */);
 
 class UHealthComponent;
 

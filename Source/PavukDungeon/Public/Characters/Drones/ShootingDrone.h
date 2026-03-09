@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Characters/Drones/BaseDrone.h"
+#include "Interfaces/LightInterface.h"
 #include "ShootingDrone.generated.h"
 
 class USpotLightComponent;
@@ -13,7 +14,7 @@ class UOnPlayerOverlapComponent;
  * 
  */
 UCLASS()
-class PAVUKDUNGEON_API AShootingDrone : public ABaseDrone
+class PAVUKDUNGEON_API AShootingDrone : public ABaseDrone, public ILightInterface
 {
 	GENERATED_BODY()
 
@@ -21,19 +22,9 @@ public:
 
 	AShootingDrone();
 
-	UPROPERTY(EditAnywhere)
-	TObjectPtr<USpotLightComponent> VisionBacklight;
-
-	
-
-protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
-
-	UFUNCTION()
-	virtual void HandleDroneVisionOverlapBegins(AActor* OverlappedActor, UPrimitiveComponent* OverlappedComponent);
-	UFUNCTION()
-	virtual void HandleDroneVisionOverlapEnds(AActor* OverlappedActor, UPrimitiveComponent* OverlappedComponent);
+	// LightInterface start
+	TArray<USpotLightComponent*> GetAllLightComps() { return {VisionBacklight}; }
+	// LightInterface end
 
 private:
 
@@ -41,5 +32,6 @@ private:
 	UPROPERTY(VisibleAnywhere)
 	TObjectPtr<UOnPlayerOverlapComponent> DroneVision;
 
-	virtual void Shoot() override;	
+	UPROPERTY(EditAnywhere)
+	TObjectPtr<USpotLightComponent> VisionBacklight;
 };

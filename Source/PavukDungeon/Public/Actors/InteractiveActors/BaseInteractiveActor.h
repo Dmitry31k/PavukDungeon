@@ -29,15 +29,12 @@ public:
 	virtual void UnHighlightObject() override;
 	// HighligningInterface end
 
-
-	
-	FOnActivatedSignature OnActivated;
-	
-	FOnDeactivatedSignature OnDeactivated;
+	FOnActivationSignature OnActivated;
+	FOnActivationSignature OnDeactivated;
 
 	// ActivatableInterface start
-	virtual FOnActivatedSignature& GetOnActivatedDelegate() { return OnActivated; }
-	virtual FOnDeactivatedSignature& GetOnDeactivatedDelegate() { return OnDeactivated; }
+	virtual FOnActivationSignature& GetOnActivatedDelegate() { return OnActivated; }
+	virtual FOnActivationSignature& GetOnDeactivatedDelegate() { return OnDeactivated; }
 	// ActivatableInterface end
 
 protected:

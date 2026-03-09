@@ -72,9 +72,7 @@ private:
   UPROPERTY()
   TArray<AActor*> FoundToActivateActors;
 
-  UFUNCTION()
   void HandleDeathOrActivationActor(AActor* DeadOrActivatedActor);
-  UFUNCTION()
   void HandleDeactivationActor(AActor* DeactivatedActor);
 
   // For each pair (Tag, Callback) in ArrayToCallbacks

@@ -8,6 +8,7 @@
 #include "BaseActor.generated.h"
 
 class UHealthComponent;
+class UNiagaraSystem;
 
 UCLASS()
 class PAVUKDUNGEON_API ABaseActor : public AActor, public IDeathInterface
@@ -23,12 +24,10 @@ public:
 	virtual FOnActorDeadSignature& GetOnActorDeadDelegate() override { return OnActorDead; }
 	// DeathInterface end
 
-	UPROPERTY(BlueprintAssignable)
 	FOnActorDeadSignature OnActorDead;
 
 protected:
 
 	UPROPERTY(EditDefaultsOnly)
-	class UNiagaraSystem* DeathParticles;
-	
+	UNiagaraSystem* DeathParticles;	
 };

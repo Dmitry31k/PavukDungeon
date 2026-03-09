@@ -19,13 +19,3 @@ ABaseDrone::ABaseDrone()
 	ProjectileSpawnPoint = CreateDefaultSubobject<USceneComponent>(TEXT("Drone projectile spawnpoint"));
 	ProjectileSpawnPoint->SetupAttachment(RootComponent);
 }
-
-FVector ABaseDrone::GetPlayerLocation()
-{
-	FVector PlayerLocation { FVector::ZeroVector };
-
-	if (APawn* PlayerPawn = UGameplayStatics::GetPlayerPawn(this, 0))
-	PlayerLocation = PlayerPawn->GetActorLocation();
-
-	return PlayerLocation;
-}
